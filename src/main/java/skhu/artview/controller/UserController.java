@@ -3,7 +3,10 @@ package skhu.artview.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,32 +19,35 @@ import skhu.artview.mapper.UserMapper;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired UserMapper UserMapper;
+	 private UserMapper userMapper;
+	    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @RequestMapping("list")
-    public List<User> list(Model model) {
-        List<User> users = UserMapper.findAll();
+	    public UserController(UserMapper userMapper,
+	                          BCryptPasswordEncoder bCryptPasswordEncoder) {
+	        this.userMapper = userMapper;
+	        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+	    }
 
-        return users;
-    }
-
-    @RequestMapping(value="create", method=RequestMethod.GET)
-    public User create(Model model) {
-        User user = new User();
-
-
-        return user;
-    }
-
+	    @PostMapping("/sign-up")
+	    public void signUp(@RequestBody User user) {
+	     user.setPwd(bCryptPasswordEncoder.encode(user.getPwd()));
+	        userMapper.saveNormal(user);
+	    }
+	    
+	    @RequestMapping("/list")
+	    public List<User> list () {
+	    	return userMapper.findAll();
+	    }
+	/*전민선 :  jwt 토큰 생성 시 사용했던 컨트롤러(/sign-up)이 대신 합니다.
     @RequestMapping(value="create", method=RequestMethod.POST)
     public String create(Model model, User user) {
         UserMapper.insert(user);
         return "redirect:list";
     }
-
+	*/
     @RequestMapping(value="edit", method=RequestMethod.GET)
     public String edit(Model model, @RequestParam("id") int id) {
-        User user = UserMapper.findOne(id);
+        User user = userMapper.findOne(id);
 
         model.addAttribute("user", user);
 
@@ -56,7 +62,7 @@ public class UserController {
 
     @RequestMapping("delete")
     public String delete(Model model, @RequestParam("id") int id) {
-        UserMapper.delete(id);
+        userMapper.delete(id);
         return "redirect:list";
     }
 }

@@ -18,6 +18,8 @@ public interface UserMapper {
 	User findOneByLoginId(String login_id);
 	List <User> findAll();
 	void insert (User user);
+
+	void saveNormal (User user); //일반회원 테스트용
 	void delete (int id);
 
 }
