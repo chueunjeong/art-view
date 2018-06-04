@@ -88,7 +88,18 @@
 			<version>1.16.18</version>
 		</dependency>
 		<!-- lombok 추가 끝 -->
-		
+		<!-- security, jwt 추가 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.7.0</version>
+		</dependency>
+		<!-- security, jwt 추가 끝 -->
 	</dependencies>
 
 	<build>
