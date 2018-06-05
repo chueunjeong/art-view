@@ -27,9 +27,13 @@ public class UserController {
 
     @RequestMapping(value="create", method=RequestMethod.GET)
     public User create(Model model) {
-        User user = new User();
-
-
+        /*User user = new User();
+        user.setLogin_id(user.getLogin_id());
+        user.setEmail(user.getEmail());
+        user.setFav_artfield_id(user.getFav_artfield_id());
+        user.setName(user.getName());
+        user.setPwd(user.getPwd());
+        user.setPhone(user.getPhone());*/
         return user;
     }
 
