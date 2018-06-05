@@ -25,8 +25,24 @@ public class CommuController {
 	@Autowired UserService userService;
 	@Autowired UserMapper userMapper;
 
-	/*작성자: 남하영
-	임시 코드, mapper, 파일 테이블 등 추가해야 함*/
+	/*작성자: 남하영*/
+
+/*	작성 예정 컨트롤러
+	프로젝트별 게시판 출력
+	프로젝트별 게시판 게시글+댓글 조회
+	프로젝트별 게시판 게시글 작성
+	프로젝트별 게시판 게시글 수정
+	프로젝트별 게시판 게시글 삭제
+	프로젝트별 게시판 게시글 댓글 작성
+	프로젝트별 게시판 게시글 댓글 수정
+	프로젝트별 게시판 게시글 댓글 삭제
+	프로젝트 작성자/제목/내용/제목+내용으로 검색
+	게시글 작성자/제목/내용/제목+내용으로 검색
+	프로젝트 신청버튼->신청서 작성(신청cnt++)
+	mapper에 작성: 프로젝트 신청자 현황 조회(작성자 한정)
+	mapper에 작성: 프로젝트 멤버수 조회
+	프로젝트별 채팅창 지원 생각중*/
+
 
 	//전체 프로젝트 조회(메인 출력)
 	@RequestMapping("projects")
@@ -34,14 +50,14 @@ public class CommuController {
 		return projectMapper.findAll();
 	}
 
-	//프로젝트 조회
+	//프로젝트 클릭 후 조회
 	@RequestMapping("project/{id}")
 	public Project commu_submit(@PathVariable("id") int id) {
 		Project project = projectMapper.findOne(id);
 		return project;
 	}
 
-	/*//프로젝트 작성
+	/*//프로젝트 작성(파일 업로드용 서버를 정해야 함...ㅠㅠ)
 	@RequestMapping(value = "project", method = RequestMethod.POST)
 	public String submit(@RequestBody Project project) {
 		User user = UserService.getCurrentUser(); //현재 유저 정보 받아오기
@@ -56,5 +72,7 @@ public class CommuController {
 		projectMapper.delete(id);
 		return "삭제되었습니다";
 	}
+
+	//프로젝트 수정 불가 방침으로, 컨트롤러 없음
 
 }

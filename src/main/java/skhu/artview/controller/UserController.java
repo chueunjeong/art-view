@@ -1,7 +1,5 @@
 package skhu.artview.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,37 +13,18 @@ import skhu.artview.mapper.UserMapper;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
-    @Autowired UserMapper UserMapper;
-
-    @RequestMapping("list")
-    public List<User> list(Model model) {
-        List<User> users = UserMapper.findAll();
-
-        return users;
-    }
-
-    @RequestMapping(value="create", method=RequestMethod.GET)
-    public User create(Model model) {
-        /*User user = new User();
-        user.setLogin_id(user.getLogin_id());
-        user.setEmail(user.getEmail());
-        user.setFav_artfield_id(user.getFav_artfield_id());
-        user.setName(user.getName());
-        user.setPwd(user.getPwd());
-        user.setPhone(user.getPhone());*/
-        return user;
-    }
-
+@Autowired
+UserMapper userMapper;
+	/*전민선 :  jwt 토큰 생성 시 사용했던 컨트롤러(/sign-up)이 대신 합니다.
     @RequestMapping(value="create", method=RequestMethod.POST)
     public String create(Model model, User user) {
         UserMapper.insert(user);
         return "redirect:list";
     }
-
+	*/
     @RequestMapping(value="edit", method=RequestMethod.GET)
     public String edit(Model model, @RequestParam("id") int id) {
-        User user = UserMapper.findOne(id);
+        User user = userMapper.findOne(id);
 
         model.addAttribute("user", user);
 
@@ -60,7 +39,7 @@ public class UserController {
 
     @RequestMapping("delete")
     public String delete(Model model, @RequestParam("id") int id) {
-        UserMapper.delete(id);
+        userMapper.delete(id);
         return "redirect:list";
     }
 }

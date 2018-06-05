@@ -3,7 +3,7 @@ package skhu.artview.dto;
 public class Article {
 
 	int id;
-	int boardId;
+	int boardId; //게시글이 소속된 게시판(커뮤니티 id)
 	int userId;
 	String title;
 	String context;
