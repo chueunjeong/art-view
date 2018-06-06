@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import skhu.artview.dto.Article;
 import skhu.artview.dto.Project;
+import skhu.artview.mapper.ArticleMapper;
 import skhu.artview.mapper.ProjectMapper;
 import skhu.artview.mapper.UserMapper;
 import skhu.artview.service.CommuService;
@@ -24,11 +26,11 @@ public class CommuController {
 	@Autowired ProjectMapper projectMapper;
 	@Autowired UserService userService;
 	@Autowired UserMapper userMapper;
+	@Autowired ArticleMapper articleMapper;
 
 	/*작성자: 남하영*/
 
 /*	작성 예정 컨트롤러
-	프로젝트별 게시판 출력
 	프로젝트별 게시판 게시글+댓글 조회
 	프로젝트별 게시판 게시글 작성
 	프로젝트별 게시판 게시글 수정
@@ -74,5 +76,11 @@ public class CommuController {
 	}
 
 	//프로젝트 수정 불가 방침으로, 컨트롤러 없음
+
+	//프로젝트별 게시판 출력
+	@RequestMapping(value = "article/{boardId}")
+	public List<Article> community(@PathVariable("boardId") int boardId) {
+		return articleMapper.findByBoardId(boardId);
+	}
 
 }
