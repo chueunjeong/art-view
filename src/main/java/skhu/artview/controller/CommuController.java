@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import skhu.artview.dto.Article;
 import skhu.artview.dto.Project;
 import skhu.artview.mapper.ArticleMapper;
+import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.ProjectMapper;
 import skhu.artview.mapper.UserMapper;
 import skhu.artview.service.CommuService;
@@ -27,12 +28,11 @@ public class CommuController {
 	@Autowired UserService userService;
 	@Autowired UserMapper userMapper;
 	@Autowired ArticleMapper articleMapper;
+	@Autowired CommentMapper commentMapper;
 
 	/*작성자: 남하영*/
 
 /*	작성 예정 컨트롤러
-	프로젝트별 게시판 게시글+댓글 조회
-	프로젝트별 게시판 게시글 작성
 	프로젝트별 게시판 게시글 수정
 	프로젝트별 게시판 게시글 삭제
 	프로젝트별 게시판 게시글 댓글 작성
@@ -82,5 +82,13 @@ public class CommuController {
 	public List<Article> community(@PathVariable("boardId") int boardId) {
 		return articleMapper.findByBoardId(boardId);
 	}
+
+	//프로젝트별 게시판 게시글+댓글 조회
+	@RequestMapping(value = "article/{id}")
+	public Article article(@PathVariable("id") int id) {
+		return articleMapper.findOne(id);
+	}
+
+	//프로젝트별 게시판 게시글 작성
 
 }
