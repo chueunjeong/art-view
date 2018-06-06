@@ -1,3 +1,5 @@
+//article dto에 프로젝트 아이디, 전시공간 아이디 칼럼 따로 나눠서 불러옴
+
 package skhu.artview.controller;
 
 import java.util.List;
@@ -89,6 +91,12 @@ public class CommuController {
 		return articleMapper.findOne(id);
 	}
 
-	//프로젝트별 게시판 게시글 작성
-
+	//프로젝트별 게시판 게시글 작성(나중에 서비스로 분리 예정, 파일서버 파야함)
+/*	@RequestMapping(value = "article", method = RequestMethod.POST)
+	public String article_submit(@RequestBody Article article) {
+		User user = UserService.getCurrentUser(); //현재 유저 정보 받아오기
+		article.add(user.getId());
+		articleMapper.insert(article);
+		return "등록되었습니다";
+	}*/
 }
