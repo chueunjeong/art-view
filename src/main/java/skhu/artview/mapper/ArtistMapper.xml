@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.artview.mapper.ArtistMapper">
+
+  <select id="findOne" resultType="Artist">
+    SELECT * FROM artist WHERE id = #{id}
+  </select>
+  
+  <select id="findOneByLoginId" resultType="Artist">
+  	SELECT * FROM user artist login_id = #{login_id}
+  </select>
+  
+  <select id="findAll" resultType="Artist">
+    SELECT  *
+    FROM artist 
+  </select>
+
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    INSERT artist ( login_id,fav_district_id,major,career)
+    VALUES (#{login_id}, #{fav_district_id}, #{major},, #{career})
+  </insert>
+
+
+  <delete id="delete">
+    DELETE FROM artist WHERE id = #{id}
+  </delete>
+
+</mapper>
