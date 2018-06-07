@@ -19,7 +19,7 @@
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
     INSERT artist ( login_id,fav_district_id,major,career)
-    VALUES (#{login_id}, #{fav_district_id}, #{major},, #{career})
+    VALUES (#{login_id}, #{fav_district_id}, #{major}, #{career})
   </insert>
 
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.artview.mapper.ArtworkMapper">
+
+  <select id="findOne" resultType="Artwork">
+    SELECT * FROM artwork WHERE id = #{id}
+  </select>
+  
+  <select id="findOneByArtist_id" resultType="Artwork">
+  	SELECT * FROM artwork artist_id = #{artist_id}
+  </select>
+  
+  <select id="findAll" resultType="Artwork">
+    SELECT  *
+    FROM artwork 
+  </select>
+  
+  <select id="countAll" resultType="Artwork">
+    SELECT  count(*) as submit_count
+    FROM artwork 
+  </select>
+
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    INSERT artwork ( artist_id, artfield_id, exhibition_id,
+    					title, year, width, height, 
+    					material, subject)
+    VALUES (#{artist_id}, #{artfield_id}, #{exhibition_id},
+    		#{title}, #{year}, #{width},#{height},
+    		#{material}, #{subject})
+  </insert>
+
+
+  <delete id="delete">
+    DELETE FROM artwork WHERE id = #{id}
+  </delete>
+
+</mapper>

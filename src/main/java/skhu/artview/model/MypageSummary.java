@@ -29,9 +29,10 @@ public class MypageSummary {
 	
 	//2.아티스트 정보요약
 	private String login_id;
-	private String region;
-	private int submit_Count;//등록된 전시수
-	private int finish_Exhibition_Count;//완료된 전시회
+	private String district_name;
+	private String district_city_name;
+	private int submit_count;//등록된 작품수
+	private int finish_Exhibition_count;//완료된 전시회
 	
 	//3.월 별 그래프
 	private int [] submitGraph;
@@ -51,23 +52,30 @@ public class MypageSummary {
 	public void setLogin_id(String login_id) {
 		this.login_id = login_id;
 	}
-	public String getRegion() {
-		return region;
+	
+	public String getDistrict_name() {
+		return district_name;
 	}
-	public void setRegion(String region) {
-		this.region = region;
+	public void setDistrict_name(String district_name) {
+		this.district_name = district_name;
 	}
-	public int getSubmit_Count() {
-		return submit_Count;
+	public String getDistrict_city_name() {
+		return district_city_name;
 	}
-	public void setSubmit_Count(int submit_Count) {
-		this.submit_Count = submit_Count;
+	public void setDistrict_city_name(String district_city_name) {
+		this.district_city_name = district_city_name;
 	}
-	public int getFinish_Exhibition_Count() {
-		return finish_Exhibition_Count;
+	public int getSubmit_count() {
+		return submit_count;
 	}
-	public void setFinish_Exhibition_Count(int finish_Exhibition_Count) {
-		this.finish_Exhibition_Count = finish_Exhibition_Count;
+	public void setSubmit_count(int submit_count) {
+		this.submit_count = submit_count;
+	}
+	public int getFinish_Exhibition_count() {
+		return finish_Exhibition_count;
+	}
+	public void setFinish_Exhibition_count(int finish_Exhibition_count) {
+		this.finish_Exhibition_count = finish_Exhibition_count;
 	}
 	public int[] getSubmitGraph() {
 		return submitGraph;
