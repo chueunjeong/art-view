@@ -17,6 +17,6 @@ public interface ArticleMapper {
 	List<Article> findByTitle(String title);
 	List<Article> findByContext(String context);
 	void insert(Article article);
-	void update(int id);
+	void update(Article article);
 	void delete(int id);
 }

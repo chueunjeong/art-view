@@ -35,8 +35,6 @@ public class CommuController {
 	/*작성자: 남하영*/
 
 /*	작성 예정 컨트롤러
-	프로젝트별 게시판 게시글 수정
-	프로젝트별 게시판 게시글 삭제
 	프로젝트별 게시판 게시글 댓글 작성
 	프로젝트별 게시판 게시글 댓글 수정
 	프로젝트별 게시판 게시글 댓글 삭제
@@ -99,4 +97,13 @@ public class CommuController {
 		articleMapper.insert(article);
 		return "등록되었습니다";
 	}*/
+
+	//프로젝트별 게시판 게시글 수정
+	@RequestMapping(value = "article/{id}", method = RequestMethod.PATCH)
+	public String article_edit(Article article) {
+		articleMapper.update(article);
+		return "수정되었습니다";
+	}
+
+	//프로젝트별 게시판 게시글 삭제
 }
