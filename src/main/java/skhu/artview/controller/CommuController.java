@@ -106,4 +106,10 @@ public class CommuController {
 	}
 
 	//프로젝트별 게시판 게시글 삭제
+	@RequestMapping(value = "project/{id}", method = RequestMethod.DELETE)
+	public String articleDelete(@PathVariable("id") int id) {
+		articleMapper.delete(id);
+		return "삭제되었습니다";
+	}
+
 }
