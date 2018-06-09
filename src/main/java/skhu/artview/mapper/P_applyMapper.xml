@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.artview.mapper.P_applyMapper">
+
+	<select id="findOne" resultType="P_apply">
+		SELECT * FROM p_apply WHERE id = #{id}
+	</select>
+
+	<select id="findAll" resultType="P_apply">
+		SELECT * FROM p_apply
+	</select>
+	
+	<select id="findByProjectId" resultType="P_apply">
+		SELECT * FROM p_apply WHERE projectId = #{projectId}
+	</select>
+	
+	<select id="findByUserId" resultType="P_apply">
+		SELECT * FROM p_apply WHERE userId = #{userId}
+	</select>
+	
+	<select id="findMyApplicant" resultType="P_apply">
+		SELECT * FROM p_apply WHERE state = 0;
+	</select>
+	
+	<select id="findMyMember" resultType="P_apply">
+		SELECT * FROM p_apply WHERE state = 1;
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT p_apply (userId, projectId, content, date, state)
+	  	VALUES (#{userId}, #{projectId}, #{content}, now(), 0)
+	</insert>
+	
+	<update id="updateState">
+		UPDATE p_apply SET state = 0}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="delete">
+	    DELETE FROM p_apply WHERE id = #{id}
+	</delete>
+	
+	<select id="appli_cnt" resultType="Integer">
+		SELECT count(*)
+		FROM p_apply
+		WHERE state = 0 and projectId = #{projectId}
+	</select>
+	
+	<select id="mem_cnt" resultType="Integer">
+		SELECT count(*)
+		FROM p_apply
+		WHERE state = 1 and projectId = #{projectId}
+	</select>
+
+</mapper>

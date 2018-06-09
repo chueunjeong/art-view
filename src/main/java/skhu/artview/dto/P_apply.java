@@ -9,7 +9,7 @@ public class P_apply {
 	int projectId; //프로젝트id
 	String content; //신청서 내용
 	String date; //신청서 등록일자
-	boolean state; //승인여부
+	int state; //승인여부
 
 	public int getId() {
 		return id;
@@ -51,11 +51,11 @@ public class P_apply {
 		this.date = date;
 	}
 
-	public boolean isState() {
+	public int getState() {
 		return state;
 	}
 
-	public void setState(boolean state) {
+	public void setState(int state) {
 		this.state = state;
 	}
 
