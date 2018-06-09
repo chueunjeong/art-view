@@ -16,7 +16,7 @@ public interface ArticleMapper {
 	List<Article> findByBoardId(int boardId);
 	List<Article> findByUserId(int userId);
 	List<Article> findByTitle(String title);
-	List<Article> findByContext(String context);
+	List<Article> findByContent(String content);
 	void insert(Article article);
 	void update(Article article);
 	void delete(int id);

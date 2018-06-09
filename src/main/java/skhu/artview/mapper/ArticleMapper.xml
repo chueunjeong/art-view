@@ -33,17 +33,17 @@
 		SELECT * FROM article WHERE title LIKE CONCAT('%', #{title}, '%');
 	</select>
 	
-	<select id="findByContext" resultType="Article">
-		SELECT * FROM article WHERE context LIKE CONCAT('%', #{context}, '%');
+	<select id="findByContent" resultType="Article">
+		SELECT * FROM article WHERE content LIKE CONCAT('%', #{content}, '%');
 	</select>
 	
-	<insert id="insert">
-		INSERT article (title, context)
-	  	VALUES (#{title}, #{context})
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT article (boardId, userId, title, content, date)
+	  	VALUES (#{boardId}, #{userId}, #{title}, #{content}, now())
 	</insert>
 	
 	<update id="update">
-		UPDATE article SET title = #{title}, context = #{context}
+		UPDATE article SET title = #{title}, context = #{content}
 		WHERE id = #{id}
 	</update>
 	

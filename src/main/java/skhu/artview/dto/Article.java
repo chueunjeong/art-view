@@ -8,7 +8,7 @@ public class Article {
 	int boardId; //게시글이 소속된 게시판(커뮤니티 id)
 	int userId;
 	String title;
-	String context;
+	String content;
 	int hits;
 	String date;
 	List<Comment> comment;
@@ -62,12 +62,12 @@ public class Article {
 		this.title = title;
 	}
 
-	public String getContext() {
-		return context;
+	public String getContent() {
+		return content;
 	}
 
-	public void setContext(String context) {
-		this.context = context;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public int getHits() {
