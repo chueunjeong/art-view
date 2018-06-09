@@ -12,6 +12,15 @@ public class Comment {
 	int rate;
 	User author; //작성자
 	String name; //작성자명
+	String date;
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 
 	public String getName() {
 		return name;
@@ -65,7 +74,7 @@ public class Comment {
 		return content;
 	}
 
-	public void setContext(String content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 

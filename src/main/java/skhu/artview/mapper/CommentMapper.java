@@ -16,4 +16,6 @@ public interface CommentMapper {
 	void updateContext(Comment comment);
 	void updateRate(Comment comment);
 	void delete(int id);
+	void insertComment(Comment comment);
+	void insertRate(Comment comment);
 }

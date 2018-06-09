@@ -55,5 +55,15 @@
 	<delete id="delete">
 	    DELETE FROM comment WHERE id = #{id}
 	</delete>
+	
+	<insert id="insertComment" useGeneratedKeys="true" keyProperty="id">
+		INSERT comment (articleId, userId, content, date)
+	  	VALUES (#{articleId}, #{userId}, #{content}, now())
+	</insert>
+	
+	<insert id="insertRate" useGeneratedKeys="true" keyProperty="id">
+		INSERT comment (spaceId, userId, content, rate, date)
+	  	VALUES (#{sapceId}, #{userId}, #{content}, #{rate}, now())
+	</insert>
 
 </mapper>
