@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import skhu.artview.dto.Article;
-import skhu.artview.dto.Comment;
 import skhu.artview.mapper.ArticleMapper;
 import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.ProjectMapper;
 import skhu.artview.mapper.UserMapper;
+import skhu.artview.service.ArticleService;
 import skhu.artview.service.CommuService;
 import skhu.artview.service.UserService;
 
@@ -24,6 +24,7 @@ import skhu.artview.service.UserService;
 public class ArticleController {
 
 	@Autowired CommuService commuService;
+	@Autowired ArticleService articleService;
 	@Autowired ProjectMapper projectMapper;
 	@Autowired UserService userService;
 	@Autowired UserMapper userMapper;
@@ -49,9 +50,7 @@ public class ArticleController {
 	@RequestMapping(value = "article/{id}")
 	public Article article(@PathVariable("id") int id) {
 		Article article = articleMapper.findOne(id);
-		List<Comment> comments = commentMapper.findByArticleId(article.getId());
-		article.setComment(comments);
-		//코멘트 list를 article 객체에 추가했는데 이 방법이 맞나 모르겠다..
+		article = articleService.article(article);
 		return article;
 	}
 
