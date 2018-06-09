@@ -1,4 +1,5 @@
 //article dto에 프로젝트 아이디, 전시공간 아이디 칼럼 따로 나눠서 불러옴
+//프로젝트 관련 컨트롤러입니다
 
 package skhu.artview.controller;
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import skhu.artview.dto.P_apply;
 import skhu.artview.dto.Project;
+import skhu.artview.dto.User;
 import skhu.artview.mapper.ArticleMapper;
 import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.P_applyMapper;
@@ -52,6 +54,13 @@ public class CommuController {
 		Project project = projectMapper.findOne(id);
 		project = commuService.projectMapping(project);
 		return project;
+	}
+
+	//프로젝트 작성
+	@RequestMapping(value = "project", method = RequestMethod.GET)
+	public User projectSubmit() {
+		User user = null; //현재 유저 정보 받아오기
+		return user;
 	}
 
 	/*//프로젝트 작성(파일 업로드용 서버를 정해야 함...ㅠㅠ)
