@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import skhu.artview.dto.Article;
+import skhu.artview.dto.Comment;
 import skhu.artview.mapper.ArticleMapper;
 import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.ProjectMapper;
@@ -47,7 +48,11 @@ public class ArticleController {
 	//프로젝트별 게시판 게시글+댓글 조회
 	@RequestMapping(value = "article/{id}")
 	public Article article(@PathVariable("id") int id) {
-		return articleMapper.findOne(id);
+		Article article = articleMapper.findOne(id);
+		List<Comment> comments = commentMapper.findByArticleId(article.getId());
+		article.setComment(comments);
+		//코멘트 list를 article 객체에 추가했는데 이 방법이 맞나 모르겠다..
+		return article;
 	}
 
 	//프로젝트별 게시판 게시글 작성(나중에 서비스로 분리 예정, 파일서버 파야함)
@@ -72,5 +77,7 @@ public class ArticleController {
 		articleMapper.delete(id);
 		return "삭제되었습니다";
 	}
+
+
 
 }

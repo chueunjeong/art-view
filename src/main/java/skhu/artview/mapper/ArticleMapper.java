@@ -11,6 +11,7 @@ import skhu.artview.dto.Article;
 public interface ArticleMapper {
 	//List<Article> findAllByBoard(Pagination pagination);
 	Article findOne(int id);
+	Article findOneWithComment(int id);
 	List<Article> findAll();
 	List<Article> findByBoardId(int boardId);
 	List<Article> findByUserId(int userId);
