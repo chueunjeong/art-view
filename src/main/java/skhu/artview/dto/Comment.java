@@ -8,10 +8,10 @@ public class Comment {
 	int articleId;
 	int spaceId;
 	int userId;
-	String context;
+	String content;
 	int rate;
 	User author; //작성자
-	String name;
+	String name; //작성자명
 
 	public String getName() {
 		return name;
@@ -61,12 +61,12 @@ public class Comment {
 		this.userId = userId;
 	}
 
-	public String getContext() {
-		return context;
+	public String getContent() {
+		return content;
 	}
 
-	public void setContext(String context) {
-		this.context = context;
+	public void setContext(String content) {
+		this.content = content;
 	}
 
 	public int getRate() {

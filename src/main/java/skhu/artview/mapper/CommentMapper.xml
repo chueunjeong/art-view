@@ -5,15 +5,27 @@
 <mapper namespace="skhu.artview.mapper.CommentMapper">
 
 	<select id="findOne" resultType="Comment">
-		SELECT * FROM comment WHERE id = #{id}
+		SELECT c.*, u.name
+		FROM comment c
+		JOIN user u
+		on c.userId = u.id
+		WHERE id = #{id}
 	</select>
 
 	<select id="findByUserId" resultType="Comment">
-		SELECT * FROM comment WHERE userId = #{userId}
+		SELECT c.*, u.name
+		FROM comment c
+		JOIN user u
+		on c.userId = u.id
+		WHERE userId = #{userId}
 	</select>
 	
 	<select id="findByArticleId" resultType="Comment">
-		SELECT * FROM comment WHERE articleId = #{articleId}
+		SELECT c.*, u.name
+		FROM comment c
+		JOIN user u
+		on c.userId = u.id
+		WHERE articleId = #{articleId}
 	</select>
 	
 	<select id="findAll" resultType="Comment">
@@ -21,17 +33,17 @@
 	</select>
 
 	<insert id="commentUpload" useGeneratedKeys="true" keyProperty="id">
-		INSERT comment (articleId, userId, context)
-		VALUES (#{articleId}, #{userId}, #{context})
+		INSERT comment (articleId, userId, content)
+		VALUES (#{articleId}, #{userId}, #{content})
 	</insert>
 	
 	<insert id="rateUpload" useGeneratedKeys="true" keyProperty="id">
-		INSERT comment (spaceId, userId, context, rate)
-		VALUES (#{spaceId}, #{userId}, #{context}, #{rate})
+		INSERT comment (spaceId, userId, content, rate)
+		VALUES (#{spaceId}, #{userId}, #{content}, #{rate})
 	</insert>
 	
 	<update id="updateContext">
-		UPDATE comment SET context = #{context}
+		UPDATE comment SET content = #{content}
 		WHERE id = #{id}
 	</update>
 	
