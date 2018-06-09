@@ -24,7 +24,7 @@ public class ArticleService {
         return articleMapper.findAllByBoard(pagination);
     }*/
 
-	public Article article(Article article) {
+	public Article articleMapping(Article article) {
 		List<Comment> comments = commentMapper.findByArticleId(article.getId());
 		article.setComment(comments);
 		article.setAuthor(userMapper.findOne(article.getUserId()));

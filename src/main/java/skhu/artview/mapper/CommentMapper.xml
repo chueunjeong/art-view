@@ -31,15 +31,15 @@
 	<select id="findAll" resultType="Comment">
 		SELECT * FROM comment
 	</select>
-
-	<insert id="commentUpload" useGeneratedKeys="true" keyProperty="id">
-		INSERT comment (articleId, userId, content)
-		VALUES (#{articleId}, #{userId}, #{content})
+	
+	<insert id="insertComment" useGeneratedKeys="true" keyProperty="id">
+		INSERT comment (articleId, userId, content, date)
+	  	VALUES (#{articleId}, #{userId}, #{content}, now())
 	</insert>
 	
-	<insert id="rateUpload" useGeneratedKeys="true" keyProperty="id">
-		INSERT comment (spaceId, userId, content, rate)
-		VALUES (#{spaceId}, #{userId}, #{content}, #{rate})
+	<insert id="insertRate" useGeneratedKeys="true" keyProperty="id">
+		INSERT comment (spaceId, userId, content, rate, date)
+	  	VALUES (#{sapceId}, #{userId}, #{content}, #{rate}, now())
 	</insert>
 	
 	<update id="updateContext">
@@ -55,15 +55,5 @@
 	<delete id="delete">
 	    DELETE FROM comment WHERE id = #{id}
 	</delete>
-	
-	<insert id="insertComment" useGeneratedKeys="true" keyProperty="id">
-		INSERT comment (articleId, userId, content, date)
-	  	VALUES (#{articleId}, #{userId}, #{content}, now())
-	</insert>
-	
-	<insert id="insertRate" useGeneratedKeys="true" keyProperty="id">
-		INSERT comment (spaceId, userId, content, rate, date)
-	  	VALUES (#{sapceId}, #{userId}, #{content}, #{rate}, now())
-	</insert>
 
 </mapper>

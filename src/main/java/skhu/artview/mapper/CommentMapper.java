@@ -11,10 +11,8 @@ public interface CommentMapper {
 	List<Comment> findByUserId(String userId);
     List<Comment> findByArticleId(int articleId);
 	List<Comment> findAll();
-	void commentUpload(Comment comment);
-	void rateUpload(Comment comment);
-	void updateContext(Comment comment);
-	void updateRate(Comment comment);
+	void updateContext(int id);
+	void updateRate(int id);
 	void delete(int id);
 	void insertComment(Comment comment);
 	void insertRate(Comment comment);
