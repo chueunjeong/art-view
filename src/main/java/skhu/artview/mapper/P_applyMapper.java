@@ -17,6 +17,6 @@ public interface P_applyMapper {
 	void insert(P_apply p_apply);
 	void updateState(int id);
 	void delete(int id);
-	int appli_cnt(P_apply p_apply);
-	int mem_cnt(P_apply p_apply);
+	int appli_cnt(int projectId);
+	int mem_cnt(int projectId);
 }
