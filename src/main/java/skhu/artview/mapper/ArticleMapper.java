@@ -11,12 +11,13 @@ import skhu.artview.dto.Article;
 public interface ArticleMapper {
 	//List<Article> findAllByBoard(Pagination pagination);
 	Article findOne(int id);
+	Article findOneWithComment(int id);
 	List<Article> findAll();
 	List<Article> findByBoardId(int boardId);
 	List<Article> findByUserId(int userId);
 	List<Article> findByTitle(String title);
-	List<Article> findByContext(String context);
+	List<Article> findByContent(String content);
 	void insert(Article article);
-	void update(int id);
+	void update(Article article);
 	void delete(int id);
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.artview.mapper.ExhibitionMapper">
+
+  <select id="findOne" resultType="Exhibition">
+    SELECT * FROM exhibition WHERE id = #{id}
+  </select>
+  
+  <select id="findOneByArtist_id" resultType="Exhibition">
+  	SELECT * FROM exhibition artist_id = #{artist_id}
+  </select>
+  
+  <select id="findAll" resultType="Exhibition">
+    SELECT  *
+    FROM exhibition 
+  </select>
+  
+  <select id="countAll" resultType="Exhibition">
+    SELECT  count(*) as finish_Exhibition_count
+    FROM exhibition 
+  </select>
+
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    INSERT exhibition ( grouping_id, pexhibition_id, artfield_id,
+    					start_date, end_date
+    					 subject, description)
+    VALUES (#{grouping_id}, #{pexhibition_id}, #{artfield_id}, 
+    		#{start_date}, #{end_date},
+    		#{subject}, #{description})
+  </insert>
+
+
+  <delete id="delete">
+    DELETE FROM exhibition WHERE id = #{id}
+  </delete>
+
+</mapper>

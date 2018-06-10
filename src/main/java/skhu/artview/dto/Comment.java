@@ -8,42 +8,80 @@ public class Comment {
 	int articleId;
 	int spaceId;
 	int userId;
-	String context;
+	String content;
 	int rate;
+	User author; //작성자
+	String name; //작성자명
+	String date;
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public User getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
+	}
 
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public int getArticleId() {
 		return articleId;
 	}
+
 	public void setArticleId(int articleId) {
 		this.articleId = articleId;
 	}
+
 	public int getSpaceId() {
 		return spaceId;
 	}
+
 	public void setSpaceId(int spaceId) {
 		this.spaceId = spaceId;
 	}
+
 	public int getUserId() {
 		return userId;
 	}
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public String getContext() {
-		return context;
+
+	public String getContent() {
+		return content;
 	}
-	public void setContext(String context) {
-		this.context = context;
+
+	public void setContent(String content) {
+		this.content = content;
 	}
+
 	public int getRate() {
 		return rate;
 	}
+
 	public void setRate(int rate) {
 		this.rate = rate;
 	}

@@ -5,33 +5,45 @@
 <mapper namespace="skhu.artview.mapper.CommentMapper">
 
 	<select id="findOne" resultType="Comment">
-		SELECT * FROM comment WHERE id = #{id}
+		SELECT c.*, u.name
+		FROM comment c
+		JOIN user u
+		on c.userId = u.id
+		WHERE id = #{id}
 	</select>
 
 	<select id="findByUserId" resultType="Comment">
-		SELECT * FROM comment WHERE userId = #{userId}
+		SELECT c.*, u.name
+		FROM comment c
+		JOIN user u
+		on c.userId = u.id
+		WHERE userId = #{userId}
 	</select>
 	
 	<select id="findByArticleId" resultType="Comment">
-		SELECT * FROM comment WHERE articleId = #{articleId}
+		SELECT c.*, u.name
+		FROM comment c
+		JOIN user u
+		on c.userId = u.id
+		WHERE articleId = #{articleId}
 	</select>
 	
 	<select id="findAll" resultType="Comment">
 		SELECT * FROM comment
 	</select>
-
-	<insert id="commentUpload" useGeneratedKeys="true" keyProperty="id">
-		INSERT comment (articleId, userId, context)
-		VALUES (#{articleId}, #{userId}, #{context})
+	
+	<insert id="insertComment" useGeneratedKeys="true" keyProperty="id">
+		INSERT comment (articleId, userId, content, date)
+	  	VALUES (#{articleId}, #{userId}, #{content}, now())
 	</insert>
 	
-	<insert id="rateUpload" useGeneratedKeys="true" keyProperty="id">
-		INSERT comment (spaceId, userId, context, rate)
-		VALUES (#{spaceId}, #{userId}, #{context}, #{rate})
+	<insert id="insertRate" useGeneratedKeys="true" keyProperty="id">
+		INSERT comment (spaceId, userId, content, rate, date)
+	  	VALUES (#{sapceId}, #{userId}, #{content}, #{rate}, now())
 	</insert>
 	
 	<update id="updateContext">
-		UPDATE comment SET context = #{context}
+		UPDATE comment SET content = #{content}
 		WHERE id = #{id}
 	</update>
 	

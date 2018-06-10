@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.skhu.mapper.DistrictMapper">
+
+<cache flushInterval="100000" />	
+	<select id="findOne" resultType="District"> 
+		SELECT * 
+		FROM District
+		 WHERE id	= #{id} 
+		</select>
+	<select id="findByName" resultType="District">
+		 SELECT d.*, c.name
+		FROM district d LEFT JOIN city c 
+		ON d.city_id = c. id 
+		 WHERE name = #{city_name} 
+	</select>
+	<select id="findAll" resultType="District"> 
+		SELECT d.*, c.name
+		FROM district d LEFT JOIN city c 
+		ON d.city_id = c. id
+	 </select>
+	
+	<update id="update">
+		 UPDATE District 
+		 SET city_id = #{city_id}, name = #{name}
+		 WHERE id = #{id} 
+	</update>
+	
+</mapper>
