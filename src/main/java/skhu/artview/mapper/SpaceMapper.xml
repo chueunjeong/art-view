@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.artview.mapper.SpaceMapper">
+
+	<select id="findOne" resultType="Contract">
+		SELECT *
+		FROM space
+		WHERE id = #{id}
+	</select>
+
+	<select id="findByCity_id" resultType="Contract">
+		SELECT s.* , c.name
+		FROM space
+		LEFT JOIN city c
+		WHERE city_id = #{city_id}
+	</select>
+	
+	<select id="findByProvider_id" resultType="Contract">
+		SELECT s.* , c.name
+		FROM space
+		LEFT JOIN city c
+		WHERE provider_id = #{provider_id}
+	</select>
+	
+	
+	<select id="findByCost" resultType="Contract">
+		SELECT s.* , c.name
+		FROM space
+		LEFT JOIN city c
+		WHERE cost = #{cost}
+	</select>
+	
+	
+	<select id="findAll" resultType="Contract">
+		SELECT * FROM space
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT space (city_id, provider_id, cost, unavailable, equipment,address)
+	  	VALUES (#{city_id}, #{provider_id}, #{cost}, #{unavailable}, #{equipment}, #{address})
+	</insert>
+	
+	
+	
+	<update id="updateCity_id">
+		UPDATE space SET city_id = #{city_id}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="updateProvider_id">
+		UPDATE space SET provider_id = #{provider_id}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="updateCost">
+		UPDATE space SET cost = #{cost}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="updateUnavailable">
+		UPDATE space SET unavailable = #{unavailable}
+		WHERE id = #{id}
+	</update>
+	<update id="updateAddress">
+		UPDATE space SET address = #{address}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="delete">
+	    DELETE FROM space WHERE id = #{id}
+	</delete>
+
+</mapper>

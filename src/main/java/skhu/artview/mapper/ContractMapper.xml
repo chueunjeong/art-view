@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.artview.mapper.ContractMapper">
+
+	<select id="findOne" resultType="Contract">
+		SELECT *
+		FROM contract
+		WHERE id = #{id}
+	</select>
+
+	<select id="findByGroupid_id" resultType="Contract">
+		SELECT *
+		FROM contract
+		WHERE grouping_id = #{grouping_id}
+	</select>
+	
+	<select id="findByPexhibition_id" resultType="Contract">
+		SELECT *
+		FROM contract
+		WHERE pexhibition_id = #{pexhibition_id}
+	</select>
+	
+	
+	<select id="findBySpace_id" resultType="Contract">
+		SELECT c.*, s.name, s.address
+		FROM contract c
+		JOIN space s
+		on c.space_id = s.id
+		WHERE space_id = #{space_id}
+	</select>
+	
+	
+	<select id="findAll" resultType="Contract">
+		SELECT * FROM contract
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT contract (grouping_id, pexhibition_id, space_id, provider_id, cost)
+	  	VALUES (#{grouping_id}, #{pexhibition_id}, #{space_id}, #{provider_id}, #{cost})
+	</insert>
+	
+	
+	
+	<update id="updateSpace_id">
+		UPDATE contract SET space_id = #{space_id}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="updateProvider_id">
+		UPDATE contract SET provider_id = #{provider_id}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="updateCost">
+		UPDATE contract SET cost = #{cost}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="delete">
+	    DELETE FROM contract WHERE id = #{id}
+	</delete>
+
+</mapper>
