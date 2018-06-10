@@ -11,7 +11,7 @@ import skhu.artview.dto.User;
 import skhu.artview.mapper.UserMapper;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("api")
 public class UserController {
 @Autowired
 UserMapper userMapper;

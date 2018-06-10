@@ -21,7 +21,7 @@ import skhu.artview.service.UserService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("guest")
+@RequestMapping("api")
 public class GuestController {
 
 	@Autowired
@@ -38,9 +38,10 @@ public class GuestController {
 
     //회원가입
     @PostMapping("/sign-up")
-    public void signUp(@RequestBody User user, Model model, HttpServletRequest request) {
+    public String signUp(@RequestBody User user, Model model, HttpServletRequest request) {
      user.setPwd(bCryptPasswordEncoder.encode(user.getPwd()));
         userMapper.saveNormal(user);
+        return "회원가입 성공";
     }
 
     //회원 조회
