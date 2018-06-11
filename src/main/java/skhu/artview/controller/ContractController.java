@@ -30,6 +30,7 @@ import skhu.artview.mapper.ExhibitionMapper;
 import skhu.artview.mapper.P_exhibitionMapper;
 import skhu.artview.mapper.GroupingMapper;
 import skhu.artview.model.MypageSummary;
+import skhu.artview.service.ContractService;
 
 
 @RestController
@@ -37,16 +38,22 @@ import skhu.artview.model.MypageSummary;
 @RequestMapping("api")
 public class ContractController {
 
-	@Autowired
-	GroupingMapper groupingMapper;
 	
-	@Autowired
-	ExhibitionMapper exhibitionMapper;
 	
 	@Autowired
-	P_exhibitionMapper p_exhibitionMapper;
+	ContractService contractService;
 	
+	@RequestMapping("project/{id}")
+	public  String makeP_exhibition (@PathVariable("id") int project_id,Model model, Authentication auth) {
 	
+		
+		 P_exhibition p_exhi = contractService.findP_exhibitionByGrouping_id(project_id);
+		
+		 
+		
+		return "저장성공";
+		
+	}
 	
 	
 	

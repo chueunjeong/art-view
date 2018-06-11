@@ -13,10 +13,49 @@ public class Project {
 	int mem_cnt; //멤버 수
 	User author; //작성자
 	List<User> applicants; //신청자 리스트
-	List<User> members; //멤버 리스트
+
 	String d_day; //마감 기한
 	String fav_day_start; //선호 전시시작 기간
 	String fav_day_end; //선호 전시종료 기간
+	
+	
+
+	int district_id;//추가
+
+	
+	
+	
+	public String getD_day() {
+		return d_day;
+	}
+
+	public void setD_day(String d_day) {
+		this.d_day = d_day;
+	}
+
+	public String getFav_day_start() {
+		return fav_day_start;
+	}
+
+	public void setFav_day_start(String fav_day_start) {
+		this.fav_day_start = fav_day_start;
+	}
+
+	public String getFav_day_end() {
+		return fav_day_end;
+	}
+
+	public void setFav_day_end(String fav_day_end) {
+		this.fav_day_end = fav_day_end;
+	}
+
+	public int getDistrict_id() {
+		return district_id;
+	}
+
+	public void setDistrict_id(int district_id) {
+		this.district_id = district_id;
+	}
 
 	public String getTitle() {
 		return title;

@@ -28,8 +28,8 @@
   
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-    INSERT grouping ( grouping_id, artist_id)
-    VALUES (#{grouping_id}, #{artist_id})
+    INSERT grouping ( project_id, artist_id)
+    VALUES (#{project_id}, #{artist_id})
   </insert>
 
 
