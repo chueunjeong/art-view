@@ -11,7 +11,7 @@ public class User {
 	String phone;
 	String email;
 	int age;
-	UserType userType;
+	String user_type;
 //constructor
 	public User() {};
 	public User(int id, int fav_artfield_id, String login_id, String pwd, String name, String phone, String email,
@@ -25,7 +25,7 @@ public class User {
 		this.phone = phone;
 		this.email = email;
 		this.age = age;
-		this.userType =UserType.NORMAL;
+		this.user_type ="artist";
 	}
 //getter&setter
 	public int getId() {
@@ -75,6 +75,12 @@ public class User {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+	public String getUser_type() {
+		return user_type;
+	}
+	public void setUser_type(String user_type) {
+		this.user_type = user_type;
 	}
 
 
