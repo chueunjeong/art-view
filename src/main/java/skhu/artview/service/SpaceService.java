@@ -23,14 +23,19 @@ public class SpaceService {
 
 	// display ==> 몇개 출력
 	// start==>몇번쨰부터 (space)
-	public List<Space> searchSpace(String keyword, int display, int start) {
+	public List<Space> searchSpace( int display, int start) {
 		List<Space> list = null;
 		try {
+			
+			String keyword = URLEncoder.encode("갈비집", "UTF-8");
+			
 			URL url;
-			url = new URL(
-					"https://openapi.naver.com/v1/search/" + "book.xml?query=" + URLEncoder.encode(keyword, "UTF-8")
-							+ (display != 0 ? "&display=" + display : "") + (start != 0 ? "&start=" + start : ""));
-
+			url = new URL("https://openapi.naver.com/v1/search/"
+			                    + "local.xml?query="
+			                    + keyword
+			                    + (display !=0 ? "&display=" +display :"")
+			                    + (start !=0 ? "&start=" +start :""));
+			
 			URLConnection urlConn = url.openConnection();
 			urlConn.setRequestProperty("X-Naver-Client-Id", clientID);
 			urlConn.setRequestProperty("X-Naver-Client-Secret", clientSecret);
