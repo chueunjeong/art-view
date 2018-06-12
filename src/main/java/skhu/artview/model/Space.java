@@ -16,7 +16,7 @@ public class Space {
 	String title;
 	String link;
 	String description;
-	String selephone;
+	String telephone;
 	String address;
 	String roadAddress;
 	public String getTitle() {
@@ -37,11 +37,11 @@ public class Space {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getSelephone() {
-		return selephone;
+	public String getTelephone() {
+		return telephone;
 	}
-	public void setSelephone(String selephone) {
-		this.selephone = selephone;
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
 	}
 	public String getAddress() {
 		return address;
