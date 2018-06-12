@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import skhu.artview.dto.Contract;
 import skhu.artview.dto.Grouping;
 import skhu.artview.dto.P_exhibition;
 import skhu.artview.mapper.ExhibitionMapper;
@@ -43,32 +44,36 @@ public class ContractController {
 	@Autowired
 	ContractService contractService;
 	
-	@RequestMapping("project/{id}")
-	public  String makeP_exhibition (@PathVariable("id") int project_id,Model model, Authentication auth) {
+	@RequestMapping("p_exhition/{project_id}")		//기획서 작성페이지 자동채움
+	public  P_exhibition showP_exhibition (@PathVariable("id") int project_id,Model model, Authentication auth) {
 	
-		
-		 P_exhibition p_exhi = contractService.findP_exhibitionByGrouping_id(project_id);
-		
-		 
-		
-		return "저장성공";
-		
-	}
-	
-	
-	
-	/*@RequestMapping("contract/{id}")
-	public  String makeContract (@PathVariable("id") int space_id,Model model, Authentication auth) {
-	
-		P_exhibition  p_exhibition = p_exhibitionMapper.findOne(p_exhibition_id)
-		
+		return contractService.bringProjectArticle(project_id);//프로젝트 내용 불러오기
 
-				Grouping grouping = groupingMapper.findOne(p_exhibition.getId());
-				Space 
-		
-		return "계약 완료";
 	}
-	*/
+	
+	@RequestMapping(value = "p_exhibition", method=RequestMethod.POST)		//저장
+	public String showP_exhibition (@RequestBody P_exhibition p_exhi ,Model model, Authentication auth) {
+	
+		 contractService.saveP_exhibition(p_exhi);
+		 return "저장 완료";
+	}
+	
+	@RequestMapping("contract/{project_id}/{space_id}")		//계약서 작성 페이지 자동채움 
+	public  Contract makeContract (@PathVariable("project_id") int project_id, Model model,@PathVariable("space_id") int space_id, Authentication auth) {
+	
+		return contractService.bringP_exhibitionAndSpace(project_id, space_id);
+	}
+	
+	@RequestMapping(value = "contract", method=RequestMethod.POST)		//저장
+	public String showP_exhibition (@RequestBody Contract cont ,Model model, Authentication auth) {
+	
+		 contractService.saveContract(cont);
+		 return "저장 완료";
+	}
+	
+	
+	
+	
 	
 	
 }
