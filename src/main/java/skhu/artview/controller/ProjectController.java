@@ -54,7 +54,7 @@ public class ProjectController {
 	public Project projectDetail(@PathVariable("id") int id) {
 		Project project = projectMapper.findOne(id);
 		ProjectDetail projectDetail = new ProjectDetail();
-		project = projectService.projectMapping(project, projectDetail);
+		projectDetail = projectService.projectMapping(project, projectDetail);
 		return project;
 	}
 

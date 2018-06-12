@@ -20,6 +20,11 @@ public class ProjectService {
 	}
 
 	public ProjectDetail projectMapping(Project project, ProjectDetail projectDetail) {
+		projectDetail.setId(project.getId());
+		projectDetail.setTitle(project.getTitle());
+		projectDetail.setContent(project.getContent());
+		projectDetail.setP_path(project.getP_path());
+		projectDetail.setD_day(project.getD_day());
 		projectDetail.setAppli_cnt(this.appli_cnt(project.getId()));
 		projectDetail.setMem_cnt(this.mem_cnt(project.getId()));
 		return projectDetail;
