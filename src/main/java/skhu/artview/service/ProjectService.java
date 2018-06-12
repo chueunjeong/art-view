@@ -21,10 +21,15 @@ public class ProjectService {
 
 	public ProjectDetail projectMapping(Project project, ProjectDetail projectDetail) {
 		projectDetail.setId(project.getId());
+		projectDetail.setAuthor_id(project.getAuthor_id());
 		projectDetail.setTitle(project.getTitle());
 		projectDetail.setContent(project.getContent());
 		projectDetail.setP_path(project.getP_path());
 		projectDetail.setD_day(project.getD_day());
+		projectDetail.setArtfield_id(project.getArtfield_id());
+		projectDetail.setFav_day_start(project.getFav_day_start());
+		projectDetail.setFav_day_end(project.getFav_day_end());
+		projectDetail.setDistrict_id(project.getDistrict_id());
 		projectDetail.setAppli_cnt(this.appli_cnt(project.getId()));
 		projectDetail.setMem_cnt(this.mem_cnt(project.getId()));
 		return projectDetail;

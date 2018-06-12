@@ -1,4 +1,4 @@
-package skhu.artview.model;
+  package skhu.artview.model;
 /*남하영, 전민선 :
  * Project 게시글을 쓸 때는 dto.project을 사용하고
  * Project 상세페이지를 볼 때는 model.projectDetail을 사용합니다.
@@ -17,6 +17,7 @@ public class ProjectDetail {
 	String p_path; //사진 url 저장
 	//String v_path; //동영상 url 저장
 	String d_day; //마감 기한
+	int artfield_id;
 	String fav_day_start; //선호 전시시작 기간
 	String fav_day_end; //선호 전시종료 기간
 	int district_id;//전시지역
@@ -26,6 +27,14 @@ public class ProjectDetail {
 	List<User> members; //멤버 리스트
 	int appli_cnt; //신청자 수
 	int mem_cnt; //멤버 수
+
+	public int getArtfield_id() {
+		return artfield_id;
+	}
+
+	public void setArtfield_id(int artfield_id) {
+		this.artfield_id = artfield_id;
+	}
 
 	public int getDistrict_id() {
 		return district_id;
