@@ -13,12 +13,7 @@ public class Project {
 	String fav_day_end; //선호 전시종료 기간
 	int artfield_id;
 	int district_id;//전시지역
-	
 
-	
-	
-	
-	
 	public int getDistrict_id() {
 		return district_id;
 	}
@@ -106,5 +101,5 @@ public class Project {
 	public void setArtfield_id(int artfield_id) {
 		this.artfield_id = artfield_id;
 	}
-	
+
 }
