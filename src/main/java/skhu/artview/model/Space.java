@@ -15,6 +15,7 @@ public class Space {
 	 */
 	String title;
 	String link;
+	String category;
 	String description;
 	String telephone;
 	String address;
@@ -30,6 +31,13 @@ public class Space {
 	}
 	public void setLink(String link) {
 		this.link = link;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	public String getDescription() {
 		return description;
