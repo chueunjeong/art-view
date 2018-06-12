@@ -21,6 +21,7 @@ import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.P_applyMapper;
 import skhu.artview.mapper.ProjectMapper;
 import skhu.artview.mapper.UserMapper;
+import skhu.artview.model.ProjectDetail;
 import skhu.artview.service.ProjectService;
 import skhu.artview.service.UserService;
 
@@ -29,7 +30,7 @@ import skhu.artview.service.UserService;
 @RequestMapping("api")
 public class ProjectController {
 
-	@Autowired ProjectService commuService;
+	@Autowired ProjectService projectService;
 	@Autowired ProjectMapper projectMapper;
 	@Autowired UserService userService;
 	@Autowired UserMapper userMapper;
@@ -52,7 +53,8 @@ public class ProjectController {
 	@RequestMapping("project/{id}")
 	public Project projectDetail(@PathVariable("id") int id) {
 		Project project = projectMapper.findOne(id);
-		project = commuService.projectMapping(project);
+		ProjectDetail projectDetail = new ProjectDetail();
+		project = projectService.projectMapping(project, projectDetail);
 		return project;
 	}
 

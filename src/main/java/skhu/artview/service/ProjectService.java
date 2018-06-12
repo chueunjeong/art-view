@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import skhu.artview.dto.Project;
 import skhu.artview.mapper.P_applyMapper;
+import skhu.artview.model.ProjectDetail;
 
 @Service
 public class ProjectService {
@@ -18,10 +19,10 @@ public class ProjectService {
 		return p_applyMapper.mem_cnt(projectId);
 	}
 
-	public Project projectMapping(Project project) {
-		project.setAppli_cnt(this.appli_cnt(project.getId()));
-		project.setMem_cnt(this.mem_cnt(project.getId()));
-		return project;
+	public ProjectDetail projectMapping(Project project, ProjectDetail projectDetail) {
+		projectDetail.setAppli_cnt(this.appli_cnt(project.getId()));
+		projectDetail.setMem_cnt(this.mem_cnt(project.getId()));
+		return projectDetail;
 	}
 }
 
