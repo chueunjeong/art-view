@@ -11,8 +11,14 @@ public class Project {
 	String d_day; //마감 기한
 	String fav_day_start; //선호 전시시작 기간
 	String fav_day_end; //선호 전시종료 기간
+	int artfield_id;
 	int district_id;//전시지역
+	
 
+	
+	
+	
+	
 	public int getDistrict_id() {
 		return district_id;
 	}
@@ -92,4 +98,13 @@ public class Project {
 	public void setV_path(String v_path) {
 		this.v_path = v_path;
 	}
+
+	public int getArtfield_id() {
+		return artfield_id;
+	}
+
+	public void setArtfield_id(int artfield_id) {
+		this.artfield_id = artfield_id;
+	}
+	
 }
