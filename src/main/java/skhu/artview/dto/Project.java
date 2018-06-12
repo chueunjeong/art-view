@@ -15,10 +15,19 @@ public class Project {
 	String d_day; //마감 기한
 	String fav_day_start; //선호 전시시작 기간
 	String fav_day_end; //선호 전시종료 기간
+	int district_id;//전시지역
 
 	User author; //작성자
 	List<User> applicants; //신청자 리스트
 	List<User> members; //멤버 리스트
+
+	public int getDistrict_id() {
+		return district_id;
+	}
+
+	public void setDistrict_id(int district_id) {
+		this.district_id = district_id;
+	}
 
 	public int getUser_id() {
 		return user_id;

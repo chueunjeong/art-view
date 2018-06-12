@@ -5,16 +5,15 @@ public class Grouping {
 	int id;
 	int district_id;
 	int artist_id;
-	int group_id;
+	int project_id;
+	
 
-	public int getGroup_id() {
-		return group_id;
+	public int getProject_id() {
+		return project_id;
 	}
-
-	public void setGroup_id(int group_id) {
-		this.group_id = group_id;
+	public void setProject_id(int project_id) {
+		this.project_id = project_id;
 	}
-
 	public int getId() {
 		return id;
 	}

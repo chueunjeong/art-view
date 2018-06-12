@@ -8,6 +8,10 @@
     SELECT * FROM grouping WHERE id = #{id}
   </select>
   
+  <select id="findOneByProject_id" resultType="Grouping">
+  	SELECT * FROM grouping project_id = #{project_id}
+  </select>
+  
   <select id="findOneByArtist_id" resultType="Grouping">
   	SELECT * FROM grouping artist_id = #{artist_id}
   </select>
@@ -24,8 +28,8 @@
   
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-    INSERT grouping ( grouping_id, artist_id)
-    VALUES (#{grouping_id}, #{artist_id})
+    INSERT grouping ( project_id, artist_id)
+    VALUES (#{project_id}, #{artist_id})
   </insert>
 
 
