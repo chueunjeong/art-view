@@ -1,5 +1,9 @@
 package skhu.artview.model;
-
+/*남하영, 전민선 : 
+ * Project 게시글을 쓸 때는 dto.project을 사용하고
+ * Project 상세페이지를 볼 때는 model.projectDetail을 사용합니다.
+ * 
+ */
 import java.util.List;
 
 import skhu.artview.dto.User;
