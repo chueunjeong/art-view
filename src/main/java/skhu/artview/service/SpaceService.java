@@ -69,10 +69,37 @@ public class SpaceService {
 						if (b != null)
 							
 						break;
-					case "image":
+					case "category":
 						if (b != null)
-							b.setImage(parser.nextText());
+							b.setCategory(parser.nextText());
 						break;
+					case "description":
+						if (b != null)
+							b.setDescription(parser.nextText());
+						break;
+					case "telephone":
+						if (b != null)
+							b.setTelephone(parser.nextText());
+						break;
+					case "address":
+						if (b != null)
+							b.setAddress(parser.nextText());
+						break;
+					case "roadAddress":
+						if (b != null)
+							b.setRoadAddress(parser.nextText());
+						break;
+						
+			
+						
+						
+						
+						
+						
+						
+						
+							
+						
 
 					}
 
