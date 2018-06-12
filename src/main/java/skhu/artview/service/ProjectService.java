@@ -7,7 +7,7 @@ import skhu.artview.dto.Project;
 import skhu.artview.mapper.P_applyMapper;
 
 @Service
-public class CommuService {
+public class ProjectService {
 	@Autowired P_applyMapper p_applyMapper;
 
 	public int appli_cnt(int projectId) {

@@ -21,15 +21,15 @@ import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.P_applyMapper;
 import skhu.artview.mapper.ProjectMapper;
 import skhu.artview.mapper.UserMapper;
-import skhu.artview.service.CommuService;
+import skhu.artview.service.ProjectService;
 import skhu.artview.service.UserService;
 
 @RestController
 @CrossOrigin
 @RequestMapping("api")
-public class CommuController {
+public class ProjectController {
 
-	@Autowired CommuService commuService;
+	@Autowired ProjectService commuService;
 	@Autowired ProjectMapper projectMapper;
 	@Autowired UserService userService;
 	@Autowired UserMapper userMapper;

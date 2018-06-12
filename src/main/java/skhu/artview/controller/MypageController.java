@@ -25,7 +25,7 @@ import skhu.artview.mapper.DistrictMapper;
 import skhu.artview.mapper.ExhibitionMapper;
 import skhu.artview.mapper.ProjectMapper;
 import skhu.artview.mapper.UserMapper;
-import skhu.artview.service.CommuService;
+import skhu.artview.service.ProjectService;
 import skhu.artview.service.UserService;
 
 @RestController

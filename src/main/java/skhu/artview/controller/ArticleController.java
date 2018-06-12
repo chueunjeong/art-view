@@ -17,7 +17,7 @@ import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.ProjectMapper;
 import skhu.artview.mapper.UserMapper;
 import skhu.artview.service.ArticleService;
-import skhu.artview.service.CommuService;
+import skhu.artview.service.ProjectService;
 import skhu.artview.service.UserService;
 
 @RestController
@@ -25,7 +25,7 @@ import skhu.artview.service.UserService;
 @RequestMapping("api")
 public class ArticleController {
 
-	@Autowired CommuService commuService;
+	@Autowired ProjectService commuService;
 	@Autowired ArticleService articleService;
 	@Autowired ProjectMapper projectMapper;
 	@Autowired UserService userService;
