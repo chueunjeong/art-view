@@ -5,18 +5,52 @@ import java.util.List;
 public class Project {
 
 	int id;
+	int user_id; //작성자아이디
 	String title; //제목
 	String content; //내용
 	String p_path; //사진 url 저장
 	String v_path; //동영상 url 저장
 	int appli_cnt; //신청자 수
 	int mem_cnt; //멤버 수
-	User author; //작성자
-	List<User> applicants; //신청자 리스트
-	List<User> members; //멤버 리스트
 	String d_day; //마감 기한
 	String fav_day_start; //선호 전시시작 기간
 	String fav_day_end; //선호 전시종료 기간
+
+	User author; //작성자
+	List<User> applicants; //신청자 리스트
+	List<User> members; //멤버 리스트
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
+	public String getD_day() {
+		return d_day;
+	}
+
+	public void setD_day(String d_day) {
+		this.d_day = d_day;
+	}
+
+	public String getFav_day_start() {
+		return fav_day_start;
+	}
+
+	public void setFav_day_start(String fav_day_start) {
+		this.fav_day_start = fav_day_start;
+	}
+
+	public String getFav_day_end() {
+		return fav_day_end;
+	}
+
+	public void setFav_day_end(String fav_day_end) {
+		this.fav_day_end = fav_day_end;
+	}
 
 	public String getTitle() {
 		return title;
