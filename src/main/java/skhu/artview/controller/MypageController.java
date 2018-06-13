@@ -25,6 +25,7 @@ import skhu.artview.mapper.DistrictMapper;
 import skhu.artview.mapper.ExhibitionMapper;
 import skhu.artview.mapper.ProjectMapper;
 import skhu.artview.mapper.UserMapper;
+import skhu.artview.service.MypageService;
 import skhu.artview.service.ProjectService;
 import skhu.artview.service.UserService;
 
@@ -33,37 +34,15 @@ import skhu.artview.service.UserService;
 @RequestMapping("api")
 public class MypageController {
 
+	
 	@Autowired
-	ArtistMapper artistMapper;
-	@Autowired
-	DistrictMapper districtMapper;
-	@Autowired
-	ArtworkMapper artworkMapper;
-	@Autowired
-	ExhibitionMapper exhibitionMapper;
+	MypageService mypageService;
+	
 	@RequestMapping("mypage")
 	public MypageSummary mypage (Model model, Authentication auth) {
-		MypageSummary summary = new MypageSummary(); 
 		
+		return mypageService.bringMypageSummary(auth);
 		
-		String login_id = (String)auth.getPrincipal();
-			Artist artist = artistMapper.findOneByLoginId(login_id);
-		int artist_id =artist.getId();
-		District district = districtMapper.findOne(artist.getFav_district_id());
-		
-		String district_name = district.getName();
-		String district_city_name = district.getCity_name();
-		
-		int submit_count = artworkMapper.countAll(artist_id);
-		int finish_Exhibition_count = exhibitionMapper.countAll(artist_id);
-		
-		summary.setLogin_id(login_id);
-		summary.setDistrict_name(district_name);
-		summary.setDistrict_city_name(district_city_name);
-		summary.setSubmit_count(submit_count);
-		summary.setFinish_Exhibition_count(finish_Exhibition_count);
-		
-		return summary;
 	}
 	
 	
