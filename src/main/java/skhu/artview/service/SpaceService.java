@@ -55,7 +55,7 @@ public class SpaceService {
 					break;
 				case XmlPullParser.END_TAG: {
 					String tag = parser.getName();
-					if (tag.equals("space")) {
+					if (tag.equals("item")) {
 						list.add(b);
 						b = null;
 					}
@@ -63,7 +63,7 @@ public class SpaceService {
 				case XmlPullParser.START_TAG: {
 					String tag = parser.getName();
 					switch (tag) {
-					case "space":
+					case "item":
 						b = new Space();
 						break;
 					case "title":
