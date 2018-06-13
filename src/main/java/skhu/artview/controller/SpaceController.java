@@ -23,10 +23,10 @@ public class SpaceController {
 	SpaceService spaceService;
 	
 	
-	@RequestMapping(value = "spaceDetail" , method= RequestMethod.GET)
-	   public List<Space> bookList(Model model, HttpServletRequest request)  throws Exception {
+	@RequestMapping(value = "spaceDetail/{keyword}" , method= RequestMethod.GET)
+	   public List<Space> bookList(Model model, HttpServletRequest request, @PathVariable("keyword") String keyword)  throws Exception {
 			
-	       return spaceService.searchSpace(10,1);
+	       return spaceService.searchSpace(keyword,10,1);
 	   }
 
 

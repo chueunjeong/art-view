@@ -23,11 +23,11 @@ public class SpaceService {
 
 	// display ==> 몇개 출력
 	// start==>몇번쨰부터 (space)
-	public List<Space> searchSpace( int display, int start) {
+	public List<Space> searchSpace( String keyword, int display, int start) {
 		List<Space> list = null;
 		try {
 			
-			String keyword = URLEncoder.encode("갈비집", "UTF-8");
+			 keyword = URLEncoder.encode(keyword, "UTF-8");
 			
 			URL url;
 			url = new URL("https://openapi.naver.com/v1/search/"
