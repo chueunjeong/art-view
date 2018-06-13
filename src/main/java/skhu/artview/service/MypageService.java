@@ -43,6 +43,8 @@ public class MypageService {
 
 		int submit_count = artworkMapper.countAll(artist_id);
 		int finish_Exhibition_count = exhibitionMapper.countAll(artist_id);
+		
+		
 		//1.프로필 정보
 		summary.setPicture_id(picture_id);
 		summary.setIntroMessage(introMessage);
@@ -54,6 +56,11 @@ public class MypageService {
 		summary.setSubmit_count(submit_count);
 		summary.setFinish_Exhibition_count(finish_Exhibition_count);
 
+		//3.월 별 그래프
+		
+		
+		
+		
 		return summary;
 	}
 
