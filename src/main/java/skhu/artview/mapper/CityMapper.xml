@@ -6,19 +6,33 @@
 
 	<select id="findOne" resultType="City"> 
 		SELECT * 
-		FROM City
+		FROM city
 		WHERE id = #{id} 
 	</select>
 		
 	<select id="findByName" resultType="City">
 		SELECT *
-		FROM City
+		FROM city
 		WHERE name = #{name}
 	</select>
 	
 	<select id="findAll" resultType="City"> 
 		SELECT *
-		FROM City
-	 </select>
+		FROM city
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT city (name)
+	  	VALUES (#{name})
+	</insert>
+	
+	<update id="update">
+		UPDATE city SET name = #{name}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="delete">
+	    DELETE FROM city WHERE id = #{id}
+	</delete>
 	
 </mapper>
