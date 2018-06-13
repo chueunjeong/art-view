@@ -137,10 +137,6 @@ public class SpaceService {
 		
 		List<skhu.artview.dto.Space> list = spaceMapper.findAll(pagination);
 		
-		/*Option[] orderBy = spaceMapper.orderBy;
-		Option[] searchBy = spaceMapper.searchBy;
-		Option[] costBetween = spaceMapper.costBetween;
-		*/
 		SearchSpace searchSpace = new SearchSpace();
 		searchSpace.setList(list);
 		searchSpace.setOrderBy(spaceMapper.orderBy);
