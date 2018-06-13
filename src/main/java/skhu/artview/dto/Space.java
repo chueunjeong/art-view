@@ -5,6 +5,7 @@ import java.sql.Date;
 public class Space {
 
 	int  id;
+	String name;
 	int city_id;
 	int provider_id;
 	int cost;
@@ -16,6 +17,13 @@ public class Space {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public int getCity_id() {
 		return city_id;

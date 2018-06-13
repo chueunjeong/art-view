@@ -1,4 +1,8 @@
 package skhu.artview.service;
+/*전민선 : 파싱 데이터를 담는 모델 객체와 dto 의 이름이 동일하니 주의바랍니다.
+ * skhu.artview.dto.Space VS Space 
+ *  
+ */
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -9,11 +13,17 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import skhu.artview.dto.P_exhibition;
+import skhu.artview.mapper.SpaceMapper;
+import skhu.artview.model.Option;
+import skhu.artview.model.Pagination;
+import skhu.artview.model.SearchSpace;
 import skhu.artview.model.Space;
 
 @Service
@@ -21,21 +31,23 @@ public class SpaceService {
 	private static String clientID = "eTuxeFyegLrGJWxmcajB";
 	private static String clientSecret = "4fN93YH4PY";
 
+	@Autowired
+	SpaceMapper spaceMapper;
+	
+	
+	
 	// display ==> 몇개 출력
 	// start==>몇번쨰부터 (space)
-	public List<Space> searchSpace( String keyword, int display, int start) {
+	public List<Space> searchSpace(String keyword, int display, int start) {
 		List<Space> list = null;
 		try {
-			
-			 keyword = URLEncoder.encode(keyword, "UTF-8");
-			
+
+			keyword = URLEncoder.encode(keyword, "UTF-8");
+
 			URL url;
-			url = new URL("https://openapi.naver.com/v1/search/"
-			                    + "local.xml?query="
-			                    + keyword
-			                    + (display !=0 ? "&display=" +display :"")
-			                    + (start !=0 ? "&start=" +start :""));
-			
+			url = new URL("https://openapi.naver.com/v1/search/" + "local.xml?query=" + keyword
+					+ (display != 0 ? "&display=" + display : "") + (start != 0 ? "&start=" + start : ""));
+
 			URLConnection urlConn = url.openConnection();
 			urlConn.setRequestProperty("X-Naver-Client-Id", clientID);
 			urlConn.setRequestProperty("X-Naver-Client-Secret", clientSecret);
@@ -72,8 +84,8 @@ public class SpaceService {
 						break;
 					case "link":
 						if (b != null)
-							
-						break;
+
+							break;
 					case "category":
 						if (b != null)
 							b.setCategory(parser.nextText());
@@ -94,17 +106,6 @@ public class SpaceService {
 						if (b != null)
 							b.setRoadAddress(parser.nextText());
 						break;
-						
-			
-						
-						
-						
-						
-						
-						
-						
-							
-						
 
 					}
 
@@ -128,4 +129,26 @@ public class SpaceService {
 		}
 		return list;
 	}
+	
+	public SearchSpace findAllSpace(Pagination pagination) {
+		
+		int count = spaceMapper.count(pagination);
+		pagination.setRecordCount(count);
+		
+		List<skhu.artview.dto.Space> list = spaceMapper.findAll(pagination);
+		
+		/*Option[] orderBy = spaceMapper.orderBy;
+		Option[] searchBy = spaceMapper.searchBy;
+		Option[] costBetween = spaceMapper.costBetween;
+		*/
+		SearchSpace searchSpace = new SearchSpace();
+		searchSpace.setList(list);
+		searchSpace.setOrderBy(spaceMapper.orderBy);
+		searchSpace.setSearchBy(spaceMapper.searchBy);
+		searchSpace.setCostBetween(spaceMapper.costBetween);
+		return searchSpace;
+		
+	}
+	
+	
 }

@@ -15,6 +15,11 @@ public class Pagination {
     
     int sb;		//검색 기준
     String st;	//검색 문자열
+    
+    int cost;	//가격 범위 옵션 검색 기준
+    int min;
+    int max;
+    
     int ob;		//정렬
 
     public int getBd() {
@@ -50,6 +55,30 @@ public class Pagination {
 	}
 
 	
+
+	public int getCost() {
+		return cost;
+	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+
+	public int getMin() {
+		return min;
+	}
+
+	public void setMin(int min) {
+		this.min = min;
+	}
+
+	public int getMax() {
+		return max;
+	}
+
+	public void setMax(int max) {
+		this.max = max;
+	}
 
 	public int getSb() {
 		return sb;
