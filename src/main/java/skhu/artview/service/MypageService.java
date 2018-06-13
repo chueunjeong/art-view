@@ -30,6 +30,11 @@ public class MypageService {
 
 		String login_id = (String) auth.getPrincipal();
 		Artist artist = artistMapper.findOneByLoginId(login_id);
+		
+		int picture_id = artist.getFile_id();
+
+		String introMessage = artist.getIntroMessage();
+		
 		int artist_id = artist.getId();
 		District district = districtMapper.findOne(artist.getFav_district_id());
 
@@ -38,7 +43,11 @@ public class MypageService {
 
 		int submit_count = artworkMapper.countAll(artist_id);
 		int finish_Exhibition_count = exhibitionMapper.countAll(artist_id);
-
+		//1.프로필 정보
+		summary.setPicture_id(picture_id);
+		summary.setIntroMessage(introMessage);
+		
+		//2.artist 정보 요약
 		summary.setLogin_id(login_id);
 		summary.setDistrict_name(district_name);
 		summary.setDistrict_city_name(district_city_name);
