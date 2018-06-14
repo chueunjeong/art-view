@@ -1,5 +1,6 @@
 package skhu.artview.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -53,4 +54,10 @@ public class S3Uploader {
 				.build();
 	}
 
+	//MultipartFile to File
+    public File convert(MultipartFile multipart) throws IllegalStateException, IOException {
+    	File convFile = new File( multipart.getOriginalFilename());
+    	multipart.transferTo(convFile);
+    	return convFile;
+    }
 }
