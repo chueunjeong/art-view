@@ -4,7 +4,7 @@ public class Fav_district {
 
 	int id;
 	int user_id;
-	int artfield_id;
+	int district_id;
 
 	public int getId() {
 		return id;
@@ -22,12 +22,12 @@ public class Fav_district {
 		this.user_id = user_id;
 	}
 
-	public int getArtfield_id() {
-		return artfield_id;
+	public int getDistrict_id() {
+		return district_id;
 	}
 
-	public void setArtfield_id(int artfield_id) {
-		this.artfield_id = artfield_id;
+	public void setDistrict_id(int district_id) {
+		this.district_id = district_id;
 	}
 
 }
