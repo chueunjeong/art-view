@@ -30,5 +30,10 @@
 	<delete id="delete">
 	    DELETE FROM file WHERE id = #{id}
 	</delete>
+	
+	<select id="getId" resultType="Integer">
+		select id from file
+		where name = #{name}
+	</select>
 
 </mapper>

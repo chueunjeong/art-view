@@ -1,4 +1,4 @@
-package skhu.artview.service;
+/*package skhu.artview.service;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -128,3 +128,4 @@ public class FileService {
 	}
 
 }
+*/

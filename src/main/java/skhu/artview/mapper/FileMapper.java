@@ -14,4 +14,5 @@ public interface FileMapper {
 	void update(FileDTO file);
 	void delete(int id);
 	String getName(int id);
+	int getId(String name);
 }
