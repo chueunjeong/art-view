@@ -25,18 +25,20 @@ public class S3Uploader {
 	AWSClient awsClient = new AWSClient(); //클라이언트 정보를 가져오기 위한 객체
 
 	//현재 시간 + 원본 파일명으로 파일명 지정
-	public void upload(MultipartFile file) {
+	public String upload(MultipartFile file) {
 		try {
 			String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
 			upload(file.getInputStream(), fileName);
+			return fileName;
 		} catch (IOException e) {
 			e.printStackTrace();
+			return "fail";
 		}
 	}
 
 	//AmazonS3 객체에 파일과 버킷명을 입력하여 파일 업로드
-	private void upload(InputStream inputStream, String uploadKey) {
-		PutObjectRequest putObjectRequest = new PutObjectRequest(awsClient.getBucket(), uploadKey, inputStream, new ObjectMetadata());
+	private void upload(InputStream inputStream, String fileName) {
+		PutObjectRequest putObjectRequest = new PutObjectRequest(awsClient.getBucket(), fileName, inputStream, new ObjectMetadata());
 		putObjectRequest.setCannedAcl(CannedAccessControlList.PublicRead);
 		AmazonS3 amazonS3 = this.s3Client();
 		amazonS3.putObject(putObjectRequest);
