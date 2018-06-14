@@ -10,5 +10,6 @@ public interface ProjectMapper {
 	Project findOne(int id);
 	List<Project> findBySubject(String subject);
     List<Project> findAll();
+    void insert(Project project);
     void delete(int id);
 }
