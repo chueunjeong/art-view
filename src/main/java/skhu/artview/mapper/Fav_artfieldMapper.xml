@@ -16,7 +16,7 @@
 		WHERE user_id = #{user_id}
 	</select>
 	
-	<select id="findOneByArtfieldId" resultType="Fav_artfield">
+	<select id="findByArtfieldId" resultType="Fav_artfield">
 		SELECT *
 		FROM fav_artfield
 		WHERE artfield_id = #{artfield_id}
@@ -29,7 +29,7 @@
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
 		INSERT fav_artfield (user_id, artfield_id)
-	  	VALUES (#{type}, #{artfield_id)
+	  	VALUES (#{user_id}, #{artfield_id)
 	</insert>
 	
 	<update id="update">
