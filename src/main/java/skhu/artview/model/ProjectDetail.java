@@ -14,7 +14,7 @@ public class ProjectDetail {
 	int author_id; //작성자아이디
 	String title; //제목
 	String content; //내용
-	String p_path; //사진 url 저장
+	int file_id; //사진 id 저장
 	//String v_path; //동영상 url 저장
 	String d_day; //마감 기한
 	int artfield_id;
@@ -140,12 +140,12 @@ public class ProjectDetail {
 		this.id = id;
 	}
 
-	public String getP_path() {
-		return p_path;
+	public int getFile_id() {
+		return file_id;
 	}
 
-	public void setP_path(String p_path) {
-		this.p_path = p_path;
+	public void setFile_id(int file_id) {
+		this.file_id = file_id;
 	}
 
 /*	public String getV_path() {
