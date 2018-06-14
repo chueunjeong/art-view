@@ -60,4 +60,25 @@ public class S3Uploader {
     	multipart.transferTo(convFile);
     	return convFile;
     }
+
+    //url리턴 예제 소스
+/*  public String upload(MultipartFile multipartFile, String dirName) throws IOException {
+		System.out.println(bucket);
+    	File uploadFile = convert(multipartFile);
+
+    	return upload(uploadFile, dirName);
+	}
+
+	private String upload(File uploadFile, String dirName) {
+    	String fileName = dirName + "/" + uploadFile.getName();
+    	String uploadImageUrl = putS3(uploadFile, fileName);
+    	return uploadImageUrl; //최종적으로 뷰에 url이 리턴됨
+	}
+
+*/
+
+/*  private String putS3(File uploadFile, String fileName) {amazonS3Client.putObject(new PutObjectRequest(bucket, fileName, uploadFile).withCannedAcl(CannedAccessControlList.PublicRead));
+    	return amazonS3Client.getUrl(bucket, fileName).toString();
+	} */
+
 }
