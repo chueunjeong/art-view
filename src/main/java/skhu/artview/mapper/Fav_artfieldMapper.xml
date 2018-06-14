@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.artview.mapper.Fav_artfieldMapper">
+
+	<select id="findOne" resultType="Fav_artfield"> 
+		SELECT * 
+		FROM fav_artfield
+		WHERE id = #{id} 
+	</select>
+		
+	<select id="findByUserId" resultType="Fav_artfield">
+		SELECT *
+		FROM fav_artfield
+		WHERE user_id = #{user_id}
+	</select>
+	
+	<select id="findOneByArtfieldId" resultType="Fav_artfield">
+		SELECT *
+		FROM fav_artfield
+		WHERE artfield_id = #{artfield_id}
+	</select>
+	
+	<select id="findAll" resultType="Fav_artfield"> 
+		SELECT *
+		FROM fav_artfield
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT fav_artfield (user_id, artfield_id)
+	  	VALUES (#{type}, #{artfield_id)
+	</insert>
+	
+	<update id="update">
+		UPDATE fav_artfield SET user_id = #{user_id}, artfield_id = #{artfield_id}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="delete">
+	    DELETE FROM fav_artfield WHERE id = #{id}
+	</delete>
+	
+</mapper>
