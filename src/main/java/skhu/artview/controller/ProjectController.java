@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import skhu.artview.dto.P_apply;
 import skhu.artview.dto.Project;
-import skhu.artview.dto.User;
 import skhu.artview.mapper.ArticleMapper;
 import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.P_applyMapper;
@@ -59,20 +59,10 @@ public class ProjectController {
 	}
 
 	//프로젝트 작성
-	@RequestMapping(value = "project", method = RequestMethod.GET)
-	public User projectSubmit() {
-		User user = null; //현재 유저 정보 받아오기
-		return user;
-	}
-
-	/*//프로젝트 작성(파일 업로드용 서버를 정해야 함...ㅠㅠ)
 	@RequestMapping(value = "project", method = RequestMethod.POST)
-	public String projectSubmit(@RequestBody Project project) {
-		User user = UserService.getCurrentUser(); //현재 유저 정보 받아오기
-		project.add(user.getId());
-		projectMapper.insert(project);
-		return "등록되었습니다";
-	}*/
+	public String projectSubmit(@RequestBody Project project, @RequestBody MultipartFile file) {
+		return projectService.projectSubmit(project, file);
+	}
 
 	//프로젝트 삭제
 	@RequestMapping(value = "project/{id}", method = RequestMethod.DELETE)
