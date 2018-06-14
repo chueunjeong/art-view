@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.artview.mapper.FacilityMapper">
+
+	<select id="findOne" resultType="Facility"> 
+		SELECT * 
+		FROM facility
+		WHERE id = #{id} 
+	</select>
+		
+	<select id="findByType" resultType="Facility">
+		SELECT *
+		FROM facility
+		WHERE type = #{type}
+	</select>
+	
+	<select id="findAll" resultType="Facility"> 
+		SELECT *
+		FROM facility
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT facility (type)
+	  	VALUES (#{type})
+	</insert>
+	
+	<update id="update">
+		UPDATE facility SET type = #{type}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="delete">
+	    DELETE FROM facility WHERE id = #{id}
+	</delete>
+	
+</mapper>
