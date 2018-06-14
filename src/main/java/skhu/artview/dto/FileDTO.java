@@ -2,8 +2,7 @@ package skhu.artview.dto;
 
 public class FileDTO {
 	int id;
-	String path;
-    byte[] data;
+	String name;
 
 	public int getId() {
 		return id;
@@ -13,20 +12,12 @@ public class FileDTO {
 		this.id = id;
 	}
 
-	public String getPath() {
-		return path;
+	public String getName() {
+		return name;
 	}
 
-	public void setPath(String path) {
-		this.path = path;
-	}
-
-	public byte[] getData() {
-		return data;
-	}
-
-	public void setData(byte[] data) {
-		this.data = data;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
