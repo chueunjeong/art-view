@@ -9,7 +9,7 @@ import skhu.artview.dto.Facility;
 public interface FacilityMapper {
 
 	Facility findOne(int id);
-	Facility findOneByType(String type);
+	List<Facility> findByType(String type);
 	List<Facility> findAll();
 	void insert(Facility facility);
 	void update(Facility facility);
