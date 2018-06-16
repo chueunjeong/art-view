@@ -17,6 +17,9 @@ Art-View ( 전시 공간 대여 및 작가 커뮤니티 관리 시스템 ) 소�
   * MairaDB
   * SpringBoot + Mybatis
   * JAVA 1.8
+  * Amazon S3 
+  * JWT token 
+  
 
   
 # 시스템 구성도
