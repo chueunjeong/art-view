@@ -8,12 +8,17 @@
 		SELECT * FROM project WHERE id = #{id}
 	</select>
 	
-	<select id="findBySubject" resultType="Project">
-		SELECT * FROM project WHERE subject = *{subject}
+	<select id="findByTitle" resultType="Project">
+		SELECT * FROM project WHERE title = *{title}
 	</select>
 
 	<select id="findAll" resultType="Project">
 		SELECT * FROM project
+		where id =id
+		<if test="sb==1"> And title  like concat('%',#{st},'%')</if>
+		<if test="sb==2"> And fav_day_start &gt;=To_DATE(#{st}, 'yyyy-mm-dd') </if>
+		
+		
 	</select>
 	
 	<delete id="delete">
