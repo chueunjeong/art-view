@@ -1,5 +1,7 @@
 package skhu.artview.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -10,6 +12,7 @@ import skhu.artview.dto.User;
 import skhu.artview.mapper.FileMapper;
 import skhu.artview.mapper.P_applyMapper;
 import skhu.artview.mapper.ProjectMapper;
+import skhu.artview.mapper.UserMapper;
 import skhu.artview.model.ProjectDetail;
 
 @Service
@@ -18,6 +21,7 @@ public class ProjectService {
 	@Autowired P_applyMapper p_applyMapper;
 	@Autowired ProjectMapper projectMapper;
 	@Autowired FileMapper fileMapper;
+	@Autowired UserMapper userMapper;
 
 	S3Uploader s3Uploader = new S3Uploader();
 
@@ -40,6 +44,10 @@ public class ProjectService {
 		projectDetail.setFav_day_start(project.getFav_day_start());
 		projectDetail.setFav_day_end(project.getFav_day_end());
 		projectDetail.setDistrict_id(project.getDistrict_id());
+
+		projectDetail.setAuthor(userMapper.findOne(project.getAuthor_id()));
+		projectDetail.setApplicants(userMapper.findMyApplicant(project.getId()));
+		projectDetail.setMembers(userMapper.findMyMember(project.getId()));
 		projectDetail.setAppli_cnt(this.appli_cnt(project.getId()));
 		projectDetail.setMem_cnt(this.mem_cnt(project.getId()));
 		return projectDetail;
@@ -62,6 +70,12 @@ public class ProjectService {
 		project.setAuthor_id(user.getId());
 		projectMapper.insert(project); //insert mapper만들어야 함
 		return "등록되었습니다";
+	}
+
+	//작성자=0, 제목=1, 내용=2, 제목+내용=3
+	public List<Project> search(int code, String keyword) {
+		List<Project> results = null;
+		return results;
 	}
 }
 
