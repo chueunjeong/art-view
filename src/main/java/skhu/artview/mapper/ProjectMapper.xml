@@ -7,10 +7,6 @@
 	<select id="findOne" resultType="Project">
 		SELECT * FROM project WHERE id = #{id}
 	</select>
-	
-	<select id="findByTitle" resultType="Project">
-		SELECT * FROM project WHERE title = *{title}
-	</select>
 
 	<select id="findAll" resultType="Project">
 		SELECT * FROM project
@@ -19,6 +15,25 @@
 		<if test="sb==2"> And fav_day_start &gt;=To_DATE(#{st}, 'yyyy-mm-dd') </if>
 		
 		
+	</select>
+	
+	<select id="findByUserName" resultType="Project">
+		SELECT p.* FROM project
+		LEFT JOIN user u ON p.author_id = u.id
+		WHERE u.name = #{keyword}
+	</select>
+	
+	<select id="findByTitle" resultType="Project">
+		SELECT * FROM project WHERE title LIKE CONCAT('%', #{keyword}, '%')
+	</select>
+	
+	<select id="findByContent" resultType="Project">
+		SELECT * FROM project WHERE content LIKE CONCAT('%', #{keyword}, '%')
+	</select>
+	
+	<select id="findByTitleAndContent" resultType="Project">
+		SELECT * FROM project WHERE title LIKE CONCAT('%', #{keyword}, '%')
+		AND content LIKE CONCAT('%', #{keyword}, '%')
 	</select>
 	
 	<delete id="delete">
