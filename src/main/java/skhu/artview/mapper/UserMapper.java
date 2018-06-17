@@ -22,7 +22,7 @@ public interface UserMapper {
 	void saveNormal (User user); //일반회원 테스트용
 	void delete (int id);
 
-	List<User> findMyApplicant(); //프로젝트 신청자 리스트
-	List<User> findMyMember(); //프로젝트 멤버 리스트
+	List<User> findMyApplicant(int projectId); //프로젝트 신청자 리스트
+	List<User> findMyMember(int projectId); //프로젝트 멤버 리스트
 
 }
