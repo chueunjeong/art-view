@@ -76,9 +76,7 @@ public class ProjectController {
 	//프로젝트 작성자/제목/내용/제목+내용으로 검색
 	@RequestMapping("projectSearch")
 	public List<Project> projectSearch(@PathVariable("code") int code, @PathVariable("keyword") String keyword) {
-		//작성자=0, 제목=1, 내용=2, 제목+내용=3
-		List<Project> results = null;
-		return results;
+		return projectService.search(code, keyword);
 	}
 
 	//프로젝트 신청버튼->신청서 작성(신청서 테이블 추가)
