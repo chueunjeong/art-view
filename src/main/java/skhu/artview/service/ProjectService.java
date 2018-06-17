@@ -53,6 +53,11 @@ public class ProjectService {
 		return projectDetail;
 	}
 
+	//작성 예정
+	public List<ProjectDetail> makeList(List<Project> p_list) {
+		return null;
+	}
+
 	public String projectSubmit(Project project, MultipartFile file) {
 		FileDTO uploadFile = new FileDTO();
 
@@ -73,9 +78,19 @@ public class ProjectService {
 	}
 
 	//작성자=0, 제목=1, 내용=2, 제목+내용=3
-	public List<Project> search(int code, String keyword) {
-		List<Project> results = null;
-		return results;
+	public List<ProjectDetail> search(int code, String keyword) {
+		switch(code) {
+		case 0:
+			return this.makeList(projectMapper.findByUserName(keyword));
+		case 1:
+			return this.makeList(projectMapper.findByTitle(keyword));
+		case 2:
+			return this.makeList(projectMapper.findByContent(keyword));
+		case 3:
+			return this.makeList(projectMapper.findByTitleAndContent(keyword));
+		default:
+			return null;
+		}
 	}
 }
 

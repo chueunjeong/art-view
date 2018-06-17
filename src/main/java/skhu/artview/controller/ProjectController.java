@@ -45,8 +45,8 @@ public class ProjectController {
 
 	//전체 프로젝트 조회(메인 출력)
 	@RequestMapping("projects")
-	public List<Project> projects() {
-		return projectMapper.findAll();
+	public List<ProjectDetail> projects() {
+		return projectService.makeList(projectMapper.findAll());
 	}
 
 	//프로젝트 클릭 후 조회
@@ -75,7 +75,7 @@ public class ProjectController {
 
 	//프로젝트 작성자/제목/내용/제목+내용으로 검색
 	@RequestMapping("projectSearch")
-	public List<Project> projectSearch(@PathVariable("code") int code, @PathVariable("keyword") String keyword) {
+	public List<ProjectDetail> projectSearch(@PathVariable("code") int code, @PathVariable("keyword") String keyword) {
 		return projectService.search(code, keyword);
 	}
 
