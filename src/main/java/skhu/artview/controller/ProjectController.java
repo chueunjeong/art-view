@@ -51,11 +51,9 @@ public class ProjectController {
 
 	//프로젝트 클릭 후 조회
 	@RequestMapping("project/{id}")
-	public Project projectDetail(@PathVariable("id") int id) {
+	public ProjectDetail projectDetail(@PathVariable("id") int id) {
 		Project project = projectMapper.findOne(id);
-		ProjectDetail projectDetail = new ProjectDetail();
-		projectDetail = projectService.projectMapping(project, projectDetail);
-		return project;
+		return projectService.projectMapping(project);
 	}
 
 	//프로젝트 작성

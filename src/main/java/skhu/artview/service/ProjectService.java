@@ -1,5 +1,6 @@
 package skhu.artview.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,9 @@ public class ProjectService {
 		return p_applyMapper.mem_cnt(projectId);
 	}
 
-	public ProjectDetail projectMapping(Project project, ProjectDetail projectDetail) {
+	public ProjectDetail projectMapping(Project project) {
+
+		ProjectDetail projectDetail = new ProjectDetail();
 		projectDetail.setId(project.getId());
 		projectDetail.setAuthor_id(project.getAuthor_id());
 		projectDetail.setTitle(project.getTitle());
@@ -51,11 +54,20 @@ public class ProjectService {
 		projectDetail.setAppli_cnt(this.appli_cnt(project.getId()));
 		projectDetail.setMem_cnt(this.mem_cnt(project.getId()));
 		return projectDetail;
+
 	}
 
-	//작성 예정
+	//projectList를 projectDetailList로 바꿔주는 메서드
 	public List<ProjectDetail> makeList(List<Project> p_list) {
-		return null;
+		List<ProjectDetail> list = new ArrayList<ProjectDetail>();
+
+		for (int i = 0; i < p_list.size(); i++) {
+			list.add(i,
+			this.projectMapping(p_list.get(i))
+			);
+		}
+
+		return list;
 	}
 
 	public String projectSubmit(Project project, MultipartFile file) {
