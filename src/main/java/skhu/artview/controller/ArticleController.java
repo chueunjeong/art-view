@@ -105,8 +105,7 @@ public class ArticleController {
 	@RequestMapping("articleSearch")
 	public List<Article> articleSearch(@PathVariable("code") int code, @PathVariable("keyword") String keyword) {
 		//작성자=0, 제목=1, 내용=2, 제목+내용=3
-		List<Article> results = null;
-		return results;
+		return articleService.search(code, keyword);
 	}
 
 }

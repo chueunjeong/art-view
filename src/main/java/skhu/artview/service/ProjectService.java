@@ -89,7 +89,7 @@ public class ProjectService {
 		return "등록되었습니다";
 	}
 
-	//작성자=0, 제목=1, 내용=2, 제목+내용=3
+	//작성자=0, 제목=1, 내용=2, 제목+내용=3 검색
 	public List<ProjectDetail> search(int code, String keyword) {
 		switch(code) {
 		case 0:
