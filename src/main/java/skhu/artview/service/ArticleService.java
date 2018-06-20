@@ -11,6 +11,7 @@ import skhu.artview.dto.Comment;
 import skhu.artview.mapper.ArticleMapper;
 import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.UserMapper;
+import skhu.artview.model.ArticleDetail;
 
 @Service
 public class ArticleService {
@@ -24,17 +25,26 @@ public class ArticleService {
         return articleMapper.findAllByBoard(pagination);
     }*/
 
-	public Article articleMapping(Article article) {
+	public ArticleDetail articleMapping(Article article) {
+
+		ArticleDetail articleDetail = new ArticleDetail();
+		articleDetail.setId(article.getId());
+		articleDetail.setBoardId(article.getBoardId());
+		articleDetail.setUserId(article.getUserId());
+		articleDetail.setTitle(article.getTitle());
+		articleDetail.setContent(article.getContent());
+		articleDetail.setHits(article.getHits());
+		articleDetail.setDate(article.getDate());
+
 		List<Comment> comments = commentMapper.findByArticleId(article.getId());
-		article.setComment(comments);
-		article.setAuthor(userMapper.findOne(article.getUserId()));
-		//코멘트 list를 article 객체에 추가했는데 이 방법이 맞나 모르겠다..
-		return article;
+		articleDetail.setComment(comments);
+		articleDetail.setAuthor(userMapper.findOne(article.getUserId()));
+		return articleDetail;
 	}
 
-	//ArticleList를 MappingList로 바꿔주는 메서드
-	public List<Article> makeList(List<Article> list) {
-		List<Article> newList = new ArrayList<Article>();
+	//ArticleList를ArticleDetailList로 바꿔주는 메서드
+	public List<ArticleDetail> makeList(List<Article> list) {
+		List<ArticleDetail> newList = new ArrayList<ArticleDetail>();
 
 		for (int i = 0; i < list.size(); i++) {
 			newList.add(i,
@@ -46,7 +56,7 @@ public class ArticleService {
 	}
 
 	//작성자=0, 제목=1, 내용=2, 제목+내용=3 검색
-	public List<Article> search(int code, String keyword) {
+	public List<ArticleDetail> search(int code, String keyword) {
 		switch(code) {
 		case 0:
 			return this.makeList(articleMapper.findByUserName(keyword));
@@ -59,6 +69,16 @@ public class ArticleService {
 		default:
 			return null;
 		}
+	}
+
+	public List<ArticleDetail> articles(int boardId) {
+		List<Article> articles = articleMapper.findByBoardId(boardId);
+		return this.makeList(articles);
+	}
+
+	public ArticleDetail articleDetail(int id) {
+		Article article = articleMapper.findOne(id);
+		return this.articleMapping(article);
 	}
 
 }

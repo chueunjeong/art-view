@@ -16,6 +16,7 @@ import skhu.artview.mapper.ArticleMapper;
 import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.ProjectMapper;
 import skhu.artview.mapper.UserMapper;
+import skhu.artview.model.ArticleDetail;
 import skhu.artview.service.ArticleService;
 import skhu.artview.service.ProjectService;
 import skhu.artview.service.UserService;
@@ -40,20 +41,14 @@ public class ArticleController {
 
 	//프로젝트별 게시판 출력
 	@RequestMapping(value = "article/{boardId}")
-	public List<Article> articles(@PathVariable("boardId") int boardId) {
-		List<Article> articles = articleMapper.findByBoardId(boardId);
-		for (int i = 0; i < articles.size(); i++) {
-			articles.add(i, articleService.articleMapping(articles.get(i)));
-		}
-		return articles;
+	public List<ArticleDetail> articles(@PathVariable("boardId") int boardId) {
+		return articleService.articles(boardId);
 	}
 
 	//프로젝트별 게시판 게시글+댓글 조회
 	@RequestMapping(value = "article/{id}")
-	public Article articleDetail(@PathVariable("id") int id) {
-		Article article = articleMapper.findOne(id);
-		article = articleService.articleMapping(article);
-		return article;
+	public ArticleDetail articleDetail(@PathVariable("id") int id) {
+		return articleService.articleDetail(id);
 	}
 
 	//프로젝트별 게시판 게시글 작성(나중에 서비스로 분리 예정, 파일서버 파야함)
@@ -103,7 +98,7 @@ public class ArticleController {
 
 	//게시글 작성자/제목/내용/제목+내용으로 검색
 	@RequestMapping("articleSearch")
-	public List<Article> articleSearch(@PathVariable("code") int code, @PathVariable("keyword") String keyword) {
+	public List<ArticleDetail> articleSearch(@PathVariable("code") int code, @PathVariable("keyword") String keyword) {
 		//작성자=0, 제목=1, 내용=2, 제목+내용=3
 		return articleService.search(code, keyword);
 	}
