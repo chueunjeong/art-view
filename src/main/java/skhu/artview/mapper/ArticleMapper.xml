@@ -29,12 +29,23 @@
 		SELECT * FROM article WHERE userId = #{userId}
 	</select>
 	
+	<select id="findByUserName" resultType="Article">
+		SELECT a.* FROM article
+		LEFT JOIN user u ON a.userId = u.id
+		WHERE u.name = #{keyword}
+	</select>
+	
 	<select id="findByTitle" resultType="Article">
-		SELECT * FROM article WHERE title LIKE CONCAT('%', #{title}, '%');
+		SELECT * FROM article WHERE title LIKE CONCAT('%', #{keyword}, '%')
 	</select>
 	
 	<select id="findByContent" resultType="Article">
-		SELECT * FROM article WHERE content LIKE CONCAT('%', #{content}, '%');
+		SELECT * FROM article WHERE content LIKE CONCAT('%', #{keyword}, '%')
+	</select>
+	
+	<select id="findByTitleAndContent" resultType="Article">
+		SELECT * FROM article WHERE title LIKE CONCAT('%', #{keyword}, '%')
+		AND content LIKE CONCAT('%', #{keyword}, '%')
 	</select>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">

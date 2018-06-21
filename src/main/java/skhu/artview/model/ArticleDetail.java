@@ -1,6 +1,11 @@
-package skhu.artview.dto;
+package skhu.artview.model;
 
-public class Article {
+import java.util.List;
+
+import skhu.artview.dto.Comment;
+import skhu.artview.dto.User;
+
+public class ArticleDetail {
 
 	int id;
 	int boardId; //게시글이 소속된 게시판(커뮤니티 id)
@@ -9,6 +14,24 @@ public class Article {
 	String content;
 	int hits;
 	String date;
+	List<Comment> comment;
+	User author; //작성자 객체
+
+	public User getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
+	}
+
+	public List<Comment> getComment() {
+		return comment;
+	}
+
+	public void setComment(List<Comment> comment) {
+		this.comment = comment;
+	}
 
 	public int getId() {
 		return id;

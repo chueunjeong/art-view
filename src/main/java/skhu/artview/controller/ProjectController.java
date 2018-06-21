@@ -45,17 +45,15 @@ public class ProjectController {
 
 	//전체 프로젝트 조회(메인 출력)
 	@RequestMapping("projects")
-	public List<Project> projects() {
-		return projectMapper.findAll();
+	public List<ProjectDetail> projects() {
+		return projectService.makeList(projectMapper.findAll());
 	}
 
 	//프로젝트 클릭 후 조회
 	@RequestMapping("project/{id}")
-	public Project projectDetail(@PathVariable("id") int id) {
+	public ProjectDetail projectDetail(@PathVariable("id") int id) {
 		Project project = projectMapper.findOne(id);
-		ProjectDetail projectDetail = new ProjectDetail();
-		projectDetail = projectService.projectMapping(project, projectDetail);
-		return project;
+		return projectService.projectMapping(project);
 	}
 
 	//프로젝트 작성
@@ -75,10 +73,8 @@ public class ProjectController {
 
 	//프로젝트 작성자/제목/내용/제목+내용으로 검색
 	@RequestMapping("projectSearch")
-	public List<Project> projectSearch(@PathVariable("code") int code, @PathVariable("keyword") String keyword) {
-		//작성자=0, 제목=1, 내용=2, 제목+내용=3
-		List<Project> results = null;
-		return results;
+	public List<ProjectDetail> projectSearch(@PathVariable("code") int code, @PathVariable("keyword") String keyword) {
+		return projectService.search(code, keyword);
 	}
 
 	//프로젝트 신청버튼->신청서 작성(신청서 테이블 추가)
