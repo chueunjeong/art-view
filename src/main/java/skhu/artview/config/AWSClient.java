@@ -1,13 +1,11 @@
 package skhu.artview.config;
 
-//AWS 접속을 위한 설정을 해주는 클래스, gitignore 등록 필요, 등록 후 실제 값을 채워넣어야 함
-//gitIgnoreTest
 public class AWSClient {
 
-	final private String accessKey = "accessKey";
-	final private String secretKey = "secretKey";
-	final private String bucket = "bucket";
-	final private String region = "region";
+	final private String accessKey = "AKIAJLHWKRXEFZOZZDBQ";
+	final private String secretKey = "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";
+	final private String bucket = "artview";
+	final private String region = "ap-northeast-2";
 
 	public String getAccessKey() {
 		return accessKey;
