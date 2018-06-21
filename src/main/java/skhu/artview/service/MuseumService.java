@@ -118,27 +118,27 @@ public class MuseumService {
                     case "DP_ART_PART":
                      	 if(b != null)
                               b.setDP_ART_PART(parser.nextText());
-                    case "DP_DP_ART_CNT":
+                    case "DP_ART_CNT":
                      	 if(b != null)
-                              b.setDP_ART_CNT(parser.nextText());
-                    case "DP_":
+                              b.setDP_ART_CNT(parser.next());
+                    case "DP_DP_ARTIST":
                      	 if(b != null)
-                              b.setDP_(parser.nextText());
-                    case "DP_":
+                              b.setDP_ARTIST(parser.nextText());
+                    case "DP_DP_DOCENT":
                      	 if(b != null)
-                              b.setDP_(parser.nextText());
-                    case "DP_":
+                              b.setDP_DOCENT(parser.nextText());
+                    case "DP_VIEWPOINT":
                      	 if(b != null)
-                              b.setDP_(parser.nextText());
-                    case "DP_":
+                              b.setDP_VIEWPOINT(parser.nextText());
+                    case "DP_MASTER":
                      	 if(b != null)
-                              b.setDP_(parser.nextText());
-                    case "DP_":
+                              b.setDP_MASTER(parser.nextText());
+                    case "DP_PHONE":
                      	 if(b != null)
-                              b.setDP_(parser.nextText());
-                    case "DP_":
+                              b.setDP_PHONE(parser.nextText());
+                    case "DP_INFO":
                      	 if(b != null)
-                              b.setDP_(parser.nextText());
+                              b.setDP_INFO(parser.nextText());
                      	 	      
                         
                     case "DP_MAIN_IMG":
