@@ -4,7 +4,7 @@
 
 <mapper namespace="skhu.artview.mapper.UserMapper">
 
-  <select id="findOne" resultType="User">
+    <select id="findOne" resultType="User">
     SELECT * FROM user WHERE id = #{id}
   </select>
   
@@ -16,6 +16,11 @@
     SELECT  *
     FROM user 
   </select>
+  
+  <select id="findAges" resultType="Age">
+    SELECT  *
+    FROM age
+  </select>
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
     INSERT user (fav_artfield_id, login_id, pwd, name, phone, email, age)
@@ -23,8 +28,8 @@
   </insert>
 
 <insert id="saveNormal" useGeneratedKeys="true" keyProperty="id">
-    INSERT user (login_id,pwd, name, phone, email,age)
-    VALUES (#{login_id},#{pwd}, #{name}, #{phone}, #{email},#{age})
+    INSERT user (login_id, pwd, name, phone, email,age)
+    VALUES (#{login_id}, #{pwd}, #{name}, #{phone}, "",#{age})
   </insert>
 
   <delete id="delete">
@@ -46,3 +51,4 @@
 	</select>
 
 </mapper>
+

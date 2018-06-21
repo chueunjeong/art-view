@@ -1,30 +1,22 @@
+
 package skhu.artview.dto;
 
 public class QnA {
 
 	int id;
-	int boardId;
 	String userId;
 	String title;
 	String content;
-	String date;
 	String type;		//질문, 답변 구분
 	
 	FileDTO file;
-	User username;
+	User user;
 	int hits;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	
-	public int getBoardId() {
-		return boardId;
-	}
-	public void setBoardId(int boardId) {
-		this.boardId = boardId;
 	}
 	public String getUserId() {
 		return userId;
@@ -44,7 +36,6 @@ public class QnA {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
 	public String getType() {
 		return type;
 	}
@@ -57,12 +48,11 @@ public class QnA {
 	public void setFile(FileDTO file) {
 		this.file = file;
 	}
-	
-	public User getUsername() {
-		return username;
+	public User getUser() {
+		return user;
 	}
-	public void setUsername(User username) {
-		this.username = username;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public int getHits() {
 		return hits;
@@ -74,3 +64,4 @@ public class QnA {
 	
 }
 
+>>>>>>> branch 'master' of https://github.com/chueunjeong/art-view.git

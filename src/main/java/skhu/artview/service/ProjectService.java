@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import skhu.artview.dto.FileDTO;
 import skhu.artview.dto.Project;
 import skhu.artview.dto.User;
 import skhu.artview.mapper.FileMapper;
@@ -23,6 +22,7 @@ public class ProjectService {
 	@Autowired ProjectMapper projectMapper;
 	@Autowired FileMapper fileMapper;
 	@Autowired UserMapper userMapper;
+	@Autowired S3Service s3Service;
 
 	S3Uploader s3Uploader = new S3Uploader();
 
@@ -71,16 +71,10 @@ public class ProjectService {
 	}
 
 	public String projectSubmit(Project project, MultipartFile file) {
-		FileDTO uploadFile = new FileDTO();
 
-		String result = s3Uploader.upload(file);
-		if(result.equals("fail"))
+		int fileId = s3Service.fileUpload(file);
+		if(fileId == 000)
 			return "실패하였습니다";
-		else
-			uploadFile.setName(result);
-
-		fileMapper.insert(uploadFile);
-		int fileId = fileMapper.getId(result);
 		project.setFile_id(fileId);
 
 		User user = null; //현재 유저 정보 받아오기

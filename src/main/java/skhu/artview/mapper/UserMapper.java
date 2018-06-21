@@ -9,7 +9,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import skhu.artview.dto.User;;
+import skhu.artview.dto.Age;
+import skhu.artview.dto.User;
 
 @Mapper
 public interface UserMapper {
@@ -18,6 +19,7 @@ public interface UserMapper {
 	User findOneByLoginId(String login_id);
 	List <User> findAll();
 	void insert (User user);
+	List <Age> findAges();
 
 	void saveNormal (User user); //일반회원 테스트용
 	void delete (int id);
@@ -26,3 +28,4 @@ public interface UserMapper {
 	List<User> findMyMember(int projectId); //프로젝트 멤버 리스트
 
 }
+
