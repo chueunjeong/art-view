@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import skhu.artview.dto.Age;
 import skhu.artview.dto.User;
 import skhu.artview.mapper.UserMapper;
 import skhu.artview.service.UserService;
@@ -39,7 +40,12 @@ public class GuestController {
     //회원가입
     @PostMapping("/sign-up")
     public String signUp(@RequestBody User user, Model model, HttpServletRequest request) {
-     user.setPwd(bCryptPasswordEncoder.encode(user.getPwd()));
+    	user.setLogin_id(user.getLogin_id());
+    	user.setPwd(bCryptPasswordEncoder.encode(user.getPwd()));
+    	user.setName(user.getName());
+    	user.setPhone(user.getPhone());
+    	//user.setFav_artfield_id(user.getFav_artfield_id());
+    	user.setAge(user.getAge());
         userMapper.saveNormal(user);
         return "회원가입 성공";
     }
@@ -48,6 +54,12 @@ public class GuestController {
     @RequestMapping("/list")
     public List<User> list () {
     	return userMapper.findAll();
+    }
+
+    //연령대 조회
+    @RequestMapping("/ages")
+    public List<Age> FindAges(@RequestBody Age age, Model model, HttpServletRequest request) {
+    	return userMapper.findAges();
     }
 
 	// 회원 아이디 조회
