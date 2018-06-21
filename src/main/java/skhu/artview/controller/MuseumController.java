@@ -16,7 +16,7 @@ import skhu.artview.model.Item;
 import skhu.artview.service.MuseumService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("api")
 public class MuseumController {
 
