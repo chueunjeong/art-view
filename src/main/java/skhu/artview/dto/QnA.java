@@ -63,5 +63,3 @@ public class QnA {
 	
 	
 }
-
->>>>>>> branch 'master' of https://github.com/chueunjeong/art-view.git
