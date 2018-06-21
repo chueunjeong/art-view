@@ -21,11 +21,11 @@
 	</select>
 	
 	<select id="findMyApplicant" resultType="P_apply">
-		SELECT * FROM p_apply WHERE state = 0;
+		SELECT * FROM p_apply WHERE state = 0 AND projectId = #{projectId}
 	</select>
 	
 	<select id="findMyMember" resultType="P_apply">
-		SELECT * FROM p_apply WHERE state = 1;
+		SELECT * FROM p_apply WHERE state = 1 AND projectId = #{projectId}
 	</select>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
@@ -45,13 +45,13 @@
 	<select id="appli_cnt" resultType="Integer">
 		SELECT count(*)
 		FROM p_apply
-		WHERE state = 0 and projectId = #{projectId}
+		WHERE state = 0 AND projectId = #{projectId}
 	</select>
 	
 	<select id="mem_cnt" resultType="Integer">
 		SELECT count(*)
 		FROM p_apply
-		WHERE state = 1 and projectId = #{projectId}
+		WHERE state = 1 AND projectId = #{projectId}
 	</select>
 
 </mapper>

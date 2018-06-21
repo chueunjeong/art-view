@@ -5,7 +5,6 @@ package skhu.artview.dto;
  * DB에서 int(10)unsigned으로 정의했습니다.
  * 그래서 width와 height의 타입을 long으로 했습니다.
  */
-import java.sql.Date;
 
 public class Artwork {
 
@@ -14,7 +13,7 @@ public class Artwork {
 	private int artfield_id;
 	private int exhibition_id;
 	private String title;
-	private Date year;
+	private String year;
 	private long width;
 	private long height;
 	private String material;
@@ -51,10 +50,10 @@ public class Artwork {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Date getYear() {
+	public String getYear() {
 		return year;
 	}
-	public void setYear(Date year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 	public long getWidth() {

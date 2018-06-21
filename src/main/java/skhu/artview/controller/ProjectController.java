@@ -12,24 +12,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import skhu.artview.dto.P_apply;
 import skhu.artview.dto.Project;
-import skhu.artview.dto.User;
 import skhu.artview.mapper.ArticleMapper;
 import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.P_applyMapper;
 import skhu.artview.mapper.ProjectMapper;
 import skhu.artview.mapper.UserMapper;
-import skhu.artview.service.CommuService;
+import skhu.artview.model.ProjectDetail;
+import skhu.artview.service.ProjectService;
 import skhu.artview.service.UserService;
 
 @RestController
 @CrossOrigin
 @RequestMapping("api")
-public class CommuController {
+public class ProjectController {
 
-	@Autowired CommuService commuService;
+	@Autowired ProjectService projectService;
 	@Autowired ProjectMapper projectMapper;
 	@Autowired UserService userService;
 	@Autowired UserMapper userMapper;
@@ -44,33 +45,22 @@ public class CommuController {
 
 	//전체 프로젝트 조회(메인 출력)
 	@RequestMapping("projects")
-	public List<Project> projects() {
-		return projectMapper.findAll();
+	public List<ProjectDetail> projects() {
+		return projectService.makeList(projectMapper.findAll());
 	}
 
 	//프로젝트 클릭 후 조회
 	@RequestMapping("project/{id}")
-	public Project projectDetail(@PathVariable("id") int id) {
+	public ProjectDetail projectDetail(@PathVariable("id") int id) {
 		Project project = projectMapper.findOne(id);
-		project = commuService.projectMapping(project);
-		return project;
+		return projectService.projectMapping(project);
 	}
 
 	//프로젝트 작성
-	@RequestMapping(value = "project", method = RequestMethod.GET)
-	public User projectSubmit() {
-		User user = null; //현재 유저 정보 받아오기
-		return user;
-	}
-
-	/*//프로젝트 작성(파일 업로드용 서버를 정해야 함...ㅠㅠ)
 	@RequestMapping(value = "project", method = RequestMethod.POST)
-	public String projectSubmit(@RequestBody Project project) {
-		User user = UserService.getCurrentUser(); //현재 유저 정보 받아오기
-		project.add(user.getId());
-		projectMapper.insert(project);
-		return "등록되었습니다";
-	}*/
+	public String projectSubmit(@RequestBody Project project, @RequestBody MultipartFile file) {
+		return projectService.projectSubmit(project, file);
+	}
 
 	//프로젝트 삭제
 	@RequestMapping(value = "project/{id}", method = RequestMethod.DELETE)
@@ -83,10 +73,8 @@ public class CommuController {
 
 	//프로젝트 작성자/제목/내용/제목+내용으로 검색
 	@RequestMapping("projectSearch")
-	public List<Project> projectSearch(@PathVariable("code") int code, @PathVariable("keyword") String keyword) {
-		//작성자=0, 제목=1, 내용=2, 제목+내용=3
-		List<Project> results = null;
-		return results;
+	public List<ProjectDetail> projectSearch(@PathVariable("code") int code, @PathVariable("keyword") String keyword) {
+		return projectService.search(code, keyword);
 	}
 
 	//프로젝트 신청버튼->신청서 작성(신청서 테이블 추가)

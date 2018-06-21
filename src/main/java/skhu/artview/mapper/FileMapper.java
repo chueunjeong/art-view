@@ -10,8 +10,9 @@ import skhu.artview.dto.FileDTO;
 public interface FileMapper {
 	FileDTO findOne(int id);
 	List<FileDTO> findAll();
-	void fileUpload(FileDTO file);
+	void insert(FileDTO file);
 	void update(FileDTO file);
 	void delete(int id);
-	String getImage(int id);
+	String getName(int id);
+	int getId(String name);
 }

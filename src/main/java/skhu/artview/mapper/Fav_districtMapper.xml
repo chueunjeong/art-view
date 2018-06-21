@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.artview.mapper.Fav_districtMapper">
+
+	<select id="findOne" resultType="Fav_district"> 
+		SELECT * 
+		FROM fav_district
+		WHERE id = #{id} 
+	</select>
+		
+	<select id="findByUserId" resultType="Fav_district">
+		SELECT *
+		FROM fav_district
+		WHERE user_id = #{user_id}
+	</select>
+	
+	<select id="findByDistrictId" resultType="Fav_district">
+		SELECT *
+		FROM fav_district
+		WHERE district_id = #{district_id}
+	</select>
+	
+	<select id="findAll" resultType="Fav_district"> 
+		SELECT *
+		FROM fav_district
+	</select>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT fav_district (user_id, district_id)
+	  	VALUES (#{user_id}, #{district_id)
+	</insert>
+	
+	<update id="update">
+		UPDATE fav_district SET user_id = #{user_id}, district_id = #{district_id}
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="delete">
+	    DELETE FROM fav_district WHERE id = #{id}
+	</delete>
+	
+</mapper>

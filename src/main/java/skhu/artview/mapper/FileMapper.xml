@@ -12,23 +12,28 @@
 		SELECT * FROM file
 	</select>
 	
-	<select id="getImage" resultType="String">
-		select path from file
-		where id=#{id}
+	<select id="getName" resultType="String">
+		select name from file
+		where id = #{id}
 	</select>
 	
-	<insert id="fileUpload" useGeneratedKeys="true" keyProperty="id">
-		INSERT file (path)
-		VALUES (#{path})
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+		INSERT file (name)
+		VALUES (#{name})
 	</insert>
 	
 	<update id="update">
-		UPDATE file SET path = #{path}
+		UPDATE file SET name = #{name}
 		WHERE id = #{id}
 	</update>
 	
 	<delete id="delete">
 	    DELETE FROM file WHERE id = #{id}
 	</delete>
+	
+	<select id="getId" resultType="Integer">
+		select id from file
+		where name = #{name}
+	</select>
 
 </mapper>

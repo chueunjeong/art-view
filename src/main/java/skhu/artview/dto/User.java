@@ -1,5 +1,6 @@
 
 package skhu.artview.dto;
+/*전민선 : Mypage에서 프로필 소개용 picture_path, introMessage 칼럼 추가해야됩니다.*/
 
 public class User {
 
@@ -11,7 +12,11 @@ public class User {
 	String phone;
 	String email;
 	int age;
-	UserType userType;
+	String user_type;
+	
+	int file_id;
+	String introMessage;
+	
 //constructor
 	public User() {};
 	public User(int id, int fav_artfield_id, String login_id, String pwd, String name, String phone, String email,
@@ -25,7 +30,7 @@ public class User {
 		this.phone = phone;
 		this.email = email;
 		this.age = age;
-		this.userType =UserType.NORMAL;
+		this.user_type ="artist";
 	}
 //getter&setter
 	public int getId() {
@@ -75,6 +80,25 @@ public class User {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+	public String getUser_type() {
+		return user_type;
+	}
+	public void setUser_type(String user_type) {
+		this.user_type = user_type;
+	}
+	
+	public int getFile_id() {
+		return file_id;
+	}
+	public void setFile_id(int file_id) {
+		this.file_id = file_id;
+	}
+	public String getIntroMessage() {
+		return introMessage;
+	}
+	public void setIntroMessage(String introMessage) {
+		this.introMessage = introMessage;
 	}
 
 

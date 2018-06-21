@@ -1,6 +1,7 @@
 package skhu.artview.dto;
 
-public class FileDTO {
+public class City {
+
 	int id;
 	String name;
 

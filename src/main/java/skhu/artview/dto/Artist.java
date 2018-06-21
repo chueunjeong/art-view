@@ -1,6 +1,5 @@
 
 package skhu.artview.dto;
-
 public class Artist extends User {
 
 	int id;
@@ -9,6 +8,7 @@ public class Artist extends User {
 	int fav_district_id;
 	String major;
 	String career;
+
 
 //constructor
 	public Artist(int id, int fav_artfield_id, String login_id, String pwd, String name, String phone, String email,

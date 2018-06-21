@@ -1,6 +1,5 @@
 package skhu.artview.dto;
 
-import java.sql.Date;
 
 public class Exhibition {
 
@@ -8,8 +7,8 @@ public class Exhibition {
 	private int grouping_id;
 	private int pexhibition_id;
 	private int artfield_id;
-	private Date start_date;
-	private Date end_date;
+	private String start_date;
+	private String end_date;
 	private String subject;
 	private String description;
 	private int finish_Exhibition_count;
@@ -38,16 +37,16 @@ public class Exhibition {
 	public void setArtfield_id(int artfield_id) {
 		this.artfield_id = artfield_id;
 	}
-	public Date getStart_date() {
+	public String getStart_date() {
 		return start_date;
 	}
-	public void setStart_date(Date start_date) {
+	public void setStart_date(String start_date) {
 		this.start_date = start_date;
 	}
-	public Date getEnd_date() {
+	public String getEnd_date() {
 		return end_date;
 	}
-	public void setEnd_date(Date end_date) {
+	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
 	}
 	public String getSubject() {

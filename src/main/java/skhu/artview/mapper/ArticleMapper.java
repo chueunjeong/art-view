@@ -15,8 +15,10 @@ public interface ArticleMapper {
 	List<Article> findAll();
 	List<Article> findByBoardId(int boardId);
 	List<Article> findByUserId(int userId);
-	List<Article> findByTitle(String title);
-	List<Article> findByContent(String content);
+	List<Article> findByUserName(String keyword);
+	List<Article> findByTitle(String keyword);
+	List<Article> findByContent(String keyword);
+	List<Article> findByTitleAndContent(String keyword);
 	void insert(Article article);
 	void update(Article article);
 	void delete(int id);

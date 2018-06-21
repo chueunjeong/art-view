@@ -1,69 +1,65 @@
 package skhu.artview.dto;
 
-public class Article {
+public class QnA {
 
 	int id;
-	int boardId; //게시글이 소속된 게시판(커뮤니티 id)
-	int userId;
+	String userId;
 	String title;
 	String content;
+	String type;		//질문, 답변 구분
+	
+	FileDTO file;
+	User user;
 	int hits;
-	String date;
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public int getBoardId() {
-		return boardId;
-	}
-
-	public void setBoardId(int boardId) {
-		this.boardId = boardId;
-	}
-
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-
 	public String getTitle() {
 		return title;
 	}
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 	public String getContent() {
 		return content;
 	}
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public FileDTO getFile() {
+		return file;
+	}
+	public void setFile(FileDTO file) {
+		this.file = file;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public int getHits() {
 		return hits;
 	}
-
 	public void setHits(int hits) {
 		this.hits = hits;
 	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
-
+	
+	
 }
+

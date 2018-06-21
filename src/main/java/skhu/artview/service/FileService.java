@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -50,8 +49,8 @@ public class FileService {
 			return 0;
 		}
 
-		fdto.setPath(relPath);
-		fileMapper.fileUpload(fdto);
+		//fdto.setPath(relPath);
+		//fileMapper.fileUpload(fdto);
 
 		return fdto.getId();
 	}
@@ -60,20 +59,20 @@ public class FileService {
 		FileDTO uploadedfile = fileMapper.findOne(id);
 	      if (uploadedfile == null)
 	         return;
-	      String fileName=(uploadedfile.getPath()).substring(11);
+	      String fileName=null;
 
-	      String filePath = (uploadedfile.getPath()).substring(0, 11);
+	      String filePath =null;;
 
 	      filePath+=fileName;
 
 	      Path path = Paths.get(filePath);
 
-	      uploadedfile.setData(Files.readAllBytes(path));
+	      //uploadedfile.setData(Files.readAllBytes(path));
 
 	      response.setContentType("application/octet-stream");
 	      response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(fileName,"UTF-8") + ";");
 	      try (BufferedOutputStream output = new BufferedOutputStream(response.getOutputStream())) {
-	         output.write(uploadedfile.getData());
+	         //output.write(uploadedfile.getData());
 	      }
 	}
 
@@ -96,7 +95,7 @@ public class FileService {
 	    if (uploadedfile == null)
 	    	return null;
 
-		String fileName=(uploadedfile.getPath()).substring(25);
+		String fileName=null;
 		return fileName;
 	}
 
