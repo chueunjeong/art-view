@@ -7,6 +7,7 @@ public class QnA {
 	String userId;
 	String title;
 	String content;
+	String date;
 	String type;		//질문, 답변 구분
 	
 	FileDTO file;
@@ -43,6 +44,7 @@ public class QnA {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
 	public String getType() {
 		return type;
 	}
