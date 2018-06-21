@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+             "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="skhu.artview.mapper.QnAMapper">
+	
+	<select id="findAllQ" resultType="QnA">
+	    <bind name="start" value="(pg - 1) * sz" />
+	    SELECT q.*, u.name "Username" 
+	    FROM qna q LEFT JOIN user u ON q.userId==u.id
+	    WHERE q.type='question'
+	    LIMIT ${start}, ${sz}
+	</select>
+	
+
+	<select id="findOne" resultType="QnA">
+		SELECT * FROM qna WHERE id = #{id}
+	</select>
+
+	<select id="findByBoardId" resultType="QnA">
+		SELECT * FROM qna WHERE boardId = #{boardId}
+	</select>
+	
+	<select id="findByUserId" resultType="QnA">
+		SELECT * FROM qna WHERE userId = #{userId}
+	</select>
+	
+	<select id="findByUsername" resultType="QnA">
+		SELECT q.*, u.name  "username" FROM qna q
+		LEFT JOIN user u ON q.userId = u.id
+		WHERE u.name = #{keyword}
+	</select>
+	
+	<select id="findByTitle" resultType="QnA">
+		SELECT * FROM qna WHERE title LIKE CONCAT('%', #{keyword}, '%')
+	</select>
+	
+	<select id="findByContent" resultType="QnA">
+		SELECT * FROM qna WHERE content LIKE CONCAT('%', #{keyword}, '%')
+	</select>
+	
+	<select id="findByTitleAndContent" resultType="QnA">
+		SELECT * FROM qna WHERE title LIKE CONCAT('%', #{keyword}, '%')
+		or content LIKE CONCAT('%', #{keyword}, '%')
+	</select>
+	
+	<insert id="insertQ" useGeneratedKeys="true" keyProperty="id">
+		INSERT qna (boardId, userId, title, content, date, type)
+	  	VALUES (#{boardId}, #{userId}, #{title}, #{content}, now(), 'question')
+	</insert>
+	
+	<insert id="insertA" useGeneratedKeys="true" keyProperty="id">
+		INSERT qna (boardId, userId, title, content, date, type)
+	  	VALUES (#{boardId}, #{userId}, #{title}, #{content}, now(), 'answer')
+	</insert>
+	
+	
+	
+	<update id="updateQ">
+		UPDATE qna SET title = #{title}, context = #{content}
+		WHERE id = #{id} and type='question'
+	</update>
+	
+	
+	<update id="updateA">
+		UPDATE qna SET title = #{title}, context = #{content}
+		WHERE id = #{id} and type = 'answer'
+	</update>
+	
+	<delete id="delete">
+	    DELETE FROM qna WHERE id = #{id}
+	</delete>
+
+</mapper>
