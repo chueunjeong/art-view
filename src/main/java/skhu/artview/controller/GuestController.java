@@ -21,7 +21,7 @@ import skhu.artview.mapper.UserMapper;
 import skhu.artview.service.UserService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("api")
 public class GuestController {
 
@@ -58,7 +58,7 @@ public class GuestController {
 
     //연령대 조회
     @RequestMapping("/ages")
-    public List<Age> FindAges(@RequestBody Age age, Model model, HttpServletRequest request) {
+    public List<Age> FindAges(Model model, HttpServletRequest request) {
     	return userMapper.findAges();
     }
 

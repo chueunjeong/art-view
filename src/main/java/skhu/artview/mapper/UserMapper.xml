@@ -19,7 +19,7 @@
   
   <select id="findAges" resultType="Age">
     SELECT  *
-    FROM Age
+    FROM age
   </select>
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
