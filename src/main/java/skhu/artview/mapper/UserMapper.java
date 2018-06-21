@@ -10,7 +10,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import skhu.artview.dto.Age;
-import skhu.artview.dto.User;;
+import skhu.artview.dto.User;
 
 @Mapper
 public interface UserMapper {
