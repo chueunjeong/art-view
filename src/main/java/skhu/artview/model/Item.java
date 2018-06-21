@@ -20,7 +20,7 @@ public class Item {
 	private String DP_SPONSOR; //주최및후원
 	private String DP_VIEWTIME; //전시(관람)시간
 	private String DP_ART_PART; // 전시 부문
-	private int DP_APR_CNT; //작품수
+	private int DP_ART_CNT; //작품수
 	private String DP_ARTIST; //출품작가
 	private String DP_DOCENT; //도슨트
 	private String DP_VIEWPOINT; //관람포인트
@@ -124,11 +124,12 @@ public class Item {
 	public void setDP_ART_PART(String dP_ART_PART) {
 		DP_ART_PART = dP_ART_PART;
 	}
-	public int getDP_APR_CNT() {
-		return DP_APR_CNT;
+	
+	public int getDP_ART_CNT() {
+		return DP_ART_CNT;
 	}
-	public void setDP_APR_CNT(int dP_APR_CNT) {
-		DP_APR_CNT = dP_APR_CNT;
+	public void setDP_ART_CNT(int dP_ART_CNT) {
+		DP_ART_CNT = dP_ART_CNT;
 	}
 	public String getDP_ARTIST() {
 		return DP_ARTIST;
