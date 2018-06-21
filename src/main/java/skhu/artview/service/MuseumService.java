@@ -85,10 +85,7 @@ public class MuseumService {
                             b.setSubtitle(parser.nextText());
                     case "DP_PLACE":
                    	 if(b != null)
-                            b.setPlace(parser.nextText());
-                    case "DP_LAN":
-                   	 if(b != null)
-                            b.setDP_LAN(parser.nextText());
+                            b.setDP_PLACE(parser.nextText());
                     case "DP_START":
                    	 if(b != null)
                             b.setDP_START(parser.nextText());

@@ -10,7 +10,7 @@ public class Item {
 	private String image;	//대표이미지
 	private String price;	//관람료(원)
 	
-	private String DP_place;//전시 장소
+	private String DP_PLACE;//전시 장소
 	private String DP_LAN;	//언어 구분
 	private String DP_START;//전시시작시간
 	private String DP_END; //전시끝기간
@@ -63,11 +63,12 @@ public class Item {
 	public void setSubtitle(String subtitle) {
 		this.subtitle = subtitle;
 	}
-	public String getDP_place() {
-		return DP_place;
+	
+	public String getDP_PLACE() {
+		return DP_PLACE;
 	}
-	public void setDP_place(String dP_place) {
-		DP_place = dP_place;
+	public void setDP_PLACE(String dP_PLACE) {
+		DP_PLACE = dP_PLACE;
 	}
 	public String getDP_LAN() {
 		return DP_LAN;
