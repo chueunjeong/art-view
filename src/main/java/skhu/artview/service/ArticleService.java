@@ -5,9 +5,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import skhu.artview.dto.Article;
 import skhu.artview.dto.Comment;
+import skhu.artview.dto.User;
 import skhu.artview.mapper.ArticleMapper;
 import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.UserMapper;
@@ -18,6 +20,7 @@ public class ArticleService {
 	@Autowired ArticleMapper articleMapper;
 	@Autowired CommentMapper commentMapper;
 	@Autowired UserMapper userMapper;
+	@Autowired S3Service s3Service;
 
 	/*public List<Article> findAll(Pagination pagination) {
         int count = articleMapper.count(pagination);
@@ -35,6 +38,7 @@ public class ArticleService {
 		articleDetail.setContent(article.getContent());
 		articleDetail.setHits(article.getHits());
 		articleDetail.setDate(article.getDate());
+		articleDetail.setFile_id(article.getFile_id());
 
 		List<Comment> comments = commentMapper.findByArticleId(article.getId());
 		articleDetail.setComment(comments);
@@ -79,6 +83,28 @@ public class ArticleService {
 	public ArticleDetail articleDetail(int id) {
 		Article article = articleMapper.findOne(id);
 		return this.articleMapping(article);
+	}
+
+	public String articleSubmit(Article article, MultipartFile file) {
+		int fileId = s3Service.fileUpload(file);
+		if(fileId == 000)
+			return "실패하였습니다";
+		article.setFile_id(fileId);
+
+		User user = null; //현재 유저 정보 받아오기
+		article.setUserId(user.getId());
+		articleMapper.insert(article); //insert mapper만들어야 함
+		return "등록되었습니다";
+	}
+
+	public String articleEdit(Article article) {
+		articleMapper.update(article);
+		return "수정되었습니다";
+	}
+
+	public String articleDelete(int id) {
+		articleMapper.delete(id);
+		return "삭제되었습니다";
 	}
 
 }

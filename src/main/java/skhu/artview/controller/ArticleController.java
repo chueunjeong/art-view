@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import skhu.artview.dto.Article;
 import skhu.artview.dto.Comment;
@@ -51,27 +52,22 @@ public class ArticleController {
 		return articleService.articleDetail(id);
 	}
 
-	//프로젝트별 게시판 게시글 작성(나중에 서비스로 분리 예정, 파일서버 파야함)
-/*	@RequestMapping(value = "article/{id}", method = RequestMethod.POST)
-	public String articleSubmit(@RequestBody Article article) {
-		User user = UserService.getCurrentUser(); //현재 유저 정보 받아오기
-		article.add(user.getId());
-		articleMapper.insert(article);
-		return "등록되었습니다";
-	}*/
+	//프로젝트별 게시판 게시글 작성
+	@RequestMapping(value = "article/{id}", method = RequestMethod.POST)
+	public String articleSubmit(@RequestBody Article article, @RequestBody MultipartFile file) {
+		return articleService.articleSubmit(article, file);
+	}
 
 	//프로젝트별 게시판 게시글 수정
 	@RequestMapping(value = "article/{id}", method = RequestMethod.PUT)
-	public void articleEdit(@RequestBody Article article) {
-		articleMapper.update(article);
-		//return "수정되었습니다";
+	public String articleEdit(@RequestBody Article article) {
+		return articleService.articleEdit(article);
 	}
 
 	//프로젝트별 게시판 게시글 삭제
 	@RequestMapping(value = "article/{id}", method = RequestMethod.DELETE)
-	public void articleDelete(@PathVariable("id") int id) {
-		articleMapper.delete(id);
-		//return "삭제되었습니다";
+	public String articleDelete(@PathVariable("id") int id) {
+		return articleService.articleDelete(id);
 	}
 
 	//프로젝트별 게시판 게시글 댓글 작성
