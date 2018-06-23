@@ -47,13 +47,13 @@ public class AdminController {
 
 	//공지사항 게시판 게시글 수정
 	@RequestMapping(value = "article/{id}", method = RequestMethod.PUT)
-	public String articleEdit(@RequestBody Article article) {
+	public String noticeEdit(@RequestBody Article article) {
 		return articleService.articleEdit(article);
 	}
 
 	//공지사항 게시판 게시글 삭제
 	@RequestMapping(value = "article/{id}", method = RequestMethod.DELETE)
-	public String articleDelete(@PathVariable("id") int id) {
+	public String noticeDelete(@PathVariable("id") int id) {
 		return articleService.articleDelete(id);
 	}
 
