@@ -85,6 +85,14 @@ public class ArticleService {
 		return this.articleMapping(article);
 	}
 
+	//파일 없을 경우
+	public String articleSubmit(Article article) {
+		User user = null; //현재 유저 정보 받아오기
+		article.setUserId(user.getId());
+		articleMapper.insert(article); //insert mapper만들어야 함
+		return "등록되었습니다";
+	}
+
 	public String articleSubmit(Article article, MultipartFile file) {
 		int fileId = s3Service.fileUpload(file);
 		if(fileId == 000)
