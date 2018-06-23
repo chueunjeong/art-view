@@ -52,8 +52,7 @@ public class ProjectController {
 	//프로젝트 클릭 후 조회
 	@RequestMapping("project/{id}")
 	public ProjectDetail projectDetail(@PathVariable("id") int id) {
-		Project project = projectMapper.findOne(id);
-		return projectService.projectMapping(project);
+		return projectService.projectDetail(id);
 	}
 
 	//프로젝트 작성
@@ -65,8 +64,7 @@ public class ProjectController {
 	//프로젝트 삭제
 	@RequestMapping(value = "project/{id}", method = RequestMethod.DELETE)
 	public String projectDelete(@PathVariable("id") int id) {
-		projectMapper.delete(id);
-		return "삭제되었습니다";
+		return projectService.projectDelete(id);
 	}
 
 	//프로젝트 수정 불가 방침으로, 컨트롤러 없음
@@ -79,11 +77,10 @@ public class ProjectController {
 
 	//프로젝트 신청버튼->신청서 작성(신청서 테이블 추가)
 	@RequestMapping(value = "project/{id}/p_apply", method = RequestMethod.POST)
-	public void projectApply(@PathVariable("id") int id, @RequestBody P_apply p_apply) {
+	public String projectApply(@PathVariable("id") int id, @RequestBody P_apply p_apply) {
 		//User user = UserService.getCurrentUser(); //현재 유저 정보 받아오기
 		//p_apply.setUserId(user.getId());
-		p_apply.setProjectId(id);
-		p_applyMapper.insert(p_apply);
+		return projectService.projectApply(id, p_apply);
 	}
 
 }

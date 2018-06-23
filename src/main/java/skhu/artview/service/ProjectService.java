@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import skhu.artview.dto.P_apply;
 import skhu.artview.dto.Project;
 import skhu.artview.dto.User;
 import skhu.artview.mapper.FileMapper;
@@ -97,6 +98,24 @@ public class ProjectService {
 		default:
 			return null;
 		}
+	}
+
+	public ProjectDetail projectDetail(int id) {
+		Project project = projectMapper.findOne(id);
+		return this.projectMapping(project);
+	}
+
+	public String projectDelete(int id) {
+		projectMapper.delete(id);
+		return "삭제되었습니다";
+	}
+
+	public String projectApply(int id, P_apply p_apply) {
+		//User user = UserService.getCurrentUser(); //현재 유저 정보 받아오기
+		//p_apply.setUserId(user.getId());
+		p_apply.setProjectId(id);
+		p_applyMapper.insert(p_apply);
+		return "신청되었습니다";
 	}
 }
 
