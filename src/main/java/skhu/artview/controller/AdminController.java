@@ -2,6 +2,7 @@ package skhu.artview.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,6 +43,18 @@ public class AdminController {
 	@RequestMapping(value = "article/{id}", method = RequestMethod.POST)
 	public String noticeSubmit(@RequestBody Article article, @RequestBody MultipartFile file) {
 		return articleService.articleSubmit(article, file);
+	}
+
+	//공지사항 게시판 게시글 수정
+	@RequestMapping(value = "article/{id}", method = RequestMethod.PUT)
+	public String articleEdit(@RequestBody Article article) {
+		return articleService.articleEdit(article);
+	}
+
+	//공지사항 게시판 게시글 삭제
+	@RequestMapping(value = "article/{id}", method = RequestMethod.DELETE)
+	public String articleDelete(@PathVariable("id") int id) {
+		return articleService.articleDelete(id);
 	}
 
 }
