@@ -9,6 +9,15 @@ public class Article {
 	String content;
 	int hits;
 	String date;
+	int file_id;
+
+	public int getFile_id() {
+		return file_id;
+	}
+
+	public void setFile_id(int file_id) {
+		this.file_id = file_id;
+	}
 
 	public int getId() {
 		return id;
