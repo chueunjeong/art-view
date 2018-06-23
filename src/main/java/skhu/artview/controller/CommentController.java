@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import skhu.artview.dto.Comment;
 import skhu.artview.mapper.CommentMapper;
+import skhu.artview.service.CommentService;
 
 @RestController
 @CrossOrigin
@@ -17,27 +18,26 @@ import skhu.artview.mapper.CommentMapper;
 public class CommentController {
 
 	@Autowired CommentMapper commentMapper;
+	@Autowired CommentService commentService;
 
 	//프로젝트별 게시판 게시글 댓글 작성
 	@RequestMapping(value = "comment/{id}", method = RequestMethod.POST)
-	public void commentSubmit(@RequestBody Comment comment) {
+	public String commentSubmit(@RequestBody Comment comment, @PathVariable("article_id") int article_id) {
 		//User user = UserService.getCurrentUser(); //현재 유저 정보 받아오기
 		//article.add(user.getId());
-		commentMapper.insertComment(comment);
-		//return "등록되었습니다";
+		return commentService.commentSubmit(comment, article_id);
 	}
 
 	//프로젝트별 게시판 게시글 댓글 수정
 	@RequestMapping(value = "comment/{id}", method = RequestMethod.PUT)
-	public void commentEdit(@PathVariable("id") int id) {
-		commentMapper.updateContext(id);
+	public String commentEdit(@PathVariable("id") int id) {
+		return commentService.commentEdit(id);
 	}
 
 	//프로젝트별 게시판 게시글 댓글 삭제
 	@RequestMapping(value = "comment/{id}", method = RequestMethod.DELETE)
-	public void commentDelete(@PathVariable("id") int id) {
-		commentMapper.delete(id);
-		//return "삭제되었습니다";
+	public String commentDelete(@PathVariable("id") int id) {
+		return commentService.commentDelete(id);
 	}
 
 }
