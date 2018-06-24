@@ -33,26 +33,26 @@ public class AdminController {
 
 	/*작성자: 남하영*/
 
-	//공지사항 게시판 게시글 작성(파일x)
-	@RequestMapping(value = "article/{id}", method = RequestMethod.POST)
+/*	//공지사항 게시판 게시글 작성(파일x)
+	@RequestMapping(value = "notice/{id}", method = RequestMethod.POST)
 	public String noticeSubmit(@RequestBody Article article) {
 		return articleService.articleSubmit(article);
-	}
+	}*/
 
 	//공지사항 게시판 게시글 작성(파일o)
-	@RequestMapping(value = "article/{id}", method = RequestMethod.POST)
-	public String noticeSubmit(@RequestBody Article article, @RequestBody MultipartFile file) {
+	@RequestMapping(value = "notice/{id}", method = RequestMethod.POST)
+	public String noticeSubmit2(@RequestBody Article article, @RequestBody MultipartFile file) {
 		return articleService.articleSubmit(article, file);
 	}
 
 	//공지사항 게시판 게시글 수정
-	@RequestMapping(value = "article/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "notice/{id}", method = RequestMethod.PUT)
 	public String noticeEdit(@RequestBody Article article) {
 		return articleService.articleEdit(article);
 	}
 
 	//공지사항 게시판 게시글 삭제
-	@RequestMapping(value = "article/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "notice/{id}", method = RequestMethod.DELETE)
 	public String noticeDelete(@PathVariable("id") int id) {
 		return articleService.articleDelete(id);
 	}
