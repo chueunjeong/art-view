@@ -1,17 +1,20 @@
 
 package skhu.artview.dto;
 
-public class QnA {
+public class Question {
 
 	int id;
 	String userId;
 	String title;
 	String content;
-	String type;		//질문, 답변 구분
 	
 	FileDTO file;
 	User user;
 	int hits;
+	
+	Answer answer;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -36,12 +39,7 @@ public class QnA {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+	
 	public FileDTO getFile() {
 		return file;
 	}
@@ -60,6 +58,13 @@ public class QnA {
 	public void setHits(int hits) {
 		this.hits = hits;
 	}
+	public Answer getAnswer() {
+		return answer;
+	}
+	public void setAnswer(Answer answer) {
+		this.answer = answer;
+	}
+	
 	
 	
 }
