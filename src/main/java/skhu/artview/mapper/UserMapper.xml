@@ -68,22 +68,22 @@
 	</select>
 	
 	<select id="findByEmail"  resultType="User">
-		SELECT * FROM User WHERE email = #{email}
+		SELECT * FROM user WHERE email = #{email}
 	</select>
 	
 	<select id="findByEmailAndName"  resultType="User">
-		SELECT * FROM User WHERE email = #{email} and name = #{name}
+		SELECT * FROM user WHERE email = #{email} and name = #{name}
 	</select>
 
 	
 
 	<update id="updatePassword">
-		UPDATE User SET
+		UPDATE user SET
 		password = #{password}
 		WHERE email = #{email} 
 	</update>
 	<update id="updateEnabled">
-		UPDATE User SET
+		UPDATE user SET
 		enabled=1
 		WHERE email = #{email} 
 	</update>
