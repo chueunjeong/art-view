@@ -80,7 +80,7 @@ UserMapper userMapper;
 	
 	
 
-	@RequestMapping(value = "newPassword", produces = "application/json; charset=utf8",
+	@RequestMapping(value = "newPassword", 
 						method = RequestMethod.POST)
 	public String newPassword(@RequestBody EmailAndName en) throws MessagingException {
 
