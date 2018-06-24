@@ -46,7 +46,7 @@
 
 	<insert id="saveNormal" useGeneratedKeys="true" keyProperty="id">
     INSERT user (login_id, pwd, name, phone, email,age)
-    VALUES (#{login_id}, #{pwd}, #{name}, #{phone}, "",#{age})
+    VALUES (#{login_id}, #{pwd}, #{name}, #{phone}, #{email},#{age})
   </insert>
 
   <delete id="delete">
