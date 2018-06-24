@@ -1,3 +1,4 @@
+
 package skhu.artview.dto;
 
 public class QnA {
@@ -62,4 +63,3 @@ public class QnA {
 	
 	
 }
-

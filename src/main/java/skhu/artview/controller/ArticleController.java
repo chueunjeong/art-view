@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import skhu.artview.dto.Article;
-import skhu.artview.dto.Comment;
 import skhu.artview.mapper.ArticleMapper;
 import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.ProjectMapper;
@@ -51,49 +51,28 @@ public class ArticleController {
 		return articleService.articleDetail(id);
 	}
 
-	//프로젝트별 게시판 게시글 작성(나중에 서비스로 분리 예정, 파일서버 파야함)
-/*	@RequestMapping(value = "article/{id}", method = RequestMethod.POST)
+	//프로젝트별 게시판 게시글 작성(파일x)
+	@RequestMapping(value = "article/{id}", method = RequestMethod.POST)
 	public String articleSubmit(@RequestBody Article article) {
-		User user = UserService.getCurrentUser(); //현재 유저 정보 받아오기
-		article.add(user.getId());
-		articleMapper.insert(article);
-		return "등록되었습니다";
-	}*/
+		return articleService.articleSubmit(article);
+	}
+
+	//프로젝트별 게시판 게시글 작성(파일o)
+	@RequestMapping(value = "article/{id}", method = RequestMethod.POST)
+	public String articleSubmit(@RequestBody Article article, @RequestBody MultipartFile file) {
+		return articleService.articleSubmit(article, file);
+	}
 
 	//프로젝트별 게시판 게시글 수정
 	@RequestMapping(value = "article/{id}", method = RequestMethod.PUT)
-	public void articleEdit(@RequestBody Article article) {
-		articleMapper.update(article);
-		//return "수정되었습니다";
+	public String articleEdit(@RequestBody Article article) {
+		return articleService.articleEdit(article);
 	}
 
 	//프로젝트별 게시판 게시글 삭제
 	@RequestMapping(value = "article/{id}", method = RequestMethod.DELETE)
-	public void articleDelete(@PathVariable("id") int id) {
-		articleMapper.delete(id);
-		//return "삭제되었습니다";
-	}
-
-	//프로젝트별 게시판 게시글 댓글 작성
-	@RequestMapping(value = "comment/{id}", method = RequestMethod.POST)
-	public void commentSubmit(@RequestBody Comment comment) {
-		//User user = UserService.getCurrentUser(); //현재 유저 정보 받아오기
-		//article.add(user.getId());
-		commentMapper.insertComment(comment);
-		//return "등록되었습니다";
-	}
-
-	//프로젝트별 게시판 게시글 댓글 수정
-	@RequestMapping(value = "comment/{id}", method = RequestMethod.PUT)
-	public void commentEdit(@PathVariable("id") int id) {
-		commentMapper.updateContext(id);
-	}
-
-	//프로젝트별 게시판 게시글 댓글 삭제
-	@RequestMapping(value = "comment/{id}", method = RequestMethod.DELETE)
-	public void commentDelete(@PathVariable("id") int id) {
-		commentMapper.delete(id);
-		//return "삭제되었습니다";
+	public String articleDelete(@PathVariable("id") int id) {
+		return articleService.articleDelete(id);
 	}
 
 	//게시글 작성자/제목/내용/제목+내용으로 검색

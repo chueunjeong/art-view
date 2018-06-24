@@ -14,8 +14,18 @@ public class ArticleDetail {
 	String content;
 	int hits;
 	String date;
+	int file_id;
+
 	List<Comment> comment;
 	User author; //작성자 객체
+
+	public int getFile_id() {
+		return file_id;
+	}
+
+	public void setFile_id(int file_id) {
+		this.file_id = file_id;
+	}
 
 	public User getAuthor() {
 		return author;

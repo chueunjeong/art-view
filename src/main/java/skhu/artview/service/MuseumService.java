@@ -72,13 +72,76 @@ public class MuseumService {
                         break;
                     case "DP_SEQ":
                         if(b != null)
-                            b.setTitle(parser.nextText());
+                            b.setDP_SEQ(parser.nextText());;
                         break;
                     case "DP_LAN":
+                    	 if(b != null)
+                             b.setDP_LAN(parser.nextText());
+                    case "DP_Name":
+                   	 if(b != null)
+                            b.setTitle(parser.nextText());
+                    case "DP_SUBNAME":
+                   	 if(b != null)
+                            b.setSubtitle(parser.nextText());
+                    case "DP_PLACE":
+                   	 if(b != null)
+                            b.setDP_PLACE(parser.nextText());
+                    case "DP_START":
+                   	 if(b != null)
+                            b.setDP_START(parser.nextText());
+                    case "DP_END":
+                   	 if(b != null)
+                            b.setDP_END(parser.nextText());
+                    case "DP_TYPE":
+                   	 if(b != null)
+                            b.setDP_TYPE(parser.nextText());
+                   	 	 
+                    	 
+                 
+                       	 
+                    case "DP_HOMEPAGE":
                         if(b != null)
-                            b.setLink(parser.nextText());
+                            b.setDP_HOMEPAGE(parser.nextText());
                         break;
-                    case "DP_NAME":
+                    case "DP_EVENT":
+                     	 if(b != null)
+                              b.setDP_EVENT(parser.nextText());
+                    case "DP_SPONSOR":
+                     	 if(b != null)
+                              b.setDP_SPONSOR(parser.nextText());
+                    case "DP_VIEWTIME":
+                     	 if(b != null)
+                              b.setDP_VIEWTIME(parser.nextText());
+                    case "DP_VIEWCHARGE":
+                     	 if(b != null)
+                              b.setPrice(parser.nextText());
+                    case "DP_ART_PART":
+                     	 if(b != null)
+                              b.setDP_ART_PART(parser.nextText());
+                    case "DP_ART_CNT":
+                     	 if(b != null)
+                              b.setDP_ART_CNT(parser.next());
+                    case "DP_DP_ARTIST":
+                     	 if(b != null)
+                              b.setDP_ARTIST(parser.nextText());
+                    case "DP_DP_DOCENT":
+                     	 if(b != null)
+                              b.setDP_DOCENT(parser.nextText());
+                    case "DP_VIEWPOINT":
+                     	 if(b != null)
+                              b.setDP_VIEWPOINT(parser.nextText());
+                    case "DP_MASTER":
+                     	 if(b != null)
+                              b.setDP_MASTER(parser.nextText());
+                    case "DP_PHONE":
+                     	 if(b != null)
+                              b.setDP_PHONE(parser.nextText());
+                    case "DP_INFO":
+                     	 if(b != null)
+                              b.setDP_INFO(parser.nextText());
+                     	 	      
+                        
+                    case "DP_MAIN_IMG":
                         if(b != null)
                             b.setImage(parser.nextText());
                         break;
