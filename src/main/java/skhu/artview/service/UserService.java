@@ -15,7 +15,7 @@ import skhu.artview.mapper.UserMapper;
 @Service
 public class UserService {
 
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 		@Autowired UserMapper userMapper;
 
 		//가입정보 저장
@@ -60,10 +60,10 @@ public class UserService {
 		public String setNewPassword(User user) throws MessagingException {
 			String newPassword = RandomPassword.getRamdomPassword(4);
 			System.out.println("암호화 전");
-			String setPassword = bCryptPasswordEncoder.encode(newPassword); 
+			String setPassword = bCryptPasswordEncoder.encode(newPassword);
 			System.out.println("암호화 후");
 			userMapper.updatePassword(setPassword, user.getEmail());
-					
+			System.out.println("디비 업데이트 완료");
 		
 			return newPassword;
 		}
