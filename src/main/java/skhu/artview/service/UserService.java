@@ -4,16 +4,18 @@ import java.util.List;
 import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import net.skhu.email.utils.Encryption;
-import net.skhu.email.utils.RandomPassword;
+import skhu.artview.utils.RandomPassword;
 import skhu.artview.model.EmailAndName;
 import skhu.artview.dto.User;
 import skhu.artview.mapper.UserMapper;
 
 @Service
 public class UserService {
+
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 		@Autowired UserMapper userMapper;
 
 		//가입정보 저장
@@ -57,7 +59,7 @@ public class UserService {
 		//임시 비밀번호 생성, 데이터베이스 업데이트, 사용자 이메일로 임시 비밀번호 발송
 		public String setNewPassword(User user) throws MessagingException {
 			String newPassword = RandomPassword.getRamdomPassword(4);
-			String setPassword = Encryption.encrypt(newPassword, Encryption.MD5);
+			String setPassword = bCryptPasswordEncoder.encode(newPassword); 
 			userMapper.updatePassword(setPassword, user.getEmail());
 					
 		
