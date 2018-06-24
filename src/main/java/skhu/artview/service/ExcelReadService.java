@@ -1,4 +1,4 @@
-/*package skhu.artview.service;
+package skhu.artview.service;
 
 import java.io.IOException;
 import java.util.List;
@@ -69,4 +69,4 @@ public class ExcelReadService {
             return new XSSFWorkbook(multipartFile.getInputStream());
         }
     }
-}*/
+}
