@@ -64,7 +64,7 @@ UserMapper userMapper;
 	public void send(@PathVariable("email") String email) throws MessagingException {
 		
 		
-		TestEmail testEmail = new TestEmail("iris3795@gmail.com", email, "제목입니다", "http://localhost:8080/RestServerBasic/api/enabled/"+email);
+		TestEmail testEmail = new TestEmail("iris3795@gmail.com", email, "제목입니다", "http://localhost:8080/art-view/api/enabled/"+email);
 		emailService.sendMail(testEmail);
 	}
 	
