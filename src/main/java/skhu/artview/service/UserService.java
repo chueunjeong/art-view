@@ -59,7 +59,9 @@ public class UserService {
 		//임시 비밀번호 생성, 데이터베이스 업데이트, 사용자 이메일로 임시 비밀번호 발송
 		public String setNewPassword(User user) throws MessagingException {
 			String newPassword = RandomPassword.getRamdomPassword(4);
+			System.out.println("암호화 전");
 			String setPassword = bCryptPasswordEncoder.encode(newPassword); 
+			System.out.println("암호화 후");
 			userMapper.updatePassword(setPassword, user.getEmail());
 					
 		
