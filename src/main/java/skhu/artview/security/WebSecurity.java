@@ -1,6 +1,9 @@
 package skhu.artview.security;
 
 import static skhu.artview.security.SecurityConstants.SIGN_UP_URL;
+import static skhu.artview.security.SecurityConstants.ENABLED_URL;
+import static skhu.artview.security.SecurityConstants.SENDMAIL_URL;
+import static skhu.artview.security.SecurityConstants.NEWPASSWORD_URL;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,6 +34,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
+                .antMatchers(HttpMethod.GET,ENABLED_URL).permitAll()
+                .antMatchers(HttpMethod.POST,SENDMAIL_URL).permitAll()
+                .antMatchers(HttpMethod.POST,NEWPASSWORD_URL).permitAll()
+                
                 .anyRequest().permitAll()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
