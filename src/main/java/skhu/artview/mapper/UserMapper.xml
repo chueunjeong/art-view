@@ -79,7 +79,7 @@
 
 	<update id="updatePassword">
 		UPDATE user SET
-		password = #{password}
+		pwd = #{password}
 		WHERE email = #{email} 
 	</update>
 	<update id="updateEnabled">
