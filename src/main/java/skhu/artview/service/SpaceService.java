@@ -1,7 +1,7 @@
 package skhu.artview.service;
 /*전민선 : 파싱 데이터를 담는 모델 객체와 dto 의 이름이 동일하니 주의바랍니다.
  * skhu.artview.dto.Space VS Space 
- *  
+ * pagination과 검색 기능 추가했습니다.
  */
 import java.io.IOException;
 import java.io.InputStreamReader;
