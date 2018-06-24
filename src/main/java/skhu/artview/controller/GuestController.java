@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import skhu.artview.dto.Age;
+import skhu.artview.dto.Artfield;
+import skhu.artview.dto.City;
+import skhu.artview.dto.District;
 import skhu.artview.dto.User;
 import skhu.artview.mapper.UserMapper;
 import skhu.artview.service.UserService;
@@ -61,6 +64,25 @@ public class GuestController {
     public List<Age> FindAges(Model model, HttpServletRequest request) {
     	return userMapper.findAges();
     }
+
+    //도 조회
+    @RequestMapping("/cities")
+    public List<City> CityList(Model model, HttpServletRequest request) {
+    	return userMapper.findCity();
+    }
+
+    //구 조회
+    @RequestMapping("/districts/{c_id}")
+    public List<District> DistrictList(Model model, @PathVariable("c_id") int c_id , HttpServletRequest request) {
+    		return userMapper.findDistrict(c_id);
+    }
+
+    //예술분야 조회
+    @RequestMapping("/artfields")
+    public List<Artfield> Artfields(Model model, HttpServletRequest request) {
+    	return userMapper.findArtfield();
+    }
+
 
 	// 회원 아이디 조회
 	@RequestMapping(value = "user/{login_id}")

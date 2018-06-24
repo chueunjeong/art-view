@@ -10,6 +10,9 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import skhu.artview.dto.Age;
+import skhu.artview.dto.Artfield;
+import skhu.artview.dto.City;
+import skhu.artview.dto.District;
 import skhu.artview.dto.User;
 
 @Mapper
@@ -20,6 +23,9 @@ public interface UserMapper {
 	List <User> findAll();
 	void insert (User user);
 	List <Age> findAges();
+	List <City> findCity();
+	List <District> findDistrict(int c_id);
+	List<Artfield> findArtfield();
 
 	void saveNormal (User user); //일반회원 테스트용
 	void delete (int id);

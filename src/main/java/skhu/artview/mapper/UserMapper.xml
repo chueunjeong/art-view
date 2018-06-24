@@ -21,13 +21,30 @@
     SELECT  *
     FROM age
   </select>
+  
+  <select id="findCity" resultType="City">
+    SELECT  *
+    FROM city
+  </select>
+  
+  <select id="findDistrict" resultType="District">
+    SELECT  d.*
+    FROM district d
+    INNER JOIN city c ON d.city_id = c.id
+    WHERE d.city_id = #{c_id};
+  </select>
+  
+  <select id="findArtfield" resultType="artfield">
+    SELECT  *
+    FROM artfield
+  </select>
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
     INSERT user (fav_artfield_id, login_id, pwd, name, phone, email, age)
     VALUES (#{fav_artfield_id}, #{login_id}, #{pwd}, #{name}, #{phone}, #{email}, #{age})
   </insert>
 
-<insert id="saveNormal" useGeneratedKeys="true" keyProperty="id">
+	<insert id="saveNormal" useGeneratedKeys="true" keyProperty="id">
     INSERT user (login_id, pwd, name, phone, email,age)
     VALUES (#{login_id}, #{pwd}, #{name}, #{phone}, "",#{age})
   </insert>
