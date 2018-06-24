@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import skhu.artview.model.EmailAndName;
 import skhu.artview.dto.User;
 import skhu.artview.mapper.UserMapper;
 
@@ -31,4 +32,10 @@ public class UserService {
 			return userMapper.findAll();
 		}
 
+		
+		public User findUserByEmailAndName(EmailAndName en){
+			return userMapper.findByEmailAndName(en);
+			
+		}
+		
 }
