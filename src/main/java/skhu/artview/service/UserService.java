@@ -36,6 +36,18 @@ public class UserService {
 			return userMapper.findAll();
 		}
 
+		//회원가입 후 비활성화 계정을 찾아 인증 메일 발송
+		public User unabledUserByEmail(String email) {
+			return userMapper.findByEmail(email);
+		}
+		//이메일 링크 클릭 시 계정 활성화 서비스
+		public String setEnabled(User user) {
+			userMapper.updateEnabled(user);
+			return "로그인이 가능합니다.";
+		}
+		
+		
+		
 		//임시 비밀번호 발급을 위한 회원정보 조회 (이메일 + 이름)
 		public User findUserByEmailAndName(EmailAndName en){
 			return userMapper.findByEmailAndName(en);
