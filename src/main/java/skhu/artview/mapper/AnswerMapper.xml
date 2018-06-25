@@ -3,72 +3,89 @@
              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="skhu.artview.mapper.AnswerMapper">
-	
+
 	<select id="findAllQ" resultType="Answer">
-	    <bind name="start" value="(pg - 1) * sz" />
-	    SELECT q.*, u.name "Username" 
-	    FROM answer q LEFT JOIN user u ON q.userId==u.id
-	    WHERE q.type='answer'
-	    LIMIT ${start}, ${sz}
+		<bind name="start" value="(pg - 1) * sz" />
+		SELECT q.*, u.name "Username"
+		FROM answer q LEFT JOIN user u ON q.userId==u.id
+		WHERE q.type='answer'
+		LIMIT ${start}, ${sz}
 	</select>
-	
+
 
 	<select id="findOne" resultType="Answer">
-		SELECT * FROM answer WHERE id = #{id}
+		SELECT * FROM answer WHERE id =
+		#{id}
+	</select>
+	<select id="findByQuestion_id" resultType="Answer">
+		SELECT * FROM answer WHERE
+		question_id = {question_id}
 	</select>
 
 	<select id="findByBoardId" resultType="Answer">
-		SELECT * FROM answer WHERE boardId = #{boardId}
+		SELECT * FROM answer WHERE
+		boardId = #{boardId}
 	</select>
-	
+
 	<select id="findByUserId" resultType="Answer">
-		SELECT * FROM answer WHERE userId = #{userId}
+		SELECT * FROM answer WHERE
+		userId = #{userId}
 	</select>
-	
+
 	<select id="findByUsername" resultType="Answer">
-		SELECT q.*, u.name  "username" FROM answer q
+		SELECT q.*, u.name
+		"username" FROM answer q
 		LEFT JOIN user u ON q.userId = u.id
-		WHERE u.name = #{keyword}
+		WHERE
+		u.name = #{keyword}
 	</select>
-	
+
 	<select id="findByTitle" resultType="Answer">
-		SELECT * FROM answer WHERE title LIKE CONCAT('%', #{keyword}, '%')
+		SELECT * FROM answer WHERE
+		title LIKE CONCAT('%', #{keyword}, '%')
 	</select>
-	
+
 	<select id="findByContent" resultType="Answer">
-		SELECT * FROM answer WHERE content LIKE CONCAT('%', #{keyword}, '%')
+		SELECT * FROM answer WHERE
+		content LIKE CONCAT('%', #{keyword}, '%')
 	</select>
-	
+
 	<select id="findByTitleAndContent" resultType="Answer">
-		SELECT * FROM answer WHERE title LIKE CONCAT('%', #{keyword}, '%')
-		or content LIKE CONCAT('%', #{keyword}, '%')
+		SELECT * FROM
+		answer WHERE title LIKE CONCAT('%', #{keyword}, '%')
+		or content LIKE
+		CONCAT('%', #{keyword}, '%')
 	</select>
-	
+
 	<insert id="insertQ" useGeneratedKeys="true" keyProperty="id">
-		INSERT answer (boardId, userId, title, content, date, type)
-	  	VALUES (#{boardId}, #{userId}, #{title}, #{content}, now(), 'answer')
+		INSERT
+		answer (boardId, userId, title, content, date, type)
+		VALUES (#{boardId}, #{userId}, #{title}, #{content}, now(), 'answer')
 	</insert>
-	
+
 	<insert id="insertA" useGeneratedKeys="true" keyProperty="id">
-		INSERT answer (boardId, userId, title, content, date, type)
-	  	VALUES (#{boardId}, #{userId}, #{title}, #{content}, now(), 'answer')
+		INSERT
+		answer (boardId, userId, title, content, date, type)
+		VALUES (#{boardId}, #{userId}, #{title}, #{content}, now(), 'answer')
 	</insert>
-	
-	
-	
+
+
+
 	<update id="updateQ">
-		UPDATE answer SET title = #{title}, context = #{content}
+		UPDATE answer SET title = #{title}, context =
+		#{content}
 		WHERE id = #{id} and type='answer'
 	</update>
-	
-	
+
+
 	<update id="updateA">
-		UPDATE answer SET title = #{title}, context = #{content}
+		UPDATE answer SET title = #{title}, context =
+		#{content}
 		WHERE id = #{id} and type = 'answer'
 	</update>
-	
+
 	<delete id="delete">
-	    DELETE FROM answer WHERE id = #{id}
+		DELETE FROM answer WHERE id = #{id}
 	</delete>
 
 </mapper>

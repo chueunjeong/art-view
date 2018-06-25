@@ -12,6 +12,7 @@ public interface AnswerMapper {
 		List<Answer> findAllQ(Pagination pagination);
 		Answer findOne(int id);
 		Answer findOneWithComment(int id);
+		List<Answer> findByQuestion_id(int question_id);
 		List<Answer> findByBoardId(int boardId);
 		List<Answer> findByUserId(int userId);
 		List<Answer> findByUsername(String username);
