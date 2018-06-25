@@ -1,5 +1,6 @@
 package skhu.artview.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import skhu.artview.dto.Answer;
@@ -20,7 +21,7 @@ public class QnADetail {
 	int hits;
 	
 	//Answer part
-	List <Answer> answers;
+	ArrayList <Answer> answers;
 
 	public int getId() {
 		return id;
@@ -90,15 +91,15 @@ public class QnADetail {
 		this.hits = hits;
 	}
 
-	public List<Answer> getAnswers() {
+	public ArrayList<Answer> getAnswers() {
 		return answers;
 	}
 
-	public void setAnswers(List<Answer> answers) {
+	public void setAnswers(ArrayList<Answer> answers) {
 		this.answers = answers;
 	}
-	
-	
+
+
 	
 
 }
