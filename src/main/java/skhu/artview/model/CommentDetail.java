@@ -10,8 +10,8 @@ public class CommentDetail {
 	int userId;
 	String content;
 	int rate;
-	User author; //작성자
 	String date;
+	User author; //작성자
 
 	public User getAuthor() {
 		return author;
