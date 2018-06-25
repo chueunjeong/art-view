@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import skhu.artview.dto.Space;
 import skhu.artview.model.Option;
 import skhu.artview.model.Pagination;
+import skhu.artview.model.SearchSpace;
 
 @Mapper
 public interface SpaceMapper {
@@ -26,9 +27,9 @@ public interface SpaceMapper {
 
 	List<Space> findByCost(int cost);
 
-	List<Space> findAll(Pagination pagination);
+	List<Space> findAll(SearchSpace pagination);
 	
-	int count(Pagination pagination);
+	int count(SearchSpace pagination);
 	
 	void updateCity_id(int id);
 

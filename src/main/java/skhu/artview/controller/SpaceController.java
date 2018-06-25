@@ -8,11 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import skhu.artview.model.Pagination;
+import skhu.artview.model.SearchSpace;
 import skhu.artview.model.Space;
 import skhu.artview.service.SpaceService;
 
@@ -26,10 +29,21 @@ public class SpaceController {
 	
 	
 	@RequestMapping(value = "spaceDetail/{keyword}" , method= RequestMethod.GET)
-	   public List<Space> bookList(Model model, HttpServletRequest request, @PathVariable("keyword") String keyword)  throws Exception {
+	   public List<Space> spaceDetail(Model model, HttpServletRequest request, @PathVariable("keyword") String keyword)  throws Exception {
 			
 	       return spaceService.searchSpace(keyword,10,1);
 	   }
+	
+	@RequestMapping(value = "spaces" , method= RequestMethod.POST)
+	   public  SearchSpace spaces(Model model, HttpServletRequest request, @RequestBody SearchSpace pagination)  throws Exception {
+			
+	       return spaceService.findAllSpace(pagination);
+	       
+	   }
+	
+	
+	
+	
 	
 	
 	/*

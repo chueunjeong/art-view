@@ -130,7 +130,7 @@ public class SpaceService {
 		return list;
 	}
 	
-	public SearchSpace findAllSpace(Pagination pagination) {
+	public SearchSpace findAllSpace(SearchSpace pagination) {
 		
 		int count = spaceMapper.count(pagination);
 		pagination.setRecordCount(count);
