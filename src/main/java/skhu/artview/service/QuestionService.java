@@ -12,6 +12,7 @@ import skhu.artview.dto.Article;
 import skhu.artview.dto.Question;
 import skhu.artview.mapper.QuestionMapper;
 import skhu.artview.mapper.UserMapper;
+import skhu.artview.model.Pagination;
 import skhu.artview.model.QnADetail;
 
 @Service
@@ -23,14 +24,18 @@ public class QuestionService {
 	@Autowired AnswerService answerService;
 	
 	
+	//질문 리스트
+	public List<Question> getAllQuestionList(Pagination pagination){
+		return questionMapper.findAllQ(pagination);
+	}
 	
-	
+	//id로 질문 한 개만
 	public Question getQuestionById(int id) {
 		
 		return questionMapper.findOne(id);
 
 	}
-	
+	//질문+답변 상세 페이지
 	public QnADetail  QnAMapping(Question question) {
 		
 		QnADetail qnaDetail = new QnADetail();
@@ -46,10 +51,15 @@ public class QuestionService {
 		return answerService.QnAMapping(qnaDetail, question.getId());
 		
 		
-		
-		
-		
 	}
 		
+	public String SaveQ(Question q) {
+		questionMapper.insertQ(q);
+		
+		if(getQuestionById(q.getId()) != null) {
+			return "저장 완료";
+		}
+		return "저장 실패";
+	}
 		
 }
