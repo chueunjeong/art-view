@@ -15,7 +15,7 @@ public class QnADetail {
 	String content;
 	String type;
 	
-	FileDTO file;
+	int file_id;
 	User user;
 	int hits;
 	
@@ -64,12 +64,14 @@ public class QnADetail {
 		this.content = content;
 	}
 
-	public FileDTO getFile() {
-		return file;
+
+
+	public int getFile_id() {
+		return file_id;
 	}
 
-	public void setFile(FileDTO file) {
-		this.file = file;
+	public void setFile_id(int file_id) {
+		this.file_id = file_id;
 	}
 
 	public User getUser() {
