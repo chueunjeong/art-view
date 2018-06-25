@@ -7,7 +7,7 @@ public class Question {
 	String userId;
 	String title;
 	String content;
-	
+	String type; //회원가입, 결제, 공간문의, 오류, 계약서, 기획서, 커뮤니티, 매칭, 댓글, 게시글 등
 	FileDTO file;
 	User user;
 	int hits;
@@ -40,6 +40,13 @@ public class Question {
 		this.content = content;
 	}
 	
+	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public FileDTO getFile() {
 		return file;
 	}
