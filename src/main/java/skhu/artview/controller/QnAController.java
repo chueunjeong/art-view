@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import skhu.artview.dto.Answer;
 import skhu.artview.dto.Question;
 import skhu.artview.model.Pagination;
 import skhu.artview.model.QnADetail;
@@ -60,5 +61,11 @@ public class QnAController {
 			String result = questionService.SaveQ(q);
 	       return result;
 	   }
-
-}
+	
+	//답변 등록
+	@RequestMapping(value = "answer/1" , method= RequestMethod.POST)
+	   public String saveAnswer(Model model, HttpServletRequest request, @RequestBody Answer a)  throws Exception {
+			
+			String result = answerService.SaveA(a);
+	       return result;
+	   }}
