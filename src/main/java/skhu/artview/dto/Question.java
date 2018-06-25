@@ -4,7 +4,7 @@ package skhu.artview.dto;
 public class Question {
 
 	int id;
-	String userId;
+	String user_id;
 	String title;
 	String content;
 	String type; //회원가입, 결제, 공간문의, 오류, 계약서, 기획서, 커뮤니티, 매칭, 댓글, 게시글 등
@@ -21,11 +21,12 @@ public class Question {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUserId() {
-		return userId;
+	
+	public String getUser_id() {
+		return user_id;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 	public String getTitle() {
 		return title;

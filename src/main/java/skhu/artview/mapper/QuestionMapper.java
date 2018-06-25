@@ -12,7 +12,7 @@ public interface QuestionMapper {
 		Question findOne(int id);
 		Question findOneWithComment(int id);
 		List<Question> findByBoardId(int boardId);
-		List<Question> findByUserId(int userId);
+		List<Question> findByUser_id(int user_id);
 		List<Question> findByUsername(String username);
 		List<Question> findByTitle(String keyword);
 		List<Question> findByContent(String keyword);

@@ -40,7 +40,7 @@ public class QuestionService {
 		
 		QnADetail qnaDetail = new QnADetail();
 		qnaDetail.setId(question.getId());
-		qnaDetail.setUserId(question.getUserId());
+		qnaDetail.setUserId(question.getUser_id());
 		qnaDetail.setTitle(question.getTitle());
 		qnaDetail.setContent(question.getContent());
 		qnaDetail.setType(question.getType());
