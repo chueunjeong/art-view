@@ -41,7 +41,7 @@ public class AdminController {
 
 	//공지사항 게시판 게시글 작성(파일o)
 	@RequestMapping(value = "notice/{id}", method = RequestMethod.POST)
-	public String noticeSubmit2(@RequestBody Article article, @RequestBody MultipartFile file) {
+	public String noticeSubmit(@RequestBody Article article, @RequestBody MultipartFile file) {
 		return articleService.articleSubmit(article, file);
 	}
 

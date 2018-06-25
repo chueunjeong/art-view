@@ -94,6 +94,10 @@ public class ArticleService {
 	}
 
 	public String articleSubmit(Article article, MultipartFile file) {
+
+		if(file.isEmpty())
+			return this.articleSubmit(article);
+
 		int fileId = s3Service.fileUpload(file);
 		if(fileId == 000)
 			return "실패하였습니다";

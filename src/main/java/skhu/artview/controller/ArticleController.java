@@ -59,7 +59,7 @@ public class ArticleController {
 
 	//프로젝트별 게시판 게시글 작성(파일o)
 	@RequestMapping(value = "article/{id}", method = RequestMethod.POST)
-	public String articleSubmit2(@RequestBody Article article, @RequestBody MultipartFile file) {
+	public String articleSubmit(@RequestBody Article article, @RequestBody MultipartFile file) {
 		return articleService.articleSubmit(article, file);
 	}
 
