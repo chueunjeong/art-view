@@ -23,6 +23,14 @@ public class QuestionService {
 	@Autowired AnswerService answerService;
 	
 	
+	
+	
+	public Question getQuestionById(int id) {
+		
+		return questionMapper.findOne(id);
+
+	}
+	
 	public QnADetail  QnAMapping(Question question) {
 		
 		QnADetail qnaDetail = new QnADetail();
