@@ -19,7 +19,7 @@
 	</select>
 	<select id="findByQuestion_id" resultType="Answer">
 		SELECT * FROM answer WHERE
-		question_id = {question_id}
+		question_id = #{question_id}
 	</select>
 
 	<select id="findByBoardId" resultType="Answer">
@@ -65,8 +65,8 @@
 
 	<insert id="insertA" useGeneratedKeys="true" keyProperty="id">
 		INSERT
-		answer (boardId, userId, title, content, date, type)
-		VALUES (#{boardId}, #{userId}, #{title}, #{content}, now(), 'answer')
+		answer (question_id, user_id, title, content, file_id, date, type)
+		VALUES (#{question_id}, #{user_id}, #{title}, #{content}, #{file_id}, now(), 'answer')
 	</insert>
 
 

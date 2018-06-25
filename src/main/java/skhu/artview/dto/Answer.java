@@ -3,8 +3,8 @@ package skhu.artview.dto;
 public class Answer {
 
 	int id;
-	int questionId;	//외래키
-	String userId;
+	int question_id;	//외래키
+	String user_id;//외래키
 	String title;
 	String content;
 	
@@ -16,17 +16,18 @@ public class Answer {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getQuestionId() {
-		return questionId;
+	
+	public int getQuestion_id() {
+		return question_id;
 	}
-	public void setQuestionId(int questionId) {
-		this.questionId = questionId;
+	public void setQuestion_id(int question_id) {
+		this.question_id = question_id;
 	}
-	public String getUserId() {
-		return userId;
+	public String getUser_id() {
+		return user_id;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 	public String getTitle() {
 		return title;
