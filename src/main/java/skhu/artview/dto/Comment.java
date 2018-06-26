@@ -5,9 +5,9 @@ package skhu.artview.dto;
 public class Comment {
 
 	int id;
-	int articleId;
-	int spaceId;
-	int userId;
+	int article_id;
+	int space_id;
+	int user_id;
 	String content;
 	int rate;
 	String date;
@@ -28,28 +28,28 @@ public class Comment {
 		this.id = id;
 	}
 
-	public int getArticleId() {
-		return articleId;
+	public int getArticle_id() {
+		return article_id;
 	}
 
-	public void setArticleId(int articleId) {
-		this.articleId = articleId;
+	public void setArticle_id(int article_id) {
+		this.article_id = article_id;
 	}
 
-	public int getSpaceId() {
-		return spaceId;
+	public int getSpace_id() {
+		return space_id;
 	}
 
-	public void setSpaceId(int spaceId) {
-		this.spaceId = spaceId;
+	public void setSpace_id(int space_id) {
+		this.space_id = space_id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getContent() {

@@ -24,12 +24,12 @@ public class CommentService {
 
 		CommentDetail commentDetail = new CommentDetail();
 		commentDetail.setId(comment.getId());
-		commentDetail.setArticleId(comment.getArticleId());
-		commentDetail.setUserId(comment.getUserId());
+		commentDetail.setArticle_id(comment.getArticle_id());
+		commentDetail.setUser_id(comment.getUser_id());
 		commentDetail.setContent(comment.getContent());
 		commentDetail.setDate(comment.getDate());
 
-		commentDetail.setAuthor(userMapper.findOne(comment.getUserId()));
+		commentDetail.setAuthor(userMapper.findOne(comment.getUser_id()));
 		return commentDetail;
 	}
 
@@ -48,8 +48,8 @@ public class CommentService {
 
 	public String commentSubmit(Comment comment, int article_id) {
 		User user = null; //현재 유저 정보 받아오기
-		comment.setUserId(user.getId());
-		comment.setArticleId(article_id);
+		comment.setUser_id(user.getId());
+		comment.setArticle_id(article_id);
 		commentMapper.insertComment(comment);
 		return "등록되었습니다";
 	}

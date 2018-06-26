@@ -7,8 +7,8 @@ import skhu.artview.dto.User;
 public class ArticleDetail {
 
 	int id;
-	int boardId; //게시글이 소속된 게시판(커뮤니티 id)
-	int userId;
+	int board_id; //게시글이 소속된 게시판(커뮤니티 id)
+	int user_id;
 	String title;
 	String content;
 	int hits;
@@ -51,20 +51,20 @@ public class ArticleDetail {
 		this.id = id;
 	}
 
-	public int getBoardId() {
-		return boardId;
+	public int getBoard_id() {
+		return board_id;
 	}
 
-	public void setBoardId(int boardId) {
-		this.boardId = boardId;
+	public void setBoard_id(int board_id) {
+		this.board_id = board_id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getTitle() {
