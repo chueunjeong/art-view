@@ -45,6 +45,7 @@ public class GuestController {
     public String signUp(@RequestBody User user, Model model, HttpServletRequest request) {
     	user.setLogin_id(user.getLogin_id());
     	user.setPwd(bCryptPasswordEncoder.encode(user.getPwd()));
+    	user.setEmail(user.getEmail());
     	user.setName(user.getName());
     	user.setPhone(user.getPhone());
     	//user.setFav_artfield_id(user.getFav_artfield_id());

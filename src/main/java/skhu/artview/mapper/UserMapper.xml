@@ -44,7 +44,7 @@
 
 	<insert id="saveNormal" useGeneratedKeys="true" keyProperty="id">
     INSERT user (login_id, pwd, name, phone, email,age)
-    VALUES (#{login_id}, #{pwd}, #{name}, #{phone}, "",#{age})
+    VALUES (#{login_id}, #{pwd}, #{name}, #{phone}, #{email},#{age})
   </insert>
 
   <delete id="delete">
@@ -64,6 +64,27 @@
 		ON u.id = p.userId
 		WHERE p.state = 1 AND projectId = #{projectId}
 	</select>
+	
+	<select id="findByEmail"  resultType="User">
+		SELECT * FROM user WHERE email = #{email}
+	</select>
+	
+	<select id="findByEmailAndName"  resultType="User">
+		SELECT * FROM user WHERE email = #{email} and name = #{name}
+	</select>
+
+	
+
+	<update id="updatePassword">
+		UPDATE user SET
+		pwd = #{password}
+		WHERE email = #{email} 
+	</update>
+	<update id="updateEnabled">
+		UPDATE user SET
+		enabled=1
+		WHERE email = #{email} 
+	</update>
 
 </mapper>
 

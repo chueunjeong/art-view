@@ -1,28 +1,32 @@
 
 package skhu.artview.dto;
 
-public class QnA {
+public class Question {
 
 	int id;
-	String userId;
+	String user_id;
 	String title;
 	String content;
-	String type;		//질문, 답변 구분
-	
-	FileDTO file;
+	String type; //회원가입, 결제, 공간문의, 오류, 계약서, 기획서, 커뮤니티, 매칭, 댓글, 게시글 등
+	int file_id;
 	User user;
 	int hits;
+	
+	Answer answer;
+	
+	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUserId() {
-		return userId;
+	
+	public String getUser_id() {
+		return user_id;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 	public String getTitle() {
 		return title;
@@ -36,17 +40,20 @@ public class QnA {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
+	
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
 	}
-	public FileDTO getFile() {
-		return file;
+	
+	public int getFile_id() {
+		return file_id;
 	}
-	public void setFile(FileDTO file) {
-		this.file = file;
+	public void setFile_id(int file_id) {
+		this.file_id = file_id;
 	}
 	public User getUser() {
 		return user;
@@ -60,6 +67,13 @@ public class QnA {
 	public void setHits(int hits) {
 		this.hits = hits;
 	}
+	public Answer getAnswer() {
+		return answer;
+	}
+	public void setAnswer(Answer answer) {
+		this.answer = answer;
+	}
+	
 	
 	
 }

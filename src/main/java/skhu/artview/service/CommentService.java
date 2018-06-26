@@ -1,5 +1,8 @@
 package skhu.artview.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,12 +11,40 @@ import skhu.artview.dto.User;
 import skhu.artview.mapper.ArticleMapper;
 import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.UserMapper;
+import skhu.artview.model.CommentDetail;
 
 @Service
 public class CommentService {
 	@Autowired ArticleMapper articleMapper;
 	@Autowired CommentMapper commentMapper;
 	@Autowired UserMapper userMapper;
+
+
+	public CommentDetail commentMapping(Comment comment) {
+
+		CommentDetail commentDetail = new CommentDetail();
+		commentDetail.setId(comment.getId());
+		commentDetail.setArticleId(comment.getArticleId());
+		commentDetail.setUserId(comment.getUserId());
+		commentDetail.setContent(comment.getContent());
+		commentDetail.setDate(comment.getDate());
+
+		commentDetail.setAuthor(userMapper.findOne(comment.getUserId()));
+		return commentDetail;
+	}
+
+	//CommentList를 CommentDetailList로 바꿔주는 메서드
+	public List<CommentDetail> makeList(List<Comment> list) {
+		List<CommentDetail> newList = new ArrayList<CommentDetail>();
+
+		for (int i = 0; i < list.size(); i++) {
+			newList.add(i,
+			this.commentMapping(list.get(i))
+			);
+		}
+
+		return newList;
+	}
 
 	public String commentSubmit(Comment comment, int article_id) {
 		User user = null; //현재 유저 정보 받아오기

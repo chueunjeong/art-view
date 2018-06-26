@@ -12,6 +12,7 @@ public class User {
 	String phone;
 	String email;
 	int age;
+	int enabled;
 	String user_type;
 	
 	int file_id;
@@ -99,6 +100,12 @@ public class User {
 	}
 	public void setIntroMessage(String introMessage) {
 		this.introMessage = introMessage;
+	}
+	public int getEnabled() {
+		return enabled;
+	}
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
 	}
 
 

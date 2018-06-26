@@ -2,7 +2,6 @@ package skhu.artview.model;
 
 import java.util.List;
 
-import skhu.artview.dto.Comment;
 import skhu.artview.dto.User;
 
 public class ArticleDetail {
@@ -16,8 +15,17 @@ public class ArticleDetail {
 	String date;
 	int file_id;
 
-	List<Comment> comment;
+	List<CommentDetail> comment;
 	User author; //작성자 객체
+
+
+	public List<CommentDetail> getComment() {
+		return comment;
+	}
+
+	public void setComment(List<CommentDetail> comment) {
+		this.comment = comment;
+	}
 
 	public int getFile_id() {
 		return file_id;
@@ -33,14 +41,6 @@ public class ArticleDetail {
 
 	public void setAuthor(User author) {
 		this.author = author;
-	}
-
-	public List<Comment> getComment() {
-		return comment;
-	}
-
-	public void setComment(List<Comment> comment) {
-		this.comment = comment;
 	}
 
 	public int getId() {

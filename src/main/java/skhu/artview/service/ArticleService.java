@@ -14,6 +14,7 @@ import skhu.artview.mapper.ArticleMapper;
 import skhu.artview.mapper.CommentMapper;
 import skhu.artview.mapper.UserMapper;
 import skhu.artview.model.ArticleDetail;
+import skhu.artview.model.CommentDetail;
 
 @Service
 public class ArticleService {
@@ -21,6 +22,7 @@ public class ArticleService {
 	@Autowired CommentMapper commentMapper;
 	@Autowired UserMapper userMapper;
 	@Autowired S3Service s3Service;
+	@Autowired CommentService commentService;
 
 	/*public List<Article> findAll(Pagination pagination) {
         int count = articleMapper.count(pagination);
@@ -41,7 +43,8 @@ public class ArticleService {
 		articleDetail.setFile_id(article.getFile_id());
 
 		List<Comment> comments = commentMapper.findByArticleId(article.getId());
-		articleDetail.setComment(comments);
+		List<CommentDetail> dcomments = commentService.makeList(comments);
+		articleDetail.setComment(dcomments);
 		articleDetail.setAuthor(userMapper.findOne(article.getUserId()));
 		return articleDetail;
 	}
@@ -94,6 +97,10 @@ public class ArticleService {
 	}
 
 	public String articleSubmit(Article article, MultipartFile file) {
+
+		if(file.isEmpty())
+			return this.articleSubmit(article);
+
 		int fileId = s3Service.fileUpload(file);
 		if(fileId == 000)
 			return "실패하였습니다";

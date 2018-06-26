@@ -1,8 +1,8 @@
-//게시글에 달린 코멘트와 공간 리스트에 달린 평가를 구분해서 뿌려주어야 함
+package skhu.artview.model;
 
-package skhu.artview.dto;
+import skhu.artview.dto.User;
 
-public class Comment {
+public class CommentDetail {
 
 	int id;
 	int articleId;
@@ -11,6 +11,15 @@ public class Comment {
 	String content;
 	int rate;
 	String date;
+	User author; //작성자
+
+	public User getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
+	}
 
 	public String getDate() {
 		return date;

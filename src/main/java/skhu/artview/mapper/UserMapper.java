@@ -8,7 +8,9 @@ package skhu.artview.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
+import skhu.artview.model.EmailAndName;
 import skhu.artview.dto.Age;
 import skhu.artview.dto.Artfield;
 import skhu.artview.dto.City;
@@ -33,5 +35,11 @@ public interface UserMapper {
 	List<User> findMyApplicant(int projectId); //프로젝트 신청자 리스트
 	List<User> findMyMember(int projectId); //프로젝트 멤버 리스트
 
+	
+	User findByEmail(String email);
+	User findByEmailAndName(EmailAndName en);
+	void updatePassword(@Param("password") String password, @Param("email")String email);
+	void updateEnabled(User user);
+	
 }
 
