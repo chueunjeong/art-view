@@ -10,12 +10,12 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import skhu.artview.model.EmailAndName;
 import skhu.artview.dto.Age;
 import skhu.artview.dto.Artfield;
 import skhu.artview.dto.City;
 import skhu.artview.dto.District;
 import skhu.artview.dto.User;
+import skhu.artview.model.EmailAndName;
 
 @Mapper
 public interface UserMapper {
@@ -26,7 +26,7 @@ public interface UserMapper {
 	void insert (User user);
 	List <Age> findAges();
 	List <City> findCity();
-	List <District> findDistrict(int c_id);
+	List <District> findDistrict();
 	List<Artfield> findArtfield();
 
 	void saveNormal (User user); //일반회원 테스트용
@@ -35,11 +35,11 @@ public interface UserMapper {
 	List<User> findMyApplicant(int projectId); //프로젝트 신청자 리스트
 	List<User> findMyMember(int projectId); //프로젝트 멤버 리스트
 
-	
+
 	User findByEmail(String email);
 	User findByEmailAndName(EmailAndName en);
 	void updatePassword(@Param("password") String password, @Param("email")String email);
 	void updateEnabled(User user);
-	
+
 }
 
