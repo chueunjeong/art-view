@@ -21,23 +21,27 @@
 
 	<select id="findAllWithComments" resultMap="resultMap1">
 		SELECT a.*,c.id
-		comment_id, c.content comment_content, c.writer comment_writer, c.timestamp 
+		comment_id, c.content comment_content, c.login_id comment_writer, c.date 
 		FROM article
-		a LEFT JOIN comment c ON a.aid = c.article_id
+		a LEFT JOIN comment c ON a.id = c.article_id
+		LEFT JOIN user u On a.user_id = u.id
 		
-		where c.writer =#{login_id}
+		
+		where c.login_id =#{u.login_id}
 	</select>
 	
 	<resultMap id="resultMap1" type="Article">
-		<id property="aid" column="aid" />
+		<id property="id" column="id" />
 		<result property="title" column="title"/>
 		<result property="board_id" column="board_id" />
 		<collection property="comments" ofType="Comment">
 			<id property="id" column="comment_id" />
 			<result property="content" column="comment_content" />
-			<result property="writer" column="comment_writer" />
+			<result property="login_id" column="comment_writer" />
 		</collection>
+		
 	</resultMap>
+	
 	<select id="findAll" resultType="Article">
 		SELECT * FROM article
 	</select>
