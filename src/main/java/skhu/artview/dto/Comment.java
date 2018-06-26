@@ -11,7 +11,8 @@ public class Comment {
 	String content;
 	int rate;
 	String date;
-
+	String login_id;
+	
 	public String getDate() {
 		return date;
 	}
@@ -67,5 +68,14 @@ public class Comment {
 	public void setRate(int rate) {
 		this.rate = rate;
 	}
+
+	public String getLogin_id() {
+		return login_id;
+	}
+
+	public void setLogin_id(String login_id) {
+		this.login_id = login_id;
+	}
+	
 
 }
