@@ -24,7 +24,7 @@ public interface UserMapper {
 	void insert (User user);
 	List <Age> findAges();
 	List <City> findCity();
-	List <District> findDistrict(int c_id);
+	List <District> findDistrict();
 	List<Artfield> findArtfield();
 
 	void saveNormal (User user); //일반회원 테스트용

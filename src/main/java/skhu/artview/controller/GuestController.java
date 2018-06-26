@@ -72,9 +72,9 @@ public class GuestController {
     }
 
     //구 조회
-    @RequestMapping("/districts/{c_id}")
-    public List<District> DistrictList(Model model, @PathVariable("c_id") int c_id , HttpServletRequest request) {
-    		return userMapper.findDistrict(c_id);
+    @RequestMapping("/districts")
+    public List<District> DistrictList(Model model, HttpServletRequest request) {
+    		return userMapper.findDistrict();
     }
 
     //예술분야 조회
