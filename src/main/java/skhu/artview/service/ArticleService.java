@@ -45,7 +45,7 @@ public class ArticleService {
 		List<Comment> comments = commentMapper.findByArticleId(article.getId());
 		List<CommentDetail> dcomments = commentService.makeList(comments);
 		articleDetail.setComment(dcomments);
-		articleDetail.setAuthor(userMapper.findOne(article.getUserId()));
+		articleDetail.setAuthor(userMapper.findOneByLoginId(article.getUserId()));
 		return articleDetail;
 	}
 
@@ -91,7 +91,7 @@ public class ArticleService {
 	//파일 없을 경우
 	public String articleSubmit(Article article) {
 		User user = null; //현재 유저 정보 받아오기
-		article.setUserId(user.getId());
+		article.setUserId(user.getLogin_id());
 		articleMapper.insert(article); //insert mapper만들어야 함
 		return "등록되었습니다";
 	}
@@ -107,7 +107,7 @@ public class ArticleService {
 		article.setFile_id(fileId);
 
 		User user = null; //현재 유저 정보 받아오기
-		article.setUserId(user.getId());
+		article.setUserId(user.getLogin_id());
 		articleMapper.insert(article); //insert mapper만들어야 함
 		return "등록되었습니다";
 	}
