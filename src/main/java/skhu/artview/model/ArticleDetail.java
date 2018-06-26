@@ -7,13 +7,9 @@ import skhu.artview.dto.User;
 public class ArticleDetail {
 
 	int id;
-<<<<<<< HEAD
 	int board_id; //게시글이 소속된 게시판(커뮤니티 id)
 	int user_id;
-=======
 	int boardId; //게시글이 소속된 게시판(커뮤니티 id)
-	String userId;
->>>>>>> branch 'master' of https://github.com/chueunjeong/art-view.git
 	String title;
 	String content;
 	int hits;
@@ -64,22 +60,12 @@ public class ArticleDetail {
 		this.board_id = board_id;
 	}
 
-<<<<<<< HEAD
 	public int getUser_id() {
 		return user_id;
-=======
-	public String getUserId() {
-		return userId;
->>>>>>> branch 'master' of https://github.com/chueunjeong/art-view.git
 	}
 
-<<<<<<< HEAD
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
-=======
-	public void setUserId(String userId) {
-		this.userId = userId;
->>>>>>> branch 'master' of https://github.com/chueunjeong/art-view.git
 	}
 
 	public String getTitle() {

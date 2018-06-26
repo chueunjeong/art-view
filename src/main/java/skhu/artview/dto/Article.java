@@ -4,7 +4,7 @@ public class Article {
 
 	int id;
 	int boardId; //게시글이 소속된 게시판(커뮤니티 id)
-	String userId;
+	int user_id;
 	String title;
 	String content;
 	int hits;
@@ -35,12 +35,13 @@ public class Article {
 		this.boardId = boardId;
 	}
 
-	public String getUserId() {
-		return userId;
+	
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getTitle() {
