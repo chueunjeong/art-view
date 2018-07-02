@@ -22,7 +22,7 @@
 	</select>
 	
 	<select id="findByUserId" resultType="Question">
-		SELECT * FROM question WHERE userId = #{userId}
+		SELECT * FROM question WHERE user_id = #{user_id}
 	</select>
 	
 	<select id="findByUsername" resultType="Question">
@@ -45,8 +45,8 @@
 	</select>
 	
 	<insert id="insertQ" useGeneratedKeys="true" keyProperty="id">
-		INSERT question (boardId, userId, title, content, date, type)
-	  	VALUES (#{boardId}, #{userId}, #{title}, #{content}, now(), 'question')
+		INSERT question ( user_id, title, content, date, type, file_id, hits)
+	  	VALUES ( #{user_id}, #{title}, #{content}, now(), 'question', #{file_id}, #{hits})
 	</insert>
 	
 	<insert id="insertA" useGeneratedKeys="true" keyProperty="id">

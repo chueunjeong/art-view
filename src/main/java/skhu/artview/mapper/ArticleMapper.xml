@@ -17,21 +17,46 @@
 		SELECT * FROM article WHERE id = #{id}
 	</select>
 
+
+
+	<select id="findAllWithComments" resultMap="resultMap1">
+		SELECT a.*,c.id
+		comment_id, c.content comment_content, c.login_id comment_writer, c.date 
+		FROM article
+		a LEFT JOIN comment c ON a.id = c.article_id
+		LEFT JOIN user u On a.user_id = u.id
+		
+		
+		where c.login_id =#{u.login_id}
+	</select>
+	
+	<resultMap id="resultMap1" type="Article">
+		<id property="id" column="id" />
+		<result property="title" column="title"/>
+		<result property="board_id" column="board_id" />
+		<collection property="comments" ofType="Comment">
+			<id property="id" column="comment_id" />
+			<result property="content" column="comment_content" />
+			<result property="login_id" column="comment_writer" />
+		</collection>
+		
+	</resultMap>
+	
 	<select id="findAll" resultType="Article">
 		SELECT * FROM article
 	</select>
 	
-	<select id="findByBoardId" resultType="Article">
-		SELECT * FROM article WHERE boardId = #{boardId}
+	<select id="findByBoard_id" resultType="Article">
+		SELECT * FROM article WHERE board_id = #{board_id}
 	</select>
 	
-	<select id="findByUserId" resultType="Article">
-		SELECT * FROM article WHERE userId = #{userId}
+	<select id="findByUser_id" resultType="Article">
+		SELECT * FROM article WHERE user_id = #{user_id}
 	</select>
 	
 	<select id="findByUserName" resultType="Article">
 		SELECT a.* FROM article
-		LEFT JOIN user u ON a.userId = u.id
+		LEFT JOIN user u ON a.user_id = u.id
 		WHERE u.name = #{keyword}
 	</select>
 	
@@ -49,8 +74,8 @@
 	</select>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
-		INSERT article (boardId, userId, title, content, date)
-	  	VALUES (#{boardId}, #{userId}, #{title}, #{content}, now())
+		INSERT article (board_id, user_id, title, content, date)
+	  	VALUES (#{board_id}, #{user_id}, #{title}, #{content}, now())
 	</insert>
 	
 	<update id="update">

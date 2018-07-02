@@ -3,12 +3,12 @@ package skhu.artview.dto;
 public class Answer {
 
 	int id;
-	int questionId;	//외래키
-	String userId;
+	int question_id;	//외래키
+	String user_id;//외래키
 	String title;
 	String content;
 	
-	FileDTO file;
+	int file_id;
 	User user;
 	public int getId() {
 		return id;
@@ -16,17 +16,18 @@ public class Answer {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getQuestionId() {
-		return questionId;
+	
+	public int getQuestion_id() {
+		return question_id;
 	}
-	public void setQuestionId(int questionId) {
-		this.questionId = questionId;
+	public void setQuestion_id(int question_id) {
+		this.question_id = question_id;
 	}
-	public String getUserId() {
-		return userId;
+	public String getUser_id() {
+		return user_id;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 	public String getTitle() {
 		return title;
@@ -40,11 +41,12 @@ public class Answer {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public FileDTO getFile() {
-		return file;
+	
+	public int getFile_id() {
+		return file_id;
 	}
-	public void setFile(FileDTO file) {
-		this.file = file;
+	public void setFile_id(int file_id) {
+		this.file_id = file_id;
 	}
 	public User getUser() {
 		return user;

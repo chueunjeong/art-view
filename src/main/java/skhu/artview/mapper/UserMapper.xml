@@ -28,10 +28,8 @@
   </select>
   
   <select id="findDistrict" resultType="District">
-    SELECT  d.*
-    FROM district d
-    INNER JOIN city c ON d.city_id = c.id
-    WHERE d.city_id = #{c_id};
+    SELECT  *
+    FROM district
   </select>
   
   <select id="findArtfield" resultType="artfield">
