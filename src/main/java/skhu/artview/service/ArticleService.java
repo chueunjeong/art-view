@@ -85,6 +85,7 @@ public class ArticleService {
 
 	public ArticleDetail articleDetail(int id) {
 		Article article = articleMapper.findOne(id);
+		article.setHits(article.getHits()+1);
 		return this.articleMapping(article);
 	}
 
