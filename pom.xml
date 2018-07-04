@@ -120,6 +120,7 @@
 		</dependency>
 		<!-- aws, commons 추가 끝 -->
 		
+		<!-- poi
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
@@ -140,6 +141,7 @@
 			<artifactId>poi-contrib</artifactId>
 			<version>3.7-beta3</version>
 		</dependency>
+		-->
 
 		<!--mail -->
 		<dependency>
