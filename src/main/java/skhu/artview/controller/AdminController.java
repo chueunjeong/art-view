@@ -33,12 +33,6 @@ public class AdminController {
 
 	/*작성자: 남하영*/
 
-/*	//공지사항 게시판 게시글 작성(파일x)
-	@RequestMapping(value = "notice/{id}", method = RequestMethod.POST)
-	public String noticeSubmit(@RequestBody Article article) {
-		return articleService.articleSubmit(article);
-	}*/
-
 	//공지사항 게시판 게시글 작성(파일o)
 	@RequestMapping(value = "notice/{id}", method = RequestMethod.POST)
 	public String noticeSubmit(@RequestBody Article article, @RequestBody MultipartFile file) {
