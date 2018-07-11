@@ -4,7 +4,7 @@ public class Grouping {
 
 	int id;
 	int district_id;
-	int artist_id;
+	int user_id;
 	int project_id;
 	
 
@@ -28,14 +28,14 @@ public class Grouping {
 	public void setDistrict_id(int district_id) {
 		this.district_id = district_id;
 	}
-
-	public int getArtist_id() {
-		return artist_id;
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
-	public void setArtist_id(int artist_id) {
-		this.artist_id = artist_id;
-	}
+
 
 
 }
