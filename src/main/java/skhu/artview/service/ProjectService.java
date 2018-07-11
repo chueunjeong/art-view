@@ -113,7 +113,7 @@ public class ProjectService {
 	public String projectApply(int id, P_apply p_apply) {
 		//User user = UserService.getCurrentUser(); //현재 유저 정보 받아오기
 		//p_apply.setUserId(user.getId());
-		p_apply.setProjectId(id);
+		p_apply.setProject_id(id);
 		p_applyMapper.insert(p_apply);
 		return "신청되었습니다";
 	}

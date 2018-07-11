@@ -34,7 +34,7 @@ public class ArticleService {
 
 		ArticleDetail articleDetail = new ArticleDetail();
 		articleDetail.setId(article.getId());
-		articleDetail.setBoard_id(article.getBoardId());
+		articleDetail.setBoard_id(article.getBoard_id());
 		articleDetail.setUser_id(article.getUser_id());
 		articleDetail.setTitle(article.getTitle());
 		articleDetail.setContent(article.getContent());

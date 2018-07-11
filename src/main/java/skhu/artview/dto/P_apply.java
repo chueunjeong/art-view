@@ -5,8 +5,8 @@ package skhu.artview.dto;
 
 public class P_apply {
 	int id; //AI
-	int userId; //신청자id
-	int projectId; //프로젝트id
+	int user_id; //신청자id
+	int project_id; //프로젝트id
 	String content; //신청서 내용
 	String date; //신청서 등록일자
 	int state; //승인여부
@@ -19,20 +19,20 @@ public class P_apply {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
-	public int getProjectId() {
-		return projectId;
+	public int getProject_id() {
+		return project_id;
 	}
 
-	public void setProjectId(int projectId) {
-		this.projectId = projectId;
+	public void setProject_id(int project_id) {
+		this.project_id = project_id;
 	}
 
 	public String getContent() {
