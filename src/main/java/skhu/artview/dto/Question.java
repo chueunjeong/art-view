@@ -9,6 +9,7 @@ public class Question {
 	String content;
 	String type; //회원가입, 결제, 공간문의, 오류, 계약서, 기획서, 커뮤니티, 매칭, 댓글, 게시글 등
 	int file_id;
+	String date;
 	User user;
 	int hits;
 	
@@ -72,6 +73,12 @@ public class Question {
 	}
 	public void setAnswer(Answer answer) {
 		this.answer = answer;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 	
