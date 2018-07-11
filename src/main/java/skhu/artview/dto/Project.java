@@ -7,10 +7,10 @@ public class Project {
 	String title; //제목
 	String content; //내용
 	int file_id; //사진 id 저장
-	String video_id; //동영상 url 저장
+	//String video_id; //동영상 url 저장
 	String dead_line; //마감 기한
-	String fav_day_start; //선호 전시시작 기간
-	String fav_day_end; //선호 전시종료 기간
+	String fav_start_date; //선호 전시시작 기간
+	String fav_end_date; //선호 전시종료 기간
 	int artfield_id;
 	int district_id;//전시지역
 
@@ -48,20 +48,21 @@ public class Project {
 		this.dead_line = dead_line;
 	}
 
-	public String getFav_day_start() {
-		return fav_day_start;
+
+	public String getFav_start_date() {
+		return fav_start_date;
 	}
 
-	public void setFav_day_start(String fav_day_start) {
-		this.fav_day_start = fav_day_start;
+	public void setFav_start_date(String fav_start_date) {
+		this.fav_start_date = fav_start_date;
 	}
 
-	public String getFav_day_end() {
-		return fav_day_end;
+	public String getFav_end_date() {
+		return fav_end_date;
 	}
 
-	public void setFav_day_end(String fav_day_end) {
-		this.fav_day_end = fav_day_end;
+	public void setFav_end_date(String fav_end_date) {
+		this.fav_end_date = fav_end_date;
 	}
 
 	public String getTitle() {
