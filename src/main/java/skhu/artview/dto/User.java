@@ -16,7 +16,7 @@ public class User {
 	String user_type;
 	
 	int file_id;
-	String introMessage;
+	String intro_message;
 	
 //constructor
 	public User() {};
@@ -95,11 +95,12 @@ public class User {
 	public void setFile_id(int file_id) {
 		this.file_id = file_id;
 	}
-	public String getIntroMessage() {
-		return introMessage;
+	
+	public String getIntro_message() {
+		return intro_message;
 	}
-	public void setIntroMessage(String introMessage) {
-		this.introMessage = introMessage;
+	public void setIntro_message(String intro_message) {
+		this.intro_message = intro_message;
 	}
 	public int getEnabled() {
 		return enabled;
