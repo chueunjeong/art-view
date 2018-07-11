@@ -57,17 +57,18 @@ public class P_exhibition{
 	public void setFile_id(int file_id) {
 		this.file_id = file_id;
 	}
-	public String getDay_start() {
-		return day_start;
+	
+	public String getStart_date() {
+		return start_date;
 	}
-	public void setDay_start(String day_start) {
-		this.day_start = day_start;
+	public void setStart_date(String start_date) {
+		this.start_date = start_date;
 	}
-	public String getDay_end() {
-		return day_end;
+	public String getEnd_date() {
+		return end_date;
 	}
-	public void setDay_end(String day_end) {
-		this.day_end = day_end;
+	public void setEnd_date(String end_date) {
+		this.end_date = end_date;
 	}
 	public int getArtfield_id() {
 		return artfield_id;
