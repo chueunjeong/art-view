@@ -7,8 +7,8 @@ public class Project {
 	String title; //제목
 	String content; //내용
 	int file_id; //사진 id 저장
-	//String v_path; //동영상 url 저장
-	String d_day; //마감 기한
+	String video_id; //동영상 url 저장
+	String dead_line; //마감 기한
 	String fav_day_start; //선호 전시시작 기간
 	String fav_day_end; //선호 전시종료 기간
 	int artfield_id;
@@ -30,12 +30,22 @@ public class Project {
 		this.author_id = author_id;
 	}
 
-	public String getD_day() {
-		return d_day;
+
+/*
+	public String getVideo_id() {
+		return video_id;
 	}
 
-	public void setD_day(String d_day) {
-		this.d_day = d_day;
+	public void setVideo_id(String video_id) {
+		this.video_id = video_id;
+	}
+*/
+	public String getDead_line() {
+		return dead_line;
+	}
+
+	public void setDead_line(String dead_line) {
+		this.dead_line = dead_line;
 	}
 
 	public String getFav_day_start() {
@@ -86,14 +96,9 @@ public class Project {
 		this.file_id = file_id;
 	}
 /*
-	public String getV_path() {
-		return v_path;
-	}
 
-	public void setV_path(String v_path) {
-		this.v_path = v_path;
-	}
 */
+	
 	public int getArtfield_id() {
 		return artfield_id;
 	}
