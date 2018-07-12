@@ -21,7 +21,7 @@
 
 	<select id="findAllWithComments" resultMap="resultMap1">
 		SELECT a.*,c.id
-		comment_id, c.content comment_content, c.login_id comment_writer, c.date 
+		comment_id, c.content comment_content, c.date 
 		FROM article
 		a LEFT JOIN comment c ON a.id = c.article_id
 		LEFT JOIN user u On a.user_id = u.id
