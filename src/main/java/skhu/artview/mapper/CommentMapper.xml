@@ -8,7 +8,7 @@
 		SELECT c.*, u.name
 		FROM comment c
 		JOIN user u
-		on c.userId = u.id
+		on c.user_id = u.id
 		WHERE id = #{id}
 	</select>
 
@@ -16,16 +16,16 @@
 		SELECT c.*, u.name
 		FROM comment c
 		JOIN user u
-		on c.userId = u.id
-		WHERE userId = #{userId}
+		on c.user_id = u.id
+		WHERE user_id = #{user_id}
 	</select>
 	
 	<select id="findByArticleId" resultType="Comment">
 		SELECT c.*, u.name
 		FROM comment c
 		JOIN user u
-		on c.userId = u.id
-		WHERE articleId = #{articleId}
+		on c.user_id = u.id
+		WHERE article_id = #{article_id}
 	</select>
 	
 	<select id="findAll" resultType="Comment">
@@ -33,13 +33,13 @@
 	</select>
 	
 	<insert id="insertComment" useGeneratedKeys="true" keyProperty="id">
-		INSERT comment (articleId, userId, content, date, login_id)
-	  	VALUES (#{articleId}, #{userId}, #{content}, now(), #{login_id})
+		INSERT comment (article_id, user_id, content, date, login_id)
+	  	VALUES (#{article_id}, #{user_id}, #{content}, now(), #{login_id})
 	</insert>
 	
 	<insert id="insertRate" useGeneratedKeys="true" keyProperty="id">
-		INSERT comment (spaceId, userId, content, rate, date, login_id)
-	  	VALUES (#{sapceId}, #{userId}, #{content}, #{rate}, now(), #{login_id})
+		INSERT comment (space_id, user_id, content, rate, date, login_id)
+	  	VALUES (#{sapce_id}, #{user_id}, #{content}, #{rate}, now(), #{login_id})
 	</insert>
 	
 	<update id="updateContext">

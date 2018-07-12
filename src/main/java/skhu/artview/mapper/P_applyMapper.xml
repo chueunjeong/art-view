@@ -13,24 +13,24 @@
 	</select>
 	
 	<select id="findByProjectId" resultType="P_apply">
-		SELECT * FROM p_apply WHERE projectId = #{projectId}
+		SELECT * FROM p_apply WHERE project_id = #{project_id}
 	</select>
 	
 	<select id="findByUserId" resultType="P_apply">
-		SELECT * FROM p_apply WHERE userId = #{userId}
+		SELECT * FROM p_apply WHERE userId = #{user_id}
 	</select>
 	
 	<select id="findMyApplicant" resultType="P_apply">
-		SELECT * FROM p_apply WHERE state = 0 AND projectId = #{projectId}
+		SELECT * FROM p_apply WHERE state = 0 AND project_id = #{project_id}
 	</select>
 	
 	<select id="findMyMember" resultType="P_apply">
-		SELECT * FROM p_apply WHERE state = 1 AND projectId = #{projectId}
+		SELECT * FROM p_apply WHERE state = 1 AND project_id = #{project_id}
 	</select>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
-		INSERT p_apply (userId, projectId, content, date, state)
-	  	VALUES (#{userId}, #{projectId}, #{content}, now(), 0)
+		INSERT p_apply (user_id, project_id, content, date, state)
+	  	VALUES (#{user_id}, #{project_id}, #{content}, now(), 0)
 	</insert>
 	
 	<update id="updateState">
@@ -45,13 +45,13 @@
 	<select id="appli_cnt" resultType="Integer">
 		SELECT count(*)
 		FROM p_apply
-		WHERE state = 0 AND projectId = #{projectId}
+		WHERE state = 0 AND project_id = #{project_id}
 	</select>
 	
 	<select id="mem_cnt" resultType="Integer">
 		SELECT count(*)
 		FROM p_apply
-		WHERE state = 1 AND projectId = #{projectId}
+		WHERE state = 1 AND project_id = #{project_id}
 	</select>
 
 </mapper>

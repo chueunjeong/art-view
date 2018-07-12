@@ -7,7 +7,7 @@
 	<select id="findAllQ" resultType="Question">
 	    <bind name="start" value="(pg - 1) * sz" />
 	    SELECT q.*, u.name "Username" 
-	    FROM question q LEFT JOIN user u ON q.userId==u.id
+	    FROM question q LEFT JOIN user u ON q.user_id==u.id
 	    WHERE q.type='question'
 	    LIMIT ${start}, ${sz}
 	</select>
@@ -18,7 +18,7 @@
 	</select>
 
 	<select id="findByBoardId" resultType="Question">
-		SELECT * FROM question WHERE boardId = #{boardId}
+		SELECT * FROM question WHERE board_id = #{board_id}
 	</select>
 	
 	<select id="findByUserId" resultType="Question">
@@ -27,7 +27,7 @@
 	
 	<select id="findByUsername" resultType="Question">
 		SELECT q.*, u.name  "username" FROM question q
-		LEFT JOIN user u ON q.userId = u.id
+		LEFT JOIN user u ON q.user_id = u.id
 		WHERE u.name = #{keyword}
 	</select>
 	
@@ -50,8 +50,8 @@
 	</insert>
 	
 	<insert id="insertA" useGeneratedKeys="true" keyProperty="id">
-		INSERT question (boardId, userId, title, content, date, type)
-	  	VALUES (#{boardId}, #{userId}, #{title}, #{content}, now(), 'answer')
+		INSERT question (board_id, user_id, title, content, date, type)
+	  	VALUES (#{board_id}, #{user_id}, #{title}, #{content}, now(), 'answer')
 	</insert>
 	
 	
