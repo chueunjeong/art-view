@@ -13,7 +13,7 @@
   </select>
   
   <select id="findOneByArtist_id" resultType="Grouping">
-  	SELECT * FROM grouping artist_id = #{artist_id}
+  	SELECT * FROM grouping user_id = #{user_id}
   </select>
   
   <select id="findOneByDistrict_id" resultType="Grouping">
@@ -28,8 +28,8 @@
   
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-    INSERT grouping ( project_id, artist_id)
-    VALUES (#{project_id}, #{artist_id})
+    INSERT grouping ( project_id, user_id, project_id)
+    VALUES (#{project_id}, #{user_id}, #{project_id})
   </insert>
 
 
