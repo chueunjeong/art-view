@@ -44,8 +44,8 @@ public class ContractService {
 		p_exhi.setTitle(project.getTitle());
 		p_exhi.setContent(project.getContent());
 		p_exhi.setFile_id(project.getFile_id());
-		p_exhi.setDay_start(project.getFav_day_start());
-		p_exhi.setDay_end(project.getFav_day_end());
+		p_exhi.setStart_date(project.getFav_start_date());
+		p_exhi.setEnd_date(project.getFav_end_date());
 		p_exhi.setArtfield_id(project.getArtfield_id());
 		p_exhi.setGrouping_id(grouping.getId());
 
