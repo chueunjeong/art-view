@@ -38,13 +38,13 @@
   </select>
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-    INSERT user (fav_artfield_id, login_id, pwd, name, phone, email, age)
-    VALUES (#{fav_artfield_id}, #{login_id}, #{pwd}, #{name}, #{phone}, #{email}, #{age})
+    INSERT user (fav_artfield_id, login_id, pwd, name, phone, email, age, user_type, file_id)
+    VALUES (#{fav_artfield_id}, #{login_id}, #{pwd}, #{name}, #{phone}, #{email}, #{age}, #{user_type}, #{file_id})
   </insert>
 
 	<insert id="saveNormal" useGeneratedKeys="true" keyProperty="id">
-    INSERT user (login_id, pwd, name, phone, email,age)
-    VALUES (#{login_id}, #{pwd}, #{name}, #{phone}, #{email},#{age})
+    INSERT user (login_id, pwd, name, phone, email,age, user_type, file_id)
+    VALUES (#{login_id}, #{pwd}, #{name}, #{phone}, #{email},#{age}, #{user_type}, #{file_id})
   </insert>
 
   <delete id="delete">
