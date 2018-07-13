@@ -18,7 +18,7 @@
   </select>
   
   <select id="countAll" resultType="Exhibition">
-    SELECT  count(*) as finish_Exhibition_count
+    SELECT  count(*) as finish_exhibition_count
     FROM exhibition 
   </select>
 
