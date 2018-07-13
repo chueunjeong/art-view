@@ -33,13 +33,13 @@
 	</select>
 	
 	<insert id="insertComment" useGeneratedKeys="true" keyProperty="id">
-		INSERT comment (article_id, user_id, content, date, login_id)
-	  	VALUES (#{article_id}, #{user_id}, #{content}, now(), #{login_id})
+		INSERT comment (article_id, user_id, content, date)
+	  	VALUES (#{article_id}, #{user_id}, #{content}, now())
 	</insert>
 	
 	<insert id="insertRate" useGeneratedKeys="true" keyProperty="id">
-		INSERT comment (space_id, user_id, content, rate, date, login_id)
-	  	VALUES (#{sapce_id}, #{user_id}, #{content}, #{rate}, now(), #{login_id})
+		INSERT comment (space_id, user_id, content, rate, date)
+	  	VALUES (#{sapce_id}, #{user_id}, #{content}, #{rate}, now())
 	</insert>
 	
 	<update id="updateContext">
