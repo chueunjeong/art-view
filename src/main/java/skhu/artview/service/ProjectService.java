@@ -43,10 +43,10 @@ public class ProjectService {
 		projectDetail.setTitle(project.getTitle());
 		projectDetail.setContent(project.getContent());
 		projectDetail.setFile_id(project.getFile_id());
-		projectDetail.setD_day(project.getD_day());
+		projectDetail.setD_day(project.getDead_line());
 		projectDetail.setArtfield_id(project.getArtfield_id());
-		projectDetail.setFav_day_start(project.getFav_day_start());
-		projectDetail.setFav_day_end(project.getFav_day_end());
+		projectDetail.setFav_day_start(project.getFav_start_date());
+		projectDetail.setFav_day_end(project.getFav_end_date());
 		projectDetail.setDistrict_id(project.getDistrict_id());
 
 		projectDetail.setAuthor(userMapper.findOne(project.getAuthor_id()));
