@@ -33,7 +33,7 @@ public class MypageService {
 		
 		int picture_id = artist.getFile_id();
 
-		String introMessage = artist.getIntroMessage();
+		String introMessage = artist.getIntro_message();
 		
 		int artist_id = artist.getId();
 		District district = districtMapper.findOne(artist.getFav_district_id());
