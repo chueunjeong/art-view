@@ -58,8 +58,8 @@ UserMapper userMapper;
 	EmailService emailService;
 	@Autowired
 	UserService userService;
-
-	//회원 임시비밀 번호 발송 메소드
+	
+	//계정 활성화 메일 발송 메소드
 	@RequestMapping(value = "sendMail/{email}", method = RequestMethod.POST)
 	public void send(@PathVariable("email") String email) throws MessagingException {
 		
@@ -68,6 +68,7 @@ UserMapper userMapper;
 		emailService.sendMail(testEmail);
 	}
 	
+	//계정정보 활성화를 수정하는 메소드
 	@RequestMapping(value = "enabled/{email}", method = RequestMethod.GET)
 	public String enabled(@PathVariable("email") String email) throws MessagingException {
 		
@@ -79,7 +80,7 @@ UserMapper userMapper;
 	}
 	
 	
-
+	//임시 비밀번호를 발급하고 메일을 발송하는 메소드
 	@RequestMapping(value = "newPassword", 
 						method = RequestMethod.POST)
 	public String newPassword(@RequestBody EmailAndName en) throws MessagingException {
