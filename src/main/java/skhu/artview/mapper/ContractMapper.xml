@@ -10,20 +10,20 @@
 		WHERE id = #{id}
 	</select>
 
-	<select id="findByGroupid_id" resultType="Contract">
+	<select id="findByGroupidId" resultType="Contract">
 		SELECT *
 		FROM contract
 		WHERE grouping_id = #{grouping_id}
 	</select>
 	
-	<select id="findByPexhibition_id" resultType="Contract">
+	<select id="findByPexhibitionId" resultType="Contract">
 		SELECT *
 		FROM contract
 		WHERE pexhibition_id = #{pexhibition_id}
 	</select>
 	
 	
-	<select id="findBySpace_id" resultType="Contract">
+	<select id="findBySpaceId" resultType="Contract">
 		SELECT c.*, s.name, s.address
 		FROM contract c
 		JOIN space s

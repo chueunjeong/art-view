@@ -8,9 +8,9 @@ import skhu.artview.dto.Contract;
 @Mapper
 public interface ContractMapper {
 	Contract findOne(int id);
-	List<Contract> findByGroupid_id(int groupig_id );
-    List<Contract> findByPexhibition_id(int pexhibition_id);
-    List<Contract> findBySpace_id(int space_id);
+	List<Contract> findByGroupidId(int groupig_id );
+    List<Contract> findByPexhibitionId(int pexhibition_id);
+    List<Contract> findBySpaceId(int space_id);
    
 	List<Contract> findAll();
 	
