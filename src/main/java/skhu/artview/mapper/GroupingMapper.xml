@@ -8,15 +8,15 @@
     SELECT * FROM grouping WHERE id = #{id}
   </select>
   
-  <select id="findOneByProject_id" resultType="Grouping">
+  <select id="findOneByProjectId" resultType="Grouping">
   	SELECT * FROM grouping project_id = #{project_id}
   </select>
   
-  <select id="findOneByArtist_id" resultType="Grouping">
+  <select id="findOneByArtistId" resultType="Grouping">
   	SELECT * FROM grouping user_id = #{user_id}
   </select>
   
-  <select id="findOneByDistrict_id" resultType="Grouping">
+  <select id="findOneByDistrictId" resultType="Grouping">
   	SELECT * FROM grouping district_id = #{district_id}
   </select>
   
