@@ -10,14 +10,14 @@
 		WHERE id = #{id}
 	</select>
 
-	<select id="findByCity_id" resultType="Contract">
+	<select id="findByCityId" resultType="Contract">
 		SELECT s.* , c.name
 		FROM space
 		LEFT JOIN city c
 		WHERE city_id = #{city_id}
 	</select>
 	
-	<select id="findByProvider_id" resultType="Contract">
+	<select id="findByProviderId" resultType="Contract">
 		SELECT s.* , c.name
 		FROM space
 		LEFT JOIN city c
@@ -80,12 +80,12 @@
 	
 	
 	
-	<update id="updateCity_id">
+	<update id="updateCityId">
 		UPDATE space SET city_id = #{city_id}
 		WHERE id = #{id}
 	</update>
 	
-	<update id="updateProvider_id">
+	<update id="updateProviderId">
 		UPDATE space SET provider_id = #{provider_id}
 		WHERE id = #{id}
 	</update>

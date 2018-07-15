@@ -21,9 +21,9 @@ public interface SpaceMapper {
 
 	Space findOne(int id);
 
-	List<Space> findByCity_id(int city_id);
+	List<Space> findByCityId(int city_id);
 
-	List<Space> findByProvider_id(int provider_id);
+	List<Space> findByProviderId(int provider_id);
 
 	List<Space> findByCost(int cost);
 
@@ -31,9 +31,9 @@ public interface SpaceMapper {
 	
 	int count(SearchSpace pagination);
 	
-	void updateCity_id(int id);
+	void updateCityId(int id);
 
-	void updateProvider_id(int id);
+	void updateProviderId(int id);
 
 	void updateCost(int id);
 
