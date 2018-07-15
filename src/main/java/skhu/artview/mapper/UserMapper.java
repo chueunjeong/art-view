@@ -30,6 +30,7 @@ public interface UserMapper {
 	List<Artfield> findArtfield();
 
 	void saveNormal (User user); //일반회원 테스트용
+	void update(User user);
 	void delete (int id);
 
 	List<User> findMyApplicant(int project_id); //프로젝트 신청자 리스트

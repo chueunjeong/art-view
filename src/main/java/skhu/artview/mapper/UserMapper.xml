@@ -74,6 +74,18 @@
 	</select>
 
 	
+	
+	<update id="update">
+		UPDATE user SET
+		fav_artfield_id={fav_artfield_id}, 
+		login_id={login_id}, 
+		pwd={pwd}, 
+		name={name}, 
+		phone={phone}, 
+		email={email}, 
+		age={age}, 
+		user_type={user_type}
+	</update>
 
 	<update id="updatePassword">
 		UPDATE user SET
