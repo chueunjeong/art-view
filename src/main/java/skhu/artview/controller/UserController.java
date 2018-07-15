@@ -1,6 +1,7 @@
 package skhu.artview.controller;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -32,25 +33,23 @@ UserMapper userMapper;
         return "redirect:list";
     }
 	*/
-    @RequestMapping(value="edit", method=RequestMethod.GET)
-    public String edit(Model model, @RequestParam("id") int id) {
-        User user = userMapper.findOne(id);
 
-        model.addAttribute("user", user);
-
-        return "user/edit";
+	//유저 정보 수정 페이지 조회
+    @RequestMapping(value="user/2", method=RequestMethod.GET)
+    public User edit( HttpServletRequest request, @PathVariable("id") int id) {
+        return userMapper.findOne(id);
     }
 
-    @RequestMapping(value="edit", method=RequestMethod.POST)
-    public String edit(Model model, User user) {
-        //UserMapper.update(User);
-        return "redirect:list";
+    //유저 정보 수정 저장
+    @RequestMapping(value="user/3", method=RequestMethod.PUT)
+    public void edit(Model model, User user) {
+        userMapper.update(user);
     }
 
-    @RequestMapping("delete")
-    public String delete(Model model, @RequestParam("id") int id) {
+    //유저 정보 삭제
+    @RequestMapping(value="user/4", method=RequestMethod.DELETE)
+    public void delete(Model model, @RequestParam("id") int id) {
         userMapper.delete(id);
-        return "redirect:list";
     }
     
     
@@ -60,6 +59,7 @@ UserMapper userMapper;
 	@Autowired
 	UserService userService;
 
+	//회원 임시비밀 번호 발송 메소드
 	@RequestMapping(value = "sendMail/{email}", method = RequestMethod.POST)
 	public void send(@PathVariable("email") String email) throws MessagingException {
 		
