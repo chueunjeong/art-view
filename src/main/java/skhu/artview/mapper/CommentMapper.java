@@ -8,8 +8,8 @@ import skhu.artview.dto.Comment;
 @Mapper
 public interface CommentMapper {
 	Comment findOne(int id);
-	List<Comment> findByUser_id(String user_id);
-    List<Comment> findByArticle_id(int article_id);
+	List<Comment> findByUserId(String user_id);
+    List<Comment> findByArticleId(int article_id);
 	List<Comment> findAll();
 	void updateContext(int id);
 	void updateRate(int id);
