@@ -8,6 +8,13 @@
     SELECT * FROM artist WHERE id = #{id}
   </select>
   
+  <select id="findOneByLoginId" resultType="Artist">
+  	SELECT * FROM artist a 
+  	join user u
+  	on a.user_id = u.id
+  	where  u.login_id = #{login_id}
+  </select>
+  
   <select id="findOneByUserId" resultType="Artist">
   	SELECT * FROM user artist user_id = #{user_id}
   </select>
