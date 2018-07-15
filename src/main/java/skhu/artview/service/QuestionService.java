@@ -52,7 +52,8 @@ public class QuestionService {
 		
 		
 	}
-		
+	
+	//답변 저장
 	public String SaveQ(Question q) {
 		questionMapper.insertQ(q);
 		

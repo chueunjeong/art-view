@@ -27,13 +27,14 @@ public class SpaceController {
 	@Autowired
 	SpaceService spaceService;
 	
-	
+	//공간 정보를 검색하는 메소드(네이버 api 활용)
 	@RequestMapping(value = "spaceDetail/{keyword}" , method= RequestMethod.GET)
 	   public List<Space> spaceDetail(Model model, HttpServletRequest request, @PathVariable("keyword") String keyword)  throws Exception {
 			
 	       return spaceService.searchSpace(keyword,10,1);
 	   }
 	
+	//공간 정보를 조회하는 메소드 (art-view 데이터베이스 활용) 
 	@RequestMapping(value = "spaces" , method= RequestMethod.POST)
 	   public  SearchSpace spaces(Model model, HttpServletRequest request, @RequestBody SearchSpace pagination)  throws Exception {
 			

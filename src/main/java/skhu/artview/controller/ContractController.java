@@ -12,6 +12,7 @@ package skhu.artview.controller;
  * 
  * 
  */
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,27 +45,31 @@ public class ContractController {
 	@Autowired
 	ContractService contractService;
 	
-	@RequestMapping("p_exhition/{project_id}")		//기획서 작성페이지 자동채움
+	//1.기획서 작성 페이지 (프로젝트 게시글 내용으로 자동채움)
+	@RequestMapping("p_exhition/{project_id}")		
 	public  P_exhibition showP_exhibition (@PathVariable("id") int project_id,Model model, Authentication auth) {
 	
 		return contractService.bringProjectArticle(project_id);//프로젝트 내용 불러오기
 
 	}
 	
-	@RequestMapping(value = "p_exhibition", method=RequestMethod.POST)		//저장
+	//2. 기획서 저장
+	@RequestMapping(value = "p_exhibition", method=RequestMethod.POST)		
 	public String showP_exhibition (@RequestBody P_exhibition p_exhi ,Model model, Authentication auth) {
 	
 		 contractService.saveP_exhibition(p_exhi);
 		 return "저장 완료";
 	}
 	
+	//3. 공간계약 작성 페이지 (프로젝트 기획서 내용과 공간 자동채움)
 	@RequestMapping("contract/{project_id}/{space_id}")		//계약서 작성 페이지 자동채움 
 	public  Contract makeContract (@PathVariable("project_id") int project_id, Model model,@PathVariable("space_id") int space_id, Authentication auth) {
 	
 		return contractService.bringP_exhibitionAndSpace(project_id, space_id);
 	}
 	
-	@RequestMapping(value = "contract", method=RequestMethod.POST)		//저장
+	//4. 계약 완료: 공간 계약 정보까지 채워지면 contract에 저장
+	@RequestMapping(value = "contract", method=RequestMethod.POST)		
 	public String showP_exhibition (@RequestBody Contract cont ,Model model, Authentication auth) {
 	
 		 contractService.saveContract(cont);

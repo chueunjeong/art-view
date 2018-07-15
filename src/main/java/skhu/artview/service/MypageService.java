@@ -25,6 +25,7 @@ public class MypageService {
 	@Autowired
 	ExhibitionMapper exhibitionMapper;
 
+	//마이페이지 첫 화면 구성 속성들 조회해오는 메소드
 	public MypageSummary bringMypageSummary(Authentication auth) {
 		MypageSummary summary = new MypageSummary();
 

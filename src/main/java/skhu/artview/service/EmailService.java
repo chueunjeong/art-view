@@ -20,6 +20,7 @@ public class EmailService {
 	@Autowired
 	private JavaMailSender javaMailSender;
 
+	//이메일 발송(MimeMessage 객체 안의 내용으로 발송됨)
 	public void sendMail(TestEmail email) throws MessagingException {
 		MimeMessage message = javaMailSender.createMimeMessage();
 		message.setSubject(email.getSubject());
