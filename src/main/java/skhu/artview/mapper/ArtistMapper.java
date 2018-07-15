@@ -10,7 +10,7 @@ import skhu.artview.dto.Artist;
 public interface ArtistMapper {
 	
 	Artist findOne(int id);
-	Artist findOneByLoginnId(String loginn_id);
+	Artist findOneByLoginId(String loginn_id);
 	Artist findOneByUserId(int user_id);
 	List <Artist> findAll();
 	void insert (Artist user);
