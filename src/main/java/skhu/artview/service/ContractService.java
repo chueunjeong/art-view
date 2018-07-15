@@ -35,7 +35,7 @@ public class ContractService {
 	public P_exhibition bringProjectArticle(int project_id) {		//전시 기획서 작성페이지 [프로젝트 게시물 내용]으로 자동 채움 내용
 
 		Project project = projectMapper.findOne(project_id);
-		Grouping grouping = groupingMapper.findOneByProject_id(project_id);
+		Grouping grouping = groupingMapper.findOneByProjectId(project_id);
 
 		P_exhibition p_exhi = new P_exhibition();
 
@@ -65,7 +65,7 @@ public class ContractService {
 
 	public Contract bringP_exhibitionAndSpace(int project_id, int space_id) {	//공간 계약 작성 페이지 [전시계획서, 공간정보] 자동채움
 
-		P_exhibition p_exhi = p_exhibitionMapper.findOneByProject_id(project_id);
+		P_exhibition p_exhi = p_exhibitionMapper.findOneByProjectId(project_id);
 		Space space = spaceMapper.findOne(space_id);
 
 		Contract cont = new Contract();
