@@ -10,7 +10,7 @@ import skhu.artview.dto.Exhibition;
 public interface ExhibitionMapper {
 	
 	Exhibition findOne(int id);
-	Exhibition findOneByArtist_id(int artist_id);
+	Exhibition findOneByArtistId(int artist_id);
 	List <Exhibition> findAll();
 	int countAll(int artist_id);
 	void insert (Exhibition artwork);

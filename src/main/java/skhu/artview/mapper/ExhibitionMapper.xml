@@ -8,7 +8,7 @@
     SELECT * FROM exhibition WHERE id = #{id}
   </select>
   
-  <select id="findOneByArtist_id" resultType="Exhibition">
+  <select id="findOneByArtistId" resultType="Exhibition">
   	SELECT * FROM exhibition artist_id = #{artist_id}
   </select>
   
