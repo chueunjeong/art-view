@@ -79,8 +79,8 @@ public class ArticleService {
 		}
 	}
 
-	public List<ArticleDetail> articles(int boardId) {
-		List<Article> articles = articleMapper.findByBoardId(boardId);
+	public List<ArticleDetail> articles(int board_id) {
+		List<Article> articles = articleMapper.findByBoardId(board_id);
 		return this.makeList(articles);
 	}
 
