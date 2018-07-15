@@ -8,8 +8,8 @@
     SELECT * FROM artist WHERE id = #{id}
   </select>
   
-  <select id="findOneByLoginId" resultType="Artist">
-  	SELECT * FROM user artist login_id = #{login_id}
+  <select id="findOneByUserId" resultType="Artist">
+  	SELECT * FROM user artist user_id = #{user_id}
   </select>
   
   <select id="findAll" resultType="Artist">
@@ -18,8 +18,8 @@
   </select>
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-    INSERT artist ( login_id,fav_district_id,major,career)
-    VALUES (#{login_id}, #{fav_district_id}, #{major}, #{career})
+    INSERT artist ( user_id,fav_district_id,major,career)
+    VALUES (#{user_id}, #{fav_district_id}, #{major}, #{career})
   </insert>
 
 
