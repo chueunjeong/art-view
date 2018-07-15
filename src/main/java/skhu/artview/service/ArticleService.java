@@ -42,7 +42,7 @@ public class ArticleService {
 		articleDetail.setDate(article.getDate());
 		//articleDetail.setFile_id(article.getFile_id());
 
-		List<Comment> comments = commentMapper.findByArticle_id(article.getId());
+		List<Comment> comments = commentMapper.findByArticleId(article.getId());
 		List<CommentDetail> dcomments = commentService.makeList(comments);
 		articleDetail.setComment(dcomments);
 		User user = userMapper.findOne(article.getUser_id());
