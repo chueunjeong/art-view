@@ -15,7 +15,7 @@ public interface AnswerMapper {
 		Answer findOneWithComment(int id);
 		ArrayList<Answer> findByQuestion_id(int question_id);
 		List<Answer> findByBoardId(int board_id);
-		List<Answer> findByUserId(int userId);
+		List<Answer> findByUserId(int user_id);
 		List<Answer> findByUsername(String username);
 		List<Answer> findByTitle(String keyword);
 		List<Answer> findByContent(String keyword);
