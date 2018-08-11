@@ -25,8 +25,8 @@ public class MuseumController {
 
 	@RequestMapping("bookList")
 		   public List<Item> bookList(Model model, HttpServletRequest request, @PathVariable(required=false)String keyword)  throws Exception {
-			keyword="java";
+			
 
-		       return service.searchItem(keyword,1,10);
+		       return service.searchItem(1,10);
 		   }
 }

@@ -26,7 +26,7 @@ public class MuseumService {
 
     //display ==> 몇개 출력
     //start==>몇번쨰부터 (item)
-    public List<Item> searchItem(String keyword, int start, int end){
+    public List<Item> searchItem( int start, int end){
         List<Item> list = null;
         try {
             URL url;
@@ -80,6 +80,8 @@ public class MuseumService {
                     case "DP_Name":
                    	 if(b != null)
                             b.setTitle(parser.nextText());
+                   	 
+                   	 /*
                     case "DP_SUBNAME":
                    	 if(b != null)
                             b.setSubtitle(parser.nextText());
@@ -146,7 +148,7 @@ public class MuseumService {
                             b.setImage(parser.nextText());
                         break;
 
-
+*/
 
                     }
 
