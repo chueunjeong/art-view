@@ -35,11 +35,11 @@
 	
 	
 	<select id="findAll" resultType="Space">
-		
-		SELECT *
-		FROM space 
-		
-		
+		SELECT s.*, c.name city_name, u.login_id
+		FROM space s 
+		LEFT JOIN city c ON s.city_id=c.id 
+		LEFT JOIN provider p on s.provider_id=p.id
+    	LEFT JOIN user u on p.user_id = u.id
 	</select>
 	
 	<select id="findAllWithCityName" resultType="Contract">
