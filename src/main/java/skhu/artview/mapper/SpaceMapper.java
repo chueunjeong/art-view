@@ -19,6 +19,7 @@ public interface SpaceMapper {
 	Option[] orderBy = { new Option(0, "기관명 오름자순"), new Option(1, "가격 오름차순"), new Option(2, "가격 내림차순") };
 
 
+	
 	Space findOne(int id);
 
 	List<Space> findByCityId(int city_id);
@@ -26,8 +27,10 @@ public interface SpaceMapper {
 	List<Space> findByProviderId(int provider_id);
 
 	List<Space> findByCost(int cost);
+	
+	List<Space> findAll();
 
-	List<Space> findAll(SearchSpace pagination);
+	List<Space> findAllWithCityName ();
 	
 	int count(SearchSpace pagination);
 	

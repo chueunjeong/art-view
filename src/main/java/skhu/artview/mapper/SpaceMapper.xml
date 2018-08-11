@@ -33,28 +33,22 @@
 	</select>
 	
 	
-	<select id="findAll" resultType="Contract">
-		<bind name="start" value="(pg-1)*sz"/>
+	
+	<select id="findAll" resultType="Space">
+		
+		SELECT *
+		FROM space 
+		
+		
+	</select>
+	
+	<select id="findAllWithCityName" resultType="Contract">
+		
 		SELECT s.*, c.name
 		FROM space s 
 		Left join city c 
-		where id=id
-		<if test="sb==1"> And s.name like concat('%',#{st},'%')</if>
-		<if test="sb==2"> And c.name like concat('%',#{st},'%')</if>
-		<if test="sb==3"> And  nation_nm like concat('%',#{st},'%')</if>
-			<choose>
-				<when test="cost==1">And s.cost BETWEEN #{min} And #{max}</when>
-				<otherwise></otherwise>
-			</choose>
-		
-		Order By
-			<choose>
-				<when test="ob==1">s.cost asc</when>
-				<when test="ob==2">s.cost desc</when>
-				
-				<otherwise>s.name asc</otherwise>
-			</choose>
-			LIMIT ${start},${sz}
+		where s.id=c.id
+	
 		
 		
 	</select>
