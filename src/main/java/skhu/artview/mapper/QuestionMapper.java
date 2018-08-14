@@ -8,7 +8,7 @@ import skhu.artview.model.Pagination;
 
 @Mapper
 public interface QuestionMapper {
-		List<Question> findAllQ(Pagination pagination);
+		List<Question> findAllQ();
 		Question findOne(int id);
 		Question findOneWithComment(int id);
 		List<Question> findByBoardId(int board_id);

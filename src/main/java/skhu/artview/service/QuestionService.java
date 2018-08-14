@@ -25,8 +25,8 @@ public class QuestionService {
 	
 	
 	//질문 리스트
-	public List<Question> getAllQuestionList(Pagination pagination){
-		return questionMapper.findAllQ(pagination);
+	public List<Question> getAllQuestionList(){
+		return questionMapper.findAllQ();
 	}
 	
 	//id로 질문 한 개만

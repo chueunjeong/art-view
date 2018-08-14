@@ -36,11 +36,10 @@ public class QnAController {
 	QuestionService questionService;
 	
 	//질문 리스트
-	@RequestMapping(value = "questions" , method= RequestMethod.POST)
-	   public List<Question> questions(Model model, HttpServletRequest request, @RequestBody Pagination pagination)  throws Exception {
+	@RequestMapping(value = "questionList" , method= RequestMethod.GET)
+	   public List<Question> questions(Model model, HttpServletRequest request)  throws Exception {
 			
-			List<Question> questions = questionService.getAllQuestionList(pagination);
-			
+			List<Question> questions = questionService.getAllQuestionList();
 	       return questions;
 	   }
 	

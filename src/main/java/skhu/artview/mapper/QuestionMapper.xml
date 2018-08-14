@@ -5,11 +5,11 @@
 <mapper namespace="skhu.artview.mapper.QuestionMapper">
 	
 	<select id="findAllQ" resultType="Question">
-	    <bind name="start" value="(pg - 1) * sz" />
-	    SELECT q.*, u.name "Username" 
-	    FROM question q LEFT JOIN user u ON q.user_id==u.id
-	    WHERE q.type='question'
-	    LIMIT ${start}, ${sz}
+	   
+	    SELECT *
+	    FROM question q 
+	  
+	  
 	</select>
 	
 
