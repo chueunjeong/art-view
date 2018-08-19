@@ -38,6 +38,8 @@ public class MypageController {
 	@Autowired
 	MypageService mypageService;
 	
+	
+	//마이페이지 첫 페이지 구성하는 컨트롤러
 	@RequestMapping("mypage")
 	public MypageSummary mypage (Model model, Authentication auth) {
 		

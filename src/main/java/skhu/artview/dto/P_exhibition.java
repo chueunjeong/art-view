@@ -10,12 +10,12 @@ public class P_exhibition{
 
 	int id;
 	int project_id;//mypage등에서 연결된 정보 찾기 위한 정보
-	int author_id; //작성자아이디
+	int author_id; //작성자아이디 = user_id정보를 이름만 바꿔서 저장
 	String title; //제목
 	String content; //내용
 	int file_id;
-	String day_start; // 전시시작 기간 결정
-	String day_end; //선호 전시종료 기간 결정
+	String start_date; // 전시시작 기간 결정
+	String end_date; //선호 전시종료 기간 결정
 	int artfield_id;
 	int district_id;//전시지역
 	int grouping_id;
@@ -57,17 +57,18 @@ public class P_exhibition{
 	public void setFile_id(int file_id) {
 		this.file_id = file_id;
 	}
-	public String getDay_start() {
-		return day_start;
+	
+	public String getStart_date() {
+		return start_date;
 	}
-	public void setDay_start(String day_start) {
-		this.day_start = day_start;
+	public void setStart_date(String start_date) {
+		this.start_date = start_date;
 	}
-	public String getDay_end() {
-		return day_end;
+	public String getEnd_date() {
+		return end_date;
 	}
-	public void setDay_end(String day_end) {
-		this.day_end = day_end;
+	public void setEnd_date(String end_date) {
+		this.end_date = end_date;
 	}
 	public int getArtfield_id() {
 		return artfield_id;

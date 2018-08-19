@@ -14,14 +14,14 @@ public interface AnswerMapper {
 		Answer findOne(int id);
 		Answer findOneWithComment(int id);
 		ArrayList<Answer> findByQuestion_id(int question_id);
-		List<Answer> findByBoardId(int boardId);
-		List<Answer> findByUserId(int userId);
+		List<Answer> findByBoardId(int board_id);
+		List<Answer> findByUserId(int user_id);
 		List<Answer> findByUsername(String username);
 		List<Answer> findByTitle(String keyword);
 		List<Answer> findByContent(String keyword);
 		List<Answer> findByTitleAndContent(String keyword);
 		void insertA(Answer article);	//질문 등록
-		
+
 		void updateA(Answer article);	//질문 수정
 		void delete(int id);
 }

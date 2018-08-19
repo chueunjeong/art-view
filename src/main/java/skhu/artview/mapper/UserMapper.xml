@@ -27,13 +27,13 @@
   </select>
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-    INSERT user (fav_artfield_id, login_id, pwd, name, phone, email, age)
-    VALUES (#{fav_artfield_id}, #{login_id}, #{pwd}, #{name}, #{phone}, #{email}, #{age})
+    INSERT user (fav_artfield_id, login_id, pwd, name, phone, email, age, user_type, file_id)
+    VALUES (#{fav_artfield_id}, #{login_id}, #{pwd}, #{name}, #{phone}, #{email}, #{age}, #{user_type}, #{file_id})
   </insert>
 
 	<insert id="saveNormal" useGeneratedKeys="true" keyProperty="id">
-    INSERT user (login_id, pwd, name, phone, email,age)
-    VALUES (#{login_id}, #{pwd}, #{name}, #{phone}, #{email},#{age})
+    INSERT user (login_id, pwd, name, phone, email,age, user_type, file_id)
+    VALUES (#{login_id}, #{pwd}, #{name}, #{phone}, #{email},#{age}, #{user_type}, #{file_id})
   </insert>
 
   <delete id="delete">
@@ -43,15 +43,15 @@
 	<select id="findMyApplicant" resultType="User">
 		SELECT * FROM user u
 		LEFT JOIN p_apply p
-		ON u.id = p.userId
-		WHERE p.state = 0 AND projectId = #{projectId}
+		ON u.id = p.user_id
+		WHERE p.state = 0 AND project_id = #{project_id}
 	</select>
 	
 	<select id="findMyMember" resultType="User">
 		SELECT * FROM user u
 		LEFT JOIN p_apply p
-		ON u.id = p.userId
-		WHERE p.state = 1 AND projectId = #{projectId}
+		ON u.id = p.user_id
+		WHERE p.state = 1 AND project_id = #{project_id}
 	</select>
 	
 	<select id="findByEmail"  resultType="User">
@@ -61,10 +61,22 @@
 	<select id="findByEmailAndName"  resultType="User">
 		SELECT * FROM user WHERE email = #{email} and name = #{name}
 	</select>
+
 	<update id="updateType">
 		UPDATE user SET
 		user_type = #{user_type}
 		WHERE login_id = #{login_id} 
+	
+	<update id="update">
+		UPDATE user SET
+		fav_artfield_id={fav_artfield_id}, 
+		login_id={login_id}, 
+		pwd={pwd}, 
+		name={name}, 
+		phone={phone}, 
+		email={email}, 
+		age={age}, 
+		user_type={user_type}
 	</update>
 
 	<update id="updatePassword">

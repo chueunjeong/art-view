@@ -14,8 +14,8 @@ public interface ArticleMapper {
 	Article findOneWithComment(int id);
 	List<Article> findAllWithComments();
 	List<Article> findAll();
-	List<Article> findByBoardId(int boardId);
-	List<Article> findByUserId(int userId);
+	List<Article> findByBoardId(int board_id);
+	List<Article> findByUserId(int user_id);
 	List<Article> findByUserName(String keyword);
 	List<Article> findByTitle(String keyword);
 	List<Article> findByContent(String keyword);

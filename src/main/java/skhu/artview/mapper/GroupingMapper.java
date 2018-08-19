@@ -7,13 +7,13 @@ import skhu.artview.dto.Grouping;
 
 @Mapper
 public interface GroupingMapper {
-	
+
 	Grouping findOne(int id);
-	Grouping findOneByProject_id(int project_id);
-	Grouping findOneByArtist_id(int artist_id);
-	Grouping findOneByDistrict_id(int district_id);
+	Grouping findOneByProjectId(int project_id);
+	Grouping findOneByArtistId(int user_id);
+	Grouping findOneByDistrictId(int district_id);
 	List <Grouping> findAll();
-	int countAll(int artist_id);
+	int countAll(int user_id);
 	void insert (Grouping grouping);
 	void delete (int id);
 

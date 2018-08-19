@@ -20,11 +20,12 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import skhu.artview.dto.P_exhibition;
+import skhu.artview.dto.Space;
 import skhu.artview.mapper.SpaceMapper;
 import skhu.artview.model.Option;
 import skhu.artview.model.Pagination;
 import skhu.artview.model.SearchSpace;
-import skhu.artview.model.Space;
+import skhu.artview.model.NaverSpace;
 
 @Service
 public class SpaceService {
@@ -38,8 +39,8 @@ public class SpaceService {
 	
 	// display ==> 몇개 출력
 	// start==>몇번쨰부터 (space)
-	public List<Space> searchSpace(String keyword, int display, int start) {
-		List<Space> list = null;
+	public List<NaverSpace> searchSpace(String keyword, int display, int start) {
+		List<NaverSpace> list = null;
 		try {
 
 			keyword = URLEncoder.encode(keyword, "UTF-8");
@@ -57,13 +58,13 @@ public class SpaceService {
 			parser.setInput(new InputStreamReader(urlConn.getInputStream()));
 
 			int eventType = parser.getEventType();
-			Space b = null;
+			NaverSpace b = null;
 			while (eventType != XmlPullParser.END_DOCUMENT) {
 				switch (eventType) {
 				case XmlPullParser.END_DOCUMENT: // 문서의 끝
 					break;
 				case XmlPullParser.START_DOCUMENT:
-					list = new ArrayList<Space>();
+					list = new ArrayList<NaverSpace>();
 					break;
 				case XmlPullParser.END_TAG: {
 					String tag = parser.getName();
@@ -76,7 +77,7 @@ public class SpaceService {
 					String tag = parser.getName();
 					switch (tag) {
 					case "item":
-						b = new Space();
+						b = new NaverSpace();
 						break;
 					case "title":
 						if (b != null)
@@ -130,21 +131,12 @@ public class SpaceService {
 		return list;
 	}
 	
-	public SearchSpace findAllSpace(SearchSpace pagination) {
-		
-		int count = spaceMapper.count(pagination);
-		pagination.setRecordCount(count);
-		
-		List<skhu.artview.dto.Space> list = spaceMapper.findAll(pagination);
-		
-		SearchSpace searchSpace = new SearchSpace();
-		searchSpace.setList(list);
-		searchSpace.setOrderBy(spaceMapper.orderBy);
-		searchSpace.setSearchBy(spaceMapper.searchBy);
-		searchSpace.setCostBetween(spaceMapper.costBetween);
-		return searchSpace;
-		
+	public List <Space> findAllSpaces() {
+			
+		return spaceMapper.findAll();
+	
 	}
+	
 	
 	
 }

@@ -43,10 +43,10 @@ public class ProjectService {
 		projectDetail.setTitle(project.getTitle());
 		projectDetail.setContent(project.getContent());
 		projectDetail.setFile_id(project.getFile_id());
-		projectDetail.setD_day(project.getD_day());
+		projectDetail.setD_day(project.getDead_line());
 		projectDetail.setArtfield_id(project.getArtfield_id());
-		projectDetail.setFav_day_start(project.getFav_day_start());
-		projectDetail.setFav_day_end(project.getFav_day_end());
+		projectDetail.setFav_day_start(project.getFav_start_date());
+		projectDetail.setFav_day_end(project.getFav_end_date());
 		projectDetail.setDistrict_id(project.getDistrict_id());
 
 		projectDetail.setAuthor(userMapper.findOne(project.getAuthor_id()));
@@ -113,7 +113,7 @@ public class ProjectService {
 	public String projectApply(int id, P_apply p_apply) {
 		//User user = UserService.getCurrentUser(); //현재 유저 정보 받아오기
 		//p_apply.setUserId(user.getId());
-		p_apply.setProjectId(id);
+		p_apply.setProject_id(id);
 		p_applyMapper.insert(p_apply);
 		return "신청되었습니다";
 	}

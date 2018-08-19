@@ -8,17 +8,17 @@ import skhu.artview.model.Pagination;
 
 @Mapper
 public interface QuestionMapper {
-		List<Question> findAllQ(Pagination pagination);
+		List<Question> findAllQ();
 		Question findOne(int id);
 		Question findOneWithComment(int id);
-		List<Question> findByBoardId(int boardId);
-		List<Question> findByUser_id(int user_id);
+		List<Question> findByBoardId(int board_id);
+		List<Question> findByUserId(int user_id);
 		List<Question> findByUsername(String username);
 		List<Question> findByTitle(String keyword);
 		List<Question> findByContent(String keyword);
 		List<Question> findByTitleAndContent(String keyword);
 		void insertQ(Question article);	//질문 등록
-		
+
 		void updateQ(Question article);	//질문 수정
 		void delete(int id);
 }

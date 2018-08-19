@@ -8,7 +8,7 @@
     SELECT * FROM exhibition WHERE id = #{id}
   </select>
   
-  <select id="findOneByArtist_id" resultType="Exhibition">
+  <select id="findOneByArtistId" resultType="Exhibition">
   	SELECT * FROM exhibition artist_id = #{artist_id}
   </select>
   
@@ -18,7 +18,7 @@
   </select>
   
   <select id="countAll" resultType="Exhibition">
-    SELECT  count(*) as finish_Exhibition_count
+    SELECT  count(*) as finish_exhibition_count
     FROM exhibition 
   </select>
 

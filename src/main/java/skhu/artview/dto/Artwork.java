@@ -9,7 +9,7 @@ package skhu.artview.dto;
 public class Artwork {
 
 	private int id;
-	private int artist_id;
+	private int user_id;
 	private int artfield_id;
 	private int exhibition_id;
 	private String title;
@@ -26,11 +26,12 @@ public class Artwork {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getArtist_id() {
-		return artist_id;
+	
+	public int getUser_id() {
+		return user_id;
 	}
-	public void setArtist_id(int artist_id) {
-		this.artist_id = artist_id;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 	public int getArtfield_id() {
 		return artfield_id;

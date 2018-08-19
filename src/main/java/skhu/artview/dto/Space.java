@@ -12,6 +12,9 @@ public class Space {
 	Date unavailable;
 	String equipment;
 	String address;
+	
+	String city_name;
+	String login_id;
 	public int getId() {
 		return id;
 	}
@@ -61,8 +64,20 @@ public class Space {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	public String getCity_name() {
+		return city_name;
+	}
+	public void setCity_name(String city_name) {
+		this.city_name = city_name;
+	}
+	public String getLogin_id() {
+		return login_id;
+	}
+	public void setLogin_id(String login_id) {
+		this.login_id = login_id;
+	}
 	
-	
+
 	
 	
 }

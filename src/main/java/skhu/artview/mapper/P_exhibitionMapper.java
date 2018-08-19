@@ -9,9 +9,9 @@ import skhu.artview.dto.P_exhibition;
 public interface P_exhibitionMapper {
 	
 	P_exhibition findOne(int id);
-	P_exhibition findOneByProject_id(int project_id);
-	P_exhibition findOneByArtist_id(int artist_id);
-	P_exhibition findOneByGrouping_id(int grouping_id);
+	P_exhibition findOneByProjectId(int project_id);
+	P_exhibition findOneByArtistId(int artist_id);
+	P_exhibition findOneByGroupingId(int grouping_id);
 	List <P_exhibition> findAll();
 	void insert (P_exhibition p_exhibition);
 	void delete (int id);

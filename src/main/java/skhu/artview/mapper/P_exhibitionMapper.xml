@@ -8,15 +8,15 @@
     SELECT * FROM p_exhibition WHERE id = #{id}
   </select>
   
-  <select id="findOneByProject_id" resultType="P_exhibition">
+  <select id="findOneByProjectId" resultType="P_exhibition">
   	SELECT * FROM p_exhibition project_id = #{project_id}
   </select>
   
-  <select id="findOneByArtist_id" resultType="P_exhibition">
+  <select id="findOneByArtistId" resultType="P_exhibition">
   	SELECT * FROM p_exhibition artist_id = #{artist_id}
   </select>
   
-  <select id="findOneByGrouping_id" resultType="P_exhibition">
+  <select id="findOneByGroupingId" resultType="P_exhibition">
   	SELECT * FROM p_exhibition grouping_id= #{grouping_id}
   </select>
   

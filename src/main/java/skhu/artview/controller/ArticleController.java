@@ -40,8 +40,8 @@ public class ArticleController {
 	프로젝트별 채팅창 지원 생각중*/
 
 	//프로젝트별 게시판 출력
-	@RequestMapping(value = "article/{boardId}")
-	public List<ArticleDetail> articles(@PathVariable("boardId") int boardId) {
+	@RequestMapping(value = "article/{board_id}")
+	public List<ArticleDetail> articles(@PathVariable("board_id") int boardId) {
 		return articleService.articles(boardId);
 	}
 

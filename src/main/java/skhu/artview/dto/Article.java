@@ -3,21 +3,13 @@ package skhu.artview.dto;
 public class Article {
 
 	int id;
-	int boardId; //게시글이 소속된 게시판(커뮤니티 id)
+	int board_id; //게시글이 소속된 게시판(커뮤니티 id)
 	int user_id;
 	String title;
 	String content;
 	int hits;
 	String date;
-	int file_id;
 
-	public int getFile_id() {
-		return file_id;
-	}
-
-	public void setFile_id(int file_id) {
-		this.file_id = file_id;
-	}
 
 	public int getId() {
 		return id;
@@ -27,12 +19,12 @@ public class Article {
 		this.id = id;
 	}
 
-	public int getBoardId() {
-		return boardId;
+	public int getBoard_id() {
+		return board_id;
 	}
 
-	public void setBoardId(int boardId) {
-		this.boardId = boardId;
+	public void setBoard_id(int board_id) {
+		this.board_id = board_id;
 	}
 
 	

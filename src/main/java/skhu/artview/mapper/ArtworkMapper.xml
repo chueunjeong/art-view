@@ -8,8 +8,8 @@
     SELECT * FROM artwork WHERE id = #{id}
   </select>
   
-  <select id="findOneByArtist_id" resultType="Artwork">
-  	SELECT * FROM artwork artist_id = #{artist_id}
+  <select id="findOneByUser_id" resultType="Artwork">
+  	SELECT * FROM artwork user_id = #{user_id}
   </select>
   
   <select id="findAll" resultType="Artwork">
@@ -23,10 +23,10 @@
   </select>
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-    INSERT artwork ( artist_id, artfield_id, exhibition_id,
+    INSERT artwork ( user_id, artfield_id, exhibition_id,
     					title, year, width, height, 
     					material, subject)
-    VALUES (#{artist_id}, #{artfield_id}, #{exhibition_id},
+    VALUES (#{user_id}, #{artfield_id}, #{exhibition_id},
     		#{title}, #{year}, #{width},#{height},
     		#{material}, #{subject})
   </insert>

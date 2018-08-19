@@ -8,11 +8,11 @@ import skhu.artview.dto.Artwork;
 
 @Mapper
 public interface ArtworkMapper {
-	
+
 	Artwork findOne(int id);
-	Artwork findOneByArtist_id(String artist_id);
+	Artwork findOneByUser_id(String user_id);
 	List <Artwork> findAll();
-	int countAll(int artist_id);
+	int countAll(int user_id);
 	void insert (Artwork artwork);
 	void delete (int id);
 

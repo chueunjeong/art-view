@@ -34,13 +34,13 @@ public class ArticleService {
 
 		ArticleDetail articleDetail = new ArticleDetail();
 		articleDetail.setId(article.getId());
-		articleDetail.setBoard_id(article.getBoardId());
+		articleDetail.setBoard_id(article.getBoard_id());
 		articleDetail.setUser_id(article.getUser_id());
 		articleDetail.setTitle(article.getTitle());
 		articleDetail.setContent(article.getContent());
 		articleDetail.setHits(article.getHits());
 		articleDetail.setDate(article.getDate());
-		articleDetail.setFile_id(article.getFile_id());
+		//articleDetail.setFile_id(article.getFile_id());
 
 		List<Comment> comments = commentMapper.findByArticleId(article.getId());
 		List<CommentDetail> dcomments = commentService.makeList(comments);
@@ -79,13 +79,14 @@ public class ArticleService {
 		}
 	}
 
-	public List<ArticleDetail> articles(int boardId) {
-		List<Article> articles = articleMapper.findByBoardId(boardId);
+	public List<ArticleDetail> articles(int board_id) {
+		List<Article> articles = articleMapper.findByBoardId(board_id);
 		return this.makeList(articles);
 	}
 
 	public ArticleDetail articleDetail(int id) {
 		Article article = articleMapper.findOne(id);
+		article.setHits(article.getHits()+1);
 		return this.articleMapping(article);
 	}
 
@@ -105,7 +106,7 @@ public class ArticleService {
 		int fileId = s3Service.fileUpload(file);
 		if(fileId == 000)
 			return "실패하였습니다";
-		article.setFile_id(fileId);
+		//article.setFile_id(fileId);
 
 		User user = null; //현재 유저 정보 받아오기
 		article.setUser_id(user.getId());

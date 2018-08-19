@@ -9,7 +9,14 @@
   </select>
   
   <select id="findOneByLoginId" resultType="Artist">
-  	SELECT * FROM user artist login_id = #{login_id}
+  	SELECT * FROM artist a 
+  	join user u
+  	on a.user_id = u.login_id
+  	where  u.login_id = #{login_id}
+  </select>
+  
+  <select id="findOneByUserId" resultType="Artist">
+  	SELECT * FROM user artist user_id = #{user_id}
   </select>
   
   <select id="findAll" resultType="Artist">
@@ -18,8 +25,8 @@
   </select>
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-    INSERT artist (user_id, fav_district_id, fav_city_id, major)
-    VALUES (#{user_id}, #{fav_district_id}, #{fav_city_id}, #{major})
+    INSERT artist ( user_id,fav_district_id,major,career)
+    VALUES (#{user_id}, #{fav_district_id}, #{major}, #{career})
   </insert>
 
 

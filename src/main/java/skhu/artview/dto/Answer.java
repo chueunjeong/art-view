@@ -1,13 +1,13 @@
 package skhu.artview.dto;
-
+//추가: date 
 public class Answer {
 
 	int id;
 	int question_id;	//외래키
-	String user_id;//외래키
+	int user_id;//외래키
 	String title;
 	String content;
-	
+	String date;
 	int file_id;
 	User user;
 	public int getId() {
@@ -23,10 +23,11 @@ public class Answer {
 	public void setQuestion_id(int question_id) {
 		this.question_id = question_id;
 	}
-	public String getUser_id() {
+	
+	public int getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(String user_id) {
+	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
 	public String getTitle() {
@@ -42,6 +43,14 @@ public class Answer {
 		this.content = content;
 	}
 	
+	
+	
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
 	public int getFile_id() {
 		return file_id;
 	}

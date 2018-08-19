@@ -25,6 +25,7 @@ public class MypageService {
 	@Autowired
 	ExhibitionMapper exhibitionMapper;
 
+	//마이페이지 첫 화면 구성 속성들 조회해오는 메소드
 	public MypageSummary bringMypageSummary(Authentication auth) {
 		MypageSummary summary = new MypageSummary();
 
@@ -33,7 +34,7 @@ public class MypageService {
 		
 		int picture_id = artist.getFile_id();
 
-		String introMessage = artist.getIntroMessage();
+		String introMessage = artist.getIntro_message();
 		
 		int artist_id = artist.getId();
 		District district = districtMapper.findOne(artist.getFav_district_id());

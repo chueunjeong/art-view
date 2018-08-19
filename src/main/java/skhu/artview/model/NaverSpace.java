@@ -3,7 +3,7 @@ package skhu.artview.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Space {
+public class NaverSpace {
 
 	/*
 	 * title : 검색 결과 업체, 기관명을 나타낸다. 

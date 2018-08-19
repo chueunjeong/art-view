@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import skhu.artview.model.Pagination;
 import skhu.artview.model.SearchSpace;
-import skhu.artview.model.Space;
+import skhu.artview.dto.Space;
+import skhu.artview.model.NaverSpace;
 import skhu.artview.service.SpaceService;
 
 @RestController
@@ -28,20 +29,39 @@ public class SpaceController {
 	SpaceService spaceService;
 	
 	
+	@RequestMapping(value = "spaceDetails" , method= RequestMethod.GET)
+	   public List<NaverSpace> spaceDetail(Model model, HttpServletRequest request)  throws Exception {
+			String keyword = "갈비";
+	       return spaceService.searchSpace(keyword,10,1);
+	   }
+	
+	
+	
+	//공간 정보를 검색하는 메소드(네이버 api 활용)
 	@RequestMapping(value = "spaceDetail/{keyword}" , method= RequestMethod.GET)
-	   public List<Space> spaceDetail(Model model, HttpServletRequest request, @PathVariable("keyword") String keyword)  throws Exception {
+	   public List<NaverSpace> spaceDetail(Model model, HttpServletRequest request, @PathVariable("keyword") String keyword)  throws Exception {
 			
 	       return spaceService.searchSpace(keyword,10,1);
 	   }
 	
-	@RequestMapping(value = "spaces" , method= RequestMethod.POST)
-	   public  SearchSpace spaces(Model model, HttpServletRequest request, @RequestBody SearchSpace pagination)  throws Exception {
+	//공간 정보를 조회하는 메소드 (art-view 데이터베이스 활용) 
+	@RequestMapping(value = "spaceList" , method= RequestMethod.GET)
+	   public  List<Space> spaces(Model model, HttpServletRequest request)  throws Exception {
 			
-	       return spaceService.findAllSpace(pagination);
+	       return spaceService.findAllSpaces();
 	       
 	   }
 	
-	
+	/*
+	//공간 정보를 조회하는 메소드 (art-view 데이터베이스 활용) 
+		@RequestMapping(value = "spaces" , method= RequestMethod.GET)
+		   public  SearchSpace spaces(Model model, HttpServletRequest request)  throws Exception {
+				
+		       return spaceService.findAllSpace();
+		       
+		   }
+		
+	*/
 	
 	
 	

@@ -11,7 +11,7 @@ public class Exhibition {
 	private String end_date;
 	private String subject;
 	private String description;
-	private int finish_Exhibition_count;
+	private int finish_exhibition_count;
 	
 	public int getId() {
 		return id;
@@ -61,12 +61,11 @@ public class Exhibition {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getFinish_Exhibition_count() {
-		return finish_Exhibition_count;
+	public int getFinish_exhibition_count() {
+		return finish_exhibition_count;
 	}
-	public void setFinish_Exhibition_count(int finish_Exhibition_count) {
-		this.finish_Exhibition_count = finish_Exhibition_count;
+	public void setFinish_exhibition_count(int finish_exhibition_count) {
+		this.finish_exhibition_count = finish_exhibition_count;
 	}
-	
 	
 }
