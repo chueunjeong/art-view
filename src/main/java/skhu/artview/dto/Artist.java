@@ -3,13 +3,13 @@ package skhu.artview.dto;
 public class Artist extends User {
 
 	int id;
-	int user_id;
+	String user_id;
 	int grouping_id;
+	int fav_city_id;
 	int fav_district_id;
-	String major;
-	String career;
+	int major;
 
-
+/*
 //constructor
 	public Artist(int id, int fav_artfield_id, String login_id, String pwd, String name, String phone, String email,
 			int age) {
@@ -25,8 +25,8 @@ public class Artist extends User {
 		this.grouping_id = grouping_id;
 		this.fav_district_id = fav_district_id;
 		this.major = major;
-		this.career = career;
 	}
+*/
 
 //getter&setter
 	@Override
@@ -39,12 +39,12 @@ public class Artist extends User {
 		this.id = id;
 	}
 
-	public int getUser_id() {
+	public String getUser_id() {
 		return user_id;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUser_id(String string) {
+		this.user_id = string;
 	}
 
 	public int getGrouping_id() {
@@ -63,22 +63,21 @@ public class Artist extends User {
 		this.fav_district_id = fav_district_id;
 	}
 
-	public String getMajor() {
+	public int getMajor() {
 		return major;
 	}
 
-	public void setMajor(String major) {
+	public void setMajor(int major) {
 		this.major = major;
 	}
 
-	public String getCareer() {
-		return career;
+	public int getFav_city_id() {
+		return fav_city_id;
 	}
 
-	public void setCareer(String career) {
-		this.career = career;
+	public void setFav_city_id(int fav_city_id) {
+		this.fav_city_id = fav_city_id;
 	}
-
 
 
 }

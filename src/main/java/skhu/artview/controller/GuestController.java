@@ -9,7 +9,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,9 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import skhu.artview.dto.Age;
 import skhu.artview.dto.Artfield;
+import skhu.artview.dto.Artist;
 import skhu.artview.dto.City;
 import skhu.artview.dto.District;
 import skhu.artview.dto.User;
+import skhu.artview.mapper.ArtfieldMapper;
+import skhu.artview.mapper.ArtistMapper;
+import skhu.artview.mapper.CityMapper;
+import skhu.artview.mapper.DistrictMapper;
 import skhu.artview.mapper.UserMapper;
 import skhu.artview.service.UserService;
 
@@ -30,6 +34,14 @@ public class GuestController {
 
 	@Autowired
 	UserService userService;
+	@Autowired
+	ArtistMapper artistMapper;
+	@Autowired
+	ArtfieldMapper artfieldMapper;
+	@Autowired
+	CityMapper cityMapper;
+	@Autowired
+	DistrictMapper districtMapper;
 
 	private UserMapper userMapper;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -41,16 +53,19 @@ public class GuestController {
     }
 
     //회원가입
-    @PostMapping("/sign-up")
+    @RequestMapping(value="/sign-up", method = RequestMethod.POST)
     public String signUp(@RequestBody User user, Model model, HttpServletRequest request) {
-    	user.setLogin_id(user.getLogin_id());
-    	user.setPwd(bCryptPasswordEncoder.encode(user.getPwd()));
-    	user.setEmail(user.getEmail());
-    	user.setName(user.getName());
-    	user.setPhone(user.getPhone());
-    	//user.setFav_artfield_id(user.getFav_artfield_id());
-    	user.setAge(user.getAge());
-        userMapper.saveNormal(user);
+    	userMapper.saveNormal(user);
+        return "회원가입 성공";
+    }
+
+    //Artist 회원가입
+    @RequestMapping(value="sign-up/artist", method = RequestMethod.POST)
+    public String signUp_art(@RequestBody Artist artist, Model model, HttpServletRequest request) {
+    	String uid = userMapper.findOneByUser_id();
+    	userMapper.updateType(1,uid);
+    	artist.setUser_id(uid);
+    	artistMapper.insert(artist);
         return "회원가입 성공";
     }
 
@@ -69,19 +84,19 @@ public class GuestController {
     //도 조회
     @RequestMapping("/cities")
     public List<City> CityList(Model model, HttpServletRequest request) {
-    	return userMapper.findCity();
+    	return cityMapper.findAll();
     }
 
     //구 조회
     @RequestMapping("/districts")
     public List<District> DistrictList(Model model, HttpServletRequest request) {
-    		return userMapper.findDistrict();
+    		return districtMapper.findAll();
     }
 
     //예술분야 조회
     @RequestMapping("/artfields")
     public List<Artfield> Artfields(Model model, HttpServletRequest request) {
-    	return userMapper.findArtfield();
+    	return artfieldMapper.findAll();
     }
 
 

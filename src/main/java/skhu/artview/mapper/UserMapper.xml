@@ -9,7 +9,11 @@
   </select>
   
   <select id="findOneByLoginId" resultType="User">
-  	SELECT * FROM user WHERE login_id = #{login_id}
+  	SELECT * FROM user WHERE login_id = #{login_id} 
+  </select>
+  
+  <select id="findOneByUserId" resultType="String">
+  	SELECT login_id FROM user ORDER BY id DESC LIMIT 1
   </select>
   
   <select id="findAll" resultType="User">
@@ -20,21 +24,6 @@
   <select id="findAges" resultType="Age">
     SELECT  *
     FROM age
-  </select>
-  
-  <select id="findCity" resultType="City">
-    SELECT  *
-    FROM city
-  </select>
-  
-  <select id="findDistrict" resultType="District">
-    SELECT  *
-    FROM district
-  </select>
-  
-  <select id="findArtfield" resultType="artfield">
-    SELECT  *
-    FROM artfield
   </select>
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
@@ -72,8 +61,11 @@
 	<select id="findByEmailAndName"  resultType="User">
 		SELECT * FROM user WHERE email = #{email} and name = #{name}
 	</select>
-
-	
+	<update id="updateType">
+		UPDATE user SET
+		user_type = #{user_type}
+		WHERE login_id = #{login_id} 
+	</update>
 
 	<update id="updatePassword">
 		UPDATE user SET

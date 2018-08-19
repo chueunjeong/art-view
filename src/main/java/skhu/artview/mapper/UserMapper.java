@@ -11,9 +11,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import skhu.artview.dto.Age;
-import skhu.artview.dto.Artfield;
-import skhu.artview.dto.City;
-import skhu.artview.dto.District;
 import skhu.artview.dto.User;
 import skhu.artview.model.EmailAndName;
 
@@ -22,13 +19,10 @@ public interface UserMapper {
 
 	User findOne(int id);
 	User findOneByLoginId(String login_id);
+	String findOneByUser_id();
 	List <User> findAll();
 	void insert (User user);
 	List <Age> findAges();
-	List <City> findCity();
-	List <District> findDistrict();
-	List<Artfield> findArtfield();
-
 	void saveNormal (User user); //일반회원 테스트용
 	void delete (int id);
 
@@ -38,6 +32,7 @@ public interface UserMapper {
 
 	User findByEmail(String email);
 	User findByEmailAndName(EmailAndName en);
+	void updateType(@Param("user_type") int user_type, @Param("login_id") String login_id);
 	void updatePassword(@Param("password") String password, @Param("email")String email);
 	void updateEnabled(User user);
 

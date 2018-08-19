@@ -15,9 +15,9 @@ public class District implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 
-	private int id;
-	private int city_id;
-	private String name;
+	int id;
+	int city_id;
+	String name;
 	String city_name; //join
 
 	public int getId() {
@@ -26,17 +26,18 @@ public class District implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getCity_id() {
-		return city_id;
-	}
-	public void setCity_id(int city_id) {
-		this.city_id = city_id;
-	}
+
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public int getCity_id() {
+		return city_id;
+	}
+	public void setCity_id(int city_id) {
+		this.city_id = city_id;
 	}
 	public String getCity_name() {
 		return city_name;
@@ -44,7 +45,8 @@ public class District implements Serializable {
 	public void setCity_name(String city_name) {
 		this.city_name = city_name;
 	}
-
-
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }

@@ -13,11 +13,11 @@ public class User {
 	String email;
 	int age;
 	int enabled;
-	String user_type;
-	
+	int user_type;
+
 	int file_id;
 	String introMessage;
-	
+
 //constructor
 	public User() {};
 	public User(int id, int fav_artfield_id, String login_id, String pwd, String name, String phone, String email,
@@ -31,7 +31,7 @@ public class User {
 		this.phone = phone;
 		this.email = email;
 		this.age = age;
-		this.user_type ="artist";
+		//this.user_type ="artist";
 	}
 //getter&setter
 	public int getId() {
@@ -82,13 +82,13 @@ public class User {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public String getUser_type() {
+	public int getUser_type() {
 		return user_type;
 	}
-	public void setUser_type(String user_type) {
+	public void setUser_type(int user_type) {
 		this.user_type = user_type;
 	}
-	
+
 	public int getFile_id() {
 		return file_id;
 	}

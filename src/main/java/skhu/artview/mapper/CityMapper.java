@@ -7,7 +7,6 @@ import skhu.artview.dto.City;
 
 @Mapper
 public interface CityMapper {
-
 	City findOne(int id);
 	City findOneByName(String name);
 	List<City> findAll();

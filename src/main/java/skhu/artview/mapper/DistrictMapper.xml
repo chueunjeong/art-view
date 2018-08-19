@@ -7,7 +7,7 @@
 	<select id="findOne" resultType="District"> 
 		SELECT * 
 		FROM District
-		 WHERE id	= #{id} 
+		WHERE id = #{id} 
 		</select>
 	<select id="findByName" resultType="District">
 		 SELECT d.*, c.name

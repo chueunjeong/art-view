@@ -18,8 +18,8 @@
   </select>
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
-    INSERT artist ( login_id,fav_district_id,major,career)
-    VALUES (#{login_id}, #{fav_district_id}, #{major}, #{career})
+    INSERT artist (user_id, fav_district_id, fav_city_id, major)
+    VALUES (#{user_id}, #{fav_district_id}, #{fav_city_id}, #{major})
   </insert>
 
 
