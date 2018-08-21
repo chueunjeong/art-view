@@ -61,6 +61,12 @@ public class ProjectController {
 		return projectService.projectSubmit(project, file);
 	}
 
+	//프로젝트 작성 테스트
+	@RequestMapping(value = "project", method = RequestMethod.POST)
+	public String projectSubmitTest(@RequestBody Project project) {
+		return projectService.projectSubmitTest(project);
+	}
+
 	//프로젝트 삭제
 	@RequestMapping(value = "project/{id}", method = RequestMethod.DELETE)
 	public String projectDelete(@PathVariable("id") int id) {

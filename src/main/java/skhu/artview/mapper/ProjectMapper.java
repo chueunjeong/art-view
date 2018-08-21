@@ -14,5 +14,6 @@ public interface ProjectMapper {
     List<Project> findByContent(String keyword);
     List<Project> findByTitleAndContent(String keyword);
     void insert(Project project);
+    void insertTest(Project project);
     void delete(int id);
 }
