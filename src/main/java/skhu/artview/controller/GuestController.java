@@ -55,6 +55,7 @@ public class GuestController {
     //회원가입
     @RequestMapping(value="/sign-up", method = RequestMethod.POST)
     public String signUp(@RequestBody User user, Model model, HttpServletRequest request) {
+    	user.setPwd(bCryptPasswordEncoder.encode(user.getPwd()));
     	userMapper.saveNormal(user);
         return "회원가입 성공";
     }
@@ -65,6 +66,7 @@ public class GuestController {
     	String uid = userMapper.findOneByUser_id();
     	userMapper.updateType(1,uid);
     	artist.setUser_id(uid);
+    	artist.setPwd(bCryptPasswordEncoder.encode(artist.getPwd()));
     	artistMapper.insert(artist);
         return "회원가입 성공";
     }
