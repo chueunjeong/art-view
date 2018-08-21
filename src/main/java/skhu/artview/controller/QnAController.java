@@ -43,6 +43,18 @@ public class QnAController {
 	       return questions;
 	   }
 	
+
+	//질문 + 답변
+	@RequestMapping(value = "questionDetail/{id}" , method= RequestMethod.GET)
+	   public Question questionDetail(Model model, HttpServletRequest request, @PathVariable("id") int id)  throws Exception {
+			
+			Question q = questionService.getQuestionById(id);	
+			
+	       return q;
+	   }
+	
+	
+	
 	
 	//질문 + 답변
 	@RequestMapping(value = "qnaDetail/{id}" , method= RequestMethod.GET)
