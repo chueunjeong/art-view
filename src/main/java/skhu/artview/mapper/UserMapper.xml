@@ -25,7 +25,7 @@
     SELECT  *
     FROM age
   </select>
-
+  
   <insert id="insert" useGeneratedKeys="true" keyProperty="id">
     INSERT user (fav_artfield_id, login_id, pwd, name, phone, email, age, user_type, file_id)
     VALUES (#{fav_artfield_id}, #{login_id}, #{pwd}, #{name}, #{phone}, #{email}, #{age}, #{user_type}, #{file_id})
@@ -65,7 +65,8 @@
 	<update id="updateType">
 		UPDATE user SET
 		user_type = #{user_type}
-		WHERE login_id = #{login_id} 
+		WHERE login_id = #{login_id}
+		</update>
 	
 	<update id="update">
 		UPDATE user SET
@@ -90,5 +91,4 @@
 		WHERE email = #{email} 
 	</update>
 
-</mapper>
-
+	</mapper>
