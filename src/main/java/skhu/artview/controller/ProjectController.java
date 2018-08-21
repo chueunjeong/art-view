@@ -62,7 +62,7 @@ public class ProjectController {
 	}
 
 	//프로젝트 작성 테스트
-	@RequestMapping(value = "project", method = RequestMethod.POST)
+	@RequestMapping(value = "projectTest", method = RequestMethod.POST)
 	public String projectSubmitTest(@RequestBody Project project) {
 		return projectService.projectSubmitTest(project);
 	}
