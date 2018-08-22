@@ -1,4 +1,5 @@
 package skhu.artview.service;
+
 /*전민선 : 파싱 데이터를 담는 모델 객체와 dto 의 이름이 동일하니 주의바랍니다.
  * skhu.artview.dto.Space VS Space 
  * pagination과 검색 기능 추가했습니다.
@@ -20,6 +21,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import skhu.artview.dto.P_exhibition;
+import skhu.artview.dto.Question;
 import skhu.artview.dto.Space;
 import skhu.artview.mapper.SpaceMapper;
 import skhu.artview.model.Option;
@@ -34,9 +36,7 @@ public class SpaceService {
 
 	@Autowired
 	SpaceMapper spaceMapper;
-	
-	
-	
+
 	// display ==> 몇개 출력
 	// start==>몇번쨰부터 (space)
 	public List<NaverSpace> searchSpace(String keyword, int display, int start) {
@@ -130,13 +130,25 @@ public class SpaceService {
 		}
 		return list;
 	}
-	
-	public List <Space> findAllSpaces() {
-			
+
+	public List<Space> findAllSpaces() {
+
 		return spaceMapper.findAll();
-	
+
 	}
-	
-	
-	
+
+	public Space findById(int id) {
+		return spaceMapper.findOne(id);
+	}
+
+	// 공간 등록
+	public String saveSpace(Space s) {
+		spaceMapper.insert(s);
+
+		if (findById(s.getId()) != null) {
+			return "저장 완료";
+		}
+		return "저장 실패";
+	}
+
 }

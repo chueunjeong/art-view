@@ -4,7 +4,7 @@
 
 <mapper namespace="skhu.artview.mapper.SpaceMapper">
 
-	<select id="findOne" resultType="Contract">
+	<select id="findOne" resultType="Space">
 		SELECT *
 		FROM space
 		WHERE id = #{id}
@@ -68,8 +68,8 @@
 	
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
-		INSERT space (city_id, provider_id, cost, unavailable, equipment,address)
-	  	VALUES (#{city_id}, #{provider_id}, #{cost}, #{unavailable}, #{equipment}, #{address})
+		INSERT space (city_id, provider_id, cost, unavailable, equipment,address, name)
+	  	VALUES (#{city_id}, #{provider_id}, #{cost}, #{unavailable}, #{equipment}, #{address}, #{name})
 	</insert>
 	
 	
