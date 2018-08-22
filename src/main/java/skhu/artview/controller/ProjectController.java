@@ -5,7 +5,10 @@ package skhu.artview.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -63,8 +66,9 @@ public class ProjectController {
 
 	//프로젝트 작성 테스트
 	@RequestMapping(value = "projectTest", method = RequestMethod.POST)
-	public String projectSubmitTest(@RequestBody Project project) {
-		return projectService.projectSubmitTest(project);
+	public String projectSubmitTest(Model model, HttpServletRequest request, @RequestBody Project project) {
+		String result = projectService.projectSubmitTest(project);
+		return result;
 	}
 
 	//프로젝트 삭제
