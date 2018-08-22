@@ -73,6 +73,13 @@ public class QnAController {
 	       return result;
 	   }
 	
+	//질문 수정
+	@RequestMapping(value = "question/2" , method= RequestMethod.POST)
+	   public String updateQuestion(Model model, HttpServletRequest request, @RequestBody Question q)  throws Exception {
+			
+	String result = questionService.updateQ(q);
+	       return result;
+	   }
 	//답변 등록
 	@RequestMapping(value = "answer/1" , method= RequestMethod.POST)
 	   public String saveAnswer(Model model, HttpServletRequest request, @RequestBody Answer a)  throws Exception {

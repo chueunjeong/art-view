@@ -62,5 +62,13 @@ public class QuestionService {
 		}
 		return "저장 실패";
 	}
+	
+	//답변 수정
+	public String updateQ(Question q) {
+		questionMapper.updateQ(q);
 		
+		return "수정 완료";
+	}
+	
+	
 }
