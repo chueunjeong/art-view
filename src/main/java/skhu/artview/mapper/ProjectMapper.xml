@@ -10,11 +10,6 @@
 
 	<select id="findAll" resultType="Project">
 		SELECT * FROM project
-		where id =id
-		<if test="sb==1"> And title  like concat('%',#{st},'%')</if>
-		<if test="sb==2"> And fav_day_start &gt;=To_DATE(#{st}, 'yyyy-mm-dd') </if>
-		
-		
 	</select>
 	
 	<select id="findByUserName" resultType="Project">
