@@ -47,14 +47,14 @@ public class ProjectController {
 
 
 	//전체 프로젝트 조회(메인 출력)
-	@RequestMapping("projects")
+	@RequestMapping(value = "projectList", method= RequestMethod.GET)
 	public List<ProjectDetail> projects() {
 		return projectService.makeList(projectMapper.findAll());
 	}
 
 	//프로젝트 클릭 후 조회
-	@RequestMapping("project/{id}")
-	public ProjectDetail projectDetail(@PathVariable("id") int id) {
+	@RequestMapping(value = "projectDetail/{id}", method= RequestMethod.GET)
+	public ProjectDetail projectDetail(Model model, HttpServletRequest request, @PathVariable("id") int id)  throws Exception {
 		return projectService.projectDetail(id);
 	}
 
