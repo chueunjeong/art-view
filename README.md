@@ -14,7 +14,7 @@ Art-View ( 전시 공간 대여 및 작가 커뮤니티 관리 시스템 ) 소�
 # 적용 기술
   * Augular4
   * Apache-Tomcat
-  * MairaDB
+  * MariaDB
   * SpringBoot + Mybatis
   * JAVA 1.8
   * Amazon S3 
