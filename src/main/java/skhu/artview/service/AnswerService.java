@@ -28,6 +28,13 @@ public class AnswerService {
 		
 		return qnaDetail;
 	}
+	
+	//id로 답변 한 개만
+	public List<Answer> getAnswerByQ_id(int q_id) {
+			
+			return answerMapper.findByQuestion_id(q_id);
+
+		}
 		
 	//id로 답변 한 개만
 	public Answer getAnswerById(int id) {

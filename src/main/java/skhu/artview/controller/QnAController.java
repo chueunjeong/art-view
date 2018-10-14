@@ -29,61 +29,69 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RequestMapping("api")
 public class QnAController {
-	
+
 	@Autowired
 	AnswerService answerService;
 	@Autowired
 	QuestionService questionService;
-	
-	//질문 리스트
-	@RequestMapping(value = "questionList" , method= RequestMethod.GET)
-	   public List<Question> questions(Model model, HttpServletRequest request)  throws Exception {
-			
-			List<Question> questions = questionService.getAllQuestionList();
-	       return questions;
-	   }
-	
 
-	//질문 + 답변
-	@RequestMapping(value = "questionDetail/{id}" , method= RequestMethod.GET)
-	   public Question questionDetail(Model model, HttpServletRequest request, @PathVariable("id") int id)  throws Exception {
-			
-			Question q = questionService.getQuestionById(id);	
-			
-	       return q;
-	   }
-	
-	
-	
-	
-	//질문 + 답변
-	@RequestMapping(value = "qnaDetail/{id}" , method= RequestMethod.GET)
-	   public QnADetail qnaDetail(Model model, HttpServletRequest request, @PathVariable("id") int id)  throws Exception {
-			
-			Question q = questionService.getQuestionById(id);	
-			
-	       return questionService.QnAMapping(q);
-	   }
-	
-	//질문 등록
-	@RequestMapping(value = "question/1" , method= RequestMethod.POST)
-	   public String saveQuestion(Model model, HttpServletRequest request, @RequestBody Question q)  throws Exception {
-			
-			String result = questionService.SaveQ(q);
-	       return result;
-	   }
-	
-	//질문 수정
-	@RequestMapping(value = "question/2" , method= RequestMethod.POST)
-	   public String updateQuestion(Model model, HttpServletRequest request, @RequestBody Question q)  throws Exception {
-			
-	String result = questionService.updateQ(q);
-	       return result;
-	   }
-	//답변 등록
-	@RequestMapping(value = "answer/1" , method= RequestMethod.POST)
-	   public String saveAnswer(Model model, HttpServletRequest request, @RequestBody Answer a)  throws Exception {
-			
-			String result = answerService.SaveA(a);
-	       return result;
-	   }}
+	// 질문 리스트
+	@RequestMapping(value = "questionList", method = RequestMethod.GET)
+	public List<Question> questions(Model model, HttpServletRequest request) throws Exception {
+
+		List<Question> questions = questionService.getAllQuestionList();
+		return questions;
+	}
+
+	// 질문 + 답변
+	@RequestMapping(value = "questionDetail/{id}", method = RequestMethod.GET)
+	public Question questionDetail(Model model, HttpServletRequest request, @PathVariable("id") int id)
+			throws Exception {
+
+		Question q = questionService.getQuestionById(id);
+
+		return q;
+	}
+
+	// 질문 + 답변
+	@RequestMapping(value = "qnaDetail/{id}", method = RequestMethod.GET)
+	public QnADetail qnaDetail(Model model, HttpServletRequest request, @PathVariable("id") int id) throws Exception {
+
+		Question q = questionService.getQuestionById(id);
+
+		return questionService.QnAMapping(q);
+	}
+
+	// 질문 등록
+	@RequestMapping(value = "question/1", method = RequestMethod.POST)
+	public String saveQuestion(Model model, HttpServletRequest request, @RequestBody Question q) throws Exception {
+
+		String result = questionService.SaveQ(q);
+		return result;
+	}
+
+	// 질문 수정
+	@RequestMapping(value = "question/2", method = RequestMethod.POST)
+	public String updateQuestion(Model model, HttpServletRequest request, @RequestBody Question q) throws Exception {
+
+		String result = questionService.updateQ(q);
+		return result;
+	}
+
+	// 답변 등록
+	@RequestMapping(value = "answer/1", method = RequestMethod.POST)
+	public String saveAnswer(Model model, HttpServletRequest request, @RequestBody Answer a) throws Exception {
+
+		String result = answerService.SaveA(a);
+		return result;
+	}
+
+	// 질문 목록
+	@RequestMapping(value = "answer/2/{q_id}", method = RequestMethod.GET)
+	public List<Answer> AnswerList(Model model, HttpServletRequest request, @PathVariable("q_id") int q_id)
+			throws Exception {
+
+		return answerService.getAnswerByQ_id(q_id);
+
+	}
+}
