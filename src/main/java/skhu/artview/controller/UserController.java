@@ -35,9 +35,9 @@ UserMapper userMapper;
 	*/
 
 	//유저 정보 수정 페이지 조회
-    @RequestMapping(value="user/2", method=RequestMethod.GET)
-    public User edit( HttpServletRequest request, @PathVariable("id") int id) {
-        return userMapper.findOne(id);
+    @RequestMapping(value="user/2/{decodedId}", method=RequestMethod.GET)
+    public User edit( HttpServletRequest request, @PathVariable("decodedId") String decodedId) {
+        return userMapper.findOneByLoginId(decodedId);
     }
 
     //유저 정보 수정 저장
