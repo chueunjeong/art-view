@@ -8,10 +8,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import skhu.artview.dto.Artfield;
+import skhu.artview.dto.District;
 import skhu.artview.dto.P_apply;
 import skhu.artview.dto.Project;
 import skhu.artview.dto.User;
 import skhu.artview.mapper.ArtfieldMapper;
+import skhu.artview.mapper.DistrictMapper;
 import skhu.artview.mapper.FileMapper;
 import skhu.artview.mapper.P_applyMapper;
 import skhu.artview.mapper.ProjectMapper;
@@ -26,6 +28,7 @@ public class ProjectService {
 	@Autowired FileMapper fileMapper;
 	@Autowired UserMapper userMapper;
 	@Autowired ArtfieldMapper artfieldMapper;
+	@Autowired DistrictMapper districtMapper;
 	@Autowired S3Service s3Service;
 
 	S3Uploader s3Uploader = new S3Uploader();
@@ -128,6 +131,10 @@ public class ProjectService {
 
 	public List<Artfield> artfields() {
 		return artfieldMapper.findAll();
+	}
+
+	public List<District> districts() {
+		return districtMapper.findAll();
 	}
 }
 

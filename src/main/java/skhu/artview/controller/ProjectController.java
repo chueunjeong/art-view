@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import skhu.artview.dto.Artfield;
+import skhu.artview.dto.District;
 import skhu.artview.dto.P_apply;
 import skhu.artview.dto.Project;
 import skhu.artview.mapper.ArticleMapper;
@@ -63,6 +64,12 @@ public class ProjectController {
 	@RequestMapping(value = "artfields", method = RequestMethod.GET)
 	public List<Artfield> artfields() {
 		return projectService.artfields();
+	}
+
+	//district
+	@RequestMapping(value = "districts", method = RequestMethod.GET)
+	public List<District> districts() {
+		return projectService.districts();
 	}
 
 	//프로젝트 작성
