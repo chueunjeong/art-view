@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import skhu.artview.dto.Artfield;
 import skhu.artview.dto.P_apply;
 import skhu.artview.dto.Project;
 import skhu.artview.mapper.ArticleMapper;
@@ -56,6 +57,12 @@ public class ProjectController {
 	@RequestMapping(value = "projectDetail/{id}", method= RequestMethod.GET)
 	public ProjectDetail projectDetail(Model model, HttpServletRequest request, @PathVariable("id") int id)  throws Exception {
 		return projectService.projectDetail(id);
+	}
+
+	//artfield
+	@RequestMapping(value = "artfields", method = RequestMethod.GET)
+	public List<Artfield> artfields() {
+		return projectService.artfields();
 	}
 
 	//프로젝트 작성
