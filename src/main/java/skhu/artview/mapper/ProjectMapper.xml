@@ -9,7 +9,7 @@
 	</select>
 
 	<select id="findAll" resultType="Project">
-		SELECT * FROM project
+		SELECT * FROM project order by id desc
 	</select>
 	
 	<select id="findByUserName" resultType="Project">
