@@ -32,8 +32,8 @@
 	</select>
 	
 	<insert id="insertTest" useGeneratedKeys="true" keyProperty="id">
-		INSERT project (title, content, dead_line, fav_start_date, fav_end_date, artfield_id, district_id)
-	  	VALUES (#{title}, #{content}, #{dead_line}, #{fav_start_date}, #{fav_end_date}, #{artfield_id}, #{district_id})
+		INSERT project (title, content, file_id, dead_line, fav_start_date, fav_end_date, artfield_id, district_id)
+	  	VALUES (#{title}, #{content}, #{file_id}, #{dead_line}, #{fav_start_date}, #{fav_end_date}, #{artfield_id}, #{district_id})
 	</insert>
 	
 	<delete id="delete">

@@ -11,7 +11,6 @@ import skhu.artview.dto.Artfield;
 import skhu.artview.dto.District;
 import skhu.artview.dto.P_apply;
 import skhu.artview.dto.Project;
-import skhu.artview.dto.User;
 import skhu.artview.mapper.ArtfieldMapper;
 import skhu.artview.mapper.DistrictMapper;
 import skhu.artview.mapper.FileMapper;
@@ -49,10 +48,10 @@ public class ProjectService {
 		projectDetail.setTitle(project.getTitle());
 		projectDetail.setContent(project.getContent());
 		projectDetail.setFile_id(project.getFile_id());
-		projectDetail.setD_day(project.getDead_line());
+		projectDetail.setDead_line(project.getDead_line());
 		projectDetail.setArtfield_id(project.getArtfield_id());
-		projectDetail.setFav_day_start(project.getFav_start_date());
-		projectDetail.setFav_day_end(project.getFav_end_date());
+		projectDetail.setFav_start_date(project.getFav_start_date());
+		projectDetail.setFav_end_date(project.getFav_end_date());
 		projectDetail.setDistrict_id(project.getDistrict_id());
 
 		projectDetail.setAuthor(userMapper.findOne(project.getAuthor_id()));
@@ -77,16 +76,22 @@ public class ProjectService {
 		return list;
 	}
 
+	public String upload(MultipartFile file) {
+
+		int fileId = s3Service.fileUpload(file);
+		if(fileId == 000)
+			return "실패하였습니다";
+		System.out.println(fileId);
+		return "등록되었습니다";
+	}
+
 	public String projectSubmit(Project project, MultipartFile file) {
 
 		int fileId = s3Service.fileUpload(file);
 		if(fileId == 000)
 			return "실패하였습니다";
 		project.setFile_id(fileId);
-
-		User user = null; //현재 유저 정보 받아오기
-		project.setAuthor_id(user.getId());
-		projectMapper.insert(project); //insert mapper만들어야 함
+		projectMapper.insert(project);
 		return "등록되었습니다";
 	}
 

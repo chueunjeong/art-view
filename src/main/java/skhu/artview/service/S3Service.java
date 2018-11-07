@@ -30,6 +30,6 @@ public class S3Service {
 	public String getFileUrl(int id) {
 		FileDTO file = fileMapper.findOne(id);
 		String name = file.getName();
-		return "https://s3.ap-northeast-2.amazonaws.com/artview/" + name;
+		return "https://s3.ap-northeast-2.amazonaws.com/art-view/" + name;
 	}
 }

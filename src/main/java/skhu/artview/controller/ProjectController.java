@@ -3,6 +3,7 @@
 
 package skhu.artview.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +29,7 @@ import skhu.artview.mapper.ProjectMapper;
 import skhu.artview.mapper.UserMapper;
 import skhu.artview.model.ProjectDetail;
 import skhu.artview.service.ProjectService;
+import skhu.artview.service.S3Service;
 import skhu.artview.service.UserService;
 
 @RestController
@@ -38,6 +40,7 @@ public class ProjectController {
 	@Autowired ProjectService projectService;
 	@Autowired ProjectMapper projectMapper;
 	@Autowired UserService userService;
+	@Autowired S3Service s3Service;
 	@Autowired UserMapper userMapper;
 	@Autowired P_applyMapper p_applyMapper;
 	@Autowired ArticleMapper articleMapper;
@@ -47,6 +50,16 @@ public class ProjectController {
 
 /*	작성 예정 컨트롤러*/
 
+    @RequestMapping(value = "upload", method = RequestMethod.POST)
+    public void upload(@RequestBody MultipartFile file) throws IOException {
+    	projectService.upload(file);
+    	System.out.println(s3Service.getFileUrl(6));
+    }
+
+    @RequestMapping(value = "getUrl", method = RequestMethod.GET)
+    public String getUrl() {
+    	return s3Service.getFileUrl(5);
+    }
 
 	//전체 프로젝트 조회(메인 출력)
 	@RequestMapping(value = "projectList", method= RequestMethod.GET)
@@ -73,7 +86,7 @@ public class ProjectController {
 	}
 
 	//프로젝트 작성
-	@RequestMapping(value = "project", method = RequestMethod.POST)
+	@RequestMapping(value = "projectSubmit", method = RequestMethod.POST)
 	public String projectSubmit(@RequestBody Project project, @RequestBody MultipartFile file) {
 		return projectService.projectSubmit(project, file);
 	}

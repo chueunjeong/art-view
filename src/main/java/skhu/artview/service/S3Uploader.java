@@ -24,10 +24,10 @@ public class S3Uploader {
 
 	AWSClient awsClient = new AWSClient(); //클라이언트 정보를 가져오기 위한 객체
 
-	//현재 시간 + 원본 파일명으로 파일명 지정
+	//현재 시간으로 파일명 지정
 	public String upload(MultipartFile file) {
 		try {
-			String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+			String fileName = "F"+System.currentTimeMillis();
 			upload(file.getInputStream(), fileName);
 			return fileName;
 		} catch (IOException e) {

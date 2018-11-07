@@ -5,34 +5,34 @@
 <mapper namespace="skhu.artview.mapper.FileMapper">
 
 	<select id="findOne" resultType="FileDTO">
-		SELECT * FROM file WHERE id = #{id}
+		SELECT * FROM fileDTO WHERE id = #{id}
 	</select>
 
 	<select id="findAll" resultType="FileDTO">
-		SELECT * FROM file
+		SELECT * FROM fileDTO
 	</select>
 	
 	<select id="getName" resultType="String">
-		select name from file
+		select name from fileDTO
 		where id = #{id}
 	</select>
 	
 	<insert id="insert" useGeneratedKeys="true" keyProperty="id">
-		INSERT file (name)
+		INSERT fileDTO (name)
 		VALUES (#{name})
 	</insert>
 	
 	<update id="update">
-		UPDATE file SET name = #{name}
+		UPDATE fileDTO SET name = #{name}
 		WHERE id = #{id}
 	</update>
 	
 	<delete id="delete">
-	    DELETE FROM file WHERE id = #{id}
+	    DELETE FROM fileDTO WHERE id = #{id}
 	</delete>
 	
 	<select id="getId" resultType="Integer">
-		select id from file
+		select id from fileDTO
 		where name = #{name}
 	</select>
 
